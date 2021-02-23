@@ -32,4 +32,5 @@ int displayMainMenu()
  */
 int displayPurchaseMenu()
 {
+    return 0;
 }

@@ -2,6 +2,6 @@
 #ifndef MENUS_H
 #define MENUS_H
 
-int displayMenu();
+int displayMainMenu();
 
 #endif
