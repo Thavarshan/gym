@@ -1,5 +1,3 @@
 #pragma once
-#ifndef BILL_H
-#define BILL_H
 
-#endif
+void purchase(int choice);

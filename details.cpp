@@ -1,22 +1,6 @@
-#include <fstream>
+#include "utils.h"
 #include <iostream>
-
-/**
- * @brief Read content of ".txt" file and display it for the user.
- *
- * @param file
- */
-void readFile(const char *file)
-{
-    std::ifstream dataFile(file);
-
-    if (dataFile.is_open())
-    {
-        printf("\n");
-        std::cout << dataFile.rdbuf() << std::endl;
-        printf("\n");
-    }
-}
+#include <stdexcept>
 
 /**
  * @brief Lookup table for details available about the business.
@@ -27,10 +11,10 @@ void readFile(const char *file)
 const char *details(int index)
 {
     const char *details[4] = {
-        "details/instructions.txt",
-        "details/packages.txt",
-        "details/supplements.txt",
-        "details/about.txt",
+        "./details/instructions.txt",
+        "./details/packages.txt",
+        "./details/supplements.txt",
+        "./details/about.txt",
     };
 
     return details[index];
@@ -49,6 +33,6 @@ void getDetails(int choice)
     }
     catch (...)
     {
-        readFile(details(0));
+        printf("\n");
     }
 }

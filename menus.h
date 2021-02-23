@@ -1,7 +1,15 @@
 #pragma once
-#ifndef MENUS_H
-#define MENUS_H
 
+/**
+ * @brief Show application menu for user to choose what to do next.
+ *
+ * @return int
+ */
 int displayMainMenu();
 
-#endif
+/**
+ * @brief Show menu for user to choose a purchase from.
+ *
+ * @return int
+ */
+int displayPurchaseMenu();

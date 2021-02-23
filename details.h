@@ -1,7 +1,8 @@
 #pragma once
-#ifndef PACKAGE_H
-#define PACKAGE_H
 
+/**
+ * @brief Get the details the user requested.
+ *
+ * @param choice
+ */
 void getDetails(int choice);
-
-#endif

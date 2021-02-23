@@ -1,0 +1,3 @@
+void purchase(int choice)
+{
+}

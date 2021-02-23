@@ -12,6 +12,7 @@
 #include "bill.h"
 #include "details.h"
 #include "menus.h"
+#include "utils.h"
 #include <iostream>
 
 /**
@@ -25,14 +26,22 @@ int main(int argc, char const *argv[])
 {
     int choice;
 
-    printf("Welcome to Rathnayaka Gym.\n");
+    printf("Welcome to Rathnayaka Gyms.\n");
 
     do
     {
         choice = displayMainMenu();
 
-        getDetails(choice);
-    } while (choice <= 4);
+        if (choice == 4)
+        {
+            displayPurchaseMenu();
+        }
+        else
+        {
+            getDetails(choice);
+        }
+
+    } while (isWithinRange(choice, 0, 4));
 
     printf("Thank you for visiting us! Please come again.\n");
 
