@@ -1,7 +1,27 @@
 [
 {
   "directory": "/Users/thavarshan/Codebase/apps/gym/build",
+  "command": "/usr/bin/clang++   -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -o CMakeFiles/gym.dir/bill.cpp.o -c /Users/thavarshan/Codebase/apps/gym/bill.cpp",
+  "file": "/Users/thavarshan/Codebase/apps/gym/bill.cpp"
+},
+{
+  "directory": "/Users/thavarshan/Codebase/apps/gym/build",
+  "command": "/usr/bin/clang++   -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -o CMakeFiles/gym.dir/details.cpp.o -c /Users/thavarshan/Codebase/apps/gym/details.cpp",
+  "file": "/Users/thavarshan/Codebase/apps/gym/details.cpp"
+},
+{
+  "directory": "/Users/thavarshan/Codebase/apps/gym/build",
   "command": "/usr/bin/clang++   -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -o CMakeFiles/gym.dir/main.cpp.o -c /Users/thavarshan/Codebase/apps/gym/main.cpp",
   "file": "/Users/thavarshan/Codebase/apps/gym/main.cpp"
+},
+{
+  "directory": "/Users/thavarshan/Codebase/apps/gym/build",
+  "command": "/usr/bin/clang++   -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -o CMakeFiles/gym.dir/menus.cpp.o -c /Users/thavarshan/Codebase/apps/gym/menus.cpp",
+  "file": "/Users/thavarshan/Codebase/apps/gym/menus.cpp"
+},
+{
+  "directory": "/Users/thavarshan/Codebase/apps/gym/build",
+  "command": "/usr/bin/clang++   -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -o CMakeFiles/gym.dir/utils.cpp.o -c /Users/thavarshan/Codebase/apps/gym/utils.cpp",
+  "file": "/Users/thavarshan/Codebase/apps/gym/utils.cpp"
 }
 ]

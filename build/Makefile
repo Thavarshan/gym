@@ -159,6 +159,7 @@ preinstall/fast:
 
 # clear depends
 depend:
+	$(CMAKE_COMMAND) -P /Users/thavarshan/Codebase/apps/gym/build/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
@@ -539,6 +540,60 @@ Experimental/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Experimental.dir/build.make CMakeFiles/Experimental.dir/build
 .PHONY : Experimental/fast
 
+bill.o: bill.cpp.o
+
+.PHONY : bill.o
+
+# target to build an object file
+bill.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gym.dir/build.make CMakeFiles/gym.dir/bill.cpp.o
+.PHONY : bill.cpp.o
+
+bill.i: bill.cpp.i
+
+.PHONY : bill.i
+
+# target to preprocess a source file
+bill.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gym.dir/build.make CMakeFiles/gym.dir/bill.cpp.i
+.PHONY : bill.cpp.i
+
+bill.s: bill.cpp.s
+
+.PHONY : bill.s
+
+# target to generate assembly for a file
+bill.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gym.dir/build.make CMakeFiles/gym.dir/bill.cpp.s
+.PHONY : bill.cpp.s
+
+details.o: details.cpp.o
+
+.PHONY : details.o
+
+# target to build an object file
+details.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gym.dir/build.make CMakeFiles/gym.dir/details.cpp.o
+.PHONY : details.cpp.o
+
+details.i: details.cpp.i
+
+.PHONY : details.i
+
+# target to preprocess a source file
+details.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gym.dir/build.make CMakeFiles/gym.dir/details.cpp.i
+.PHONY : details.cpp.i
+
+details.s: details.cpp.s
+
+.PHONY : details.s
+
+# target to generate assembly for a file
+details.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gym.dir/build.make CMakeFiles/gym.dir/details.cpp.s
+.PHONY : details.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -565,6 +620,60 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gym.dir/build.make CMakeFiles/gym.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+menus.o: menus.cpp.o
+
+.PHONY : menus.o
+
+# target to build an object file
+menus.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gym.dir/build.make CMakeFiles/gym.dir/menus.cpp.o
+.PHONY : menus.cpp.o
+
+menus.i: menus.cpp.i
+
+.PHONY : menus.i
+
+# target to preprocess a source file
+menus.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gym.dir/build.make CMakeFiles/gym.dir/menus.cpp.i
+.PHONY : menus.cpp.i
+
+menus.s: menus.cpp.s
+
+.PHONY : menus.s
+
+# target to generate assembly for a file
+menus.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gym.dir/build.make CMakeFiles/gym.dir/menus.cpp.s
+.PHONY : menus.cpp.s
+
+utils.o: utils.cpp.o
+
+.PHONY : utils.o
+
+# target to build an object file
+utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gym.dir/build.make CMakeFiles/gym.dir/utils.cpp.o
+.PHONY : utils.cpp.o
+
+utils.i: utils.cpp.i
+
+.PHONY : utils.i
+
+# target to preprocess a source file
+utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gym.dir/build.make CMakeFiles/gym.dir/utils.cpp.i
+.PHONY : utils.cpp.i
+
+utils.s: utils.cpp.s
+
+.PHONY : utils.s
+
+# target to generate assembly for a file
+utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gym.dir/build.make CMakeFiles/gym.dir/utils.cpp.s
+.PHONY : utils.cpp.s
 
 # Help Target
 help:
@@ -606,9 +715,21 @@ help:
 	@echo "... NightlyTest"
 	@echo "... NightlyUpdate"
 	@echo "... gym"
+	@echo "... bill.o"
+	@echo "... bill.i"
+	@echo "... bill.s"
+	@echo "... details.o"
+	@echo "... details.i"
+	@echo "... details.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... menus.o"
+	@echo "... menus.i"
+	@echo "... menus.s"
+	@echo "... utils.o"
+	@echo "... utils.i"
+	@echo "... utils.s"
 .PHONY : help
 
 
@@ -620,6 +741,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
+	$(CMAKE_COMMAND) -P /Users/thavarshan/Codebase/apps/gym/build/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

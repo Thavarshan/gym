@@ -11,6 +11,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.19.4/CMakeCCompiler.cmake"
   "CMakeFiles/3.19.4/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.19.4/CMakeSystem.cmake"
+  "CMakeFiles/VerifyGlobs.cmake"
+  "CMakeFiles/cmake.verify_globs"
   "/usr/local/Cellar/cmake/3.19.4/share/cmake/Modules/CMakeCInformation.cmake"
   "/usr/local/Cellar/cmake/3.19.4/share/cmake/Modules/CMakeCXXInformation.cmake"
   "/usr/local/Cellar/cmake/3.19.4/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"

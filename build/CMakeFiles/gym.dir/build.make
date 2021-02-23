@@ -76,9 +76,35 @@ include CMakeFiles/gym.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/gym.dir/flags.make
 
+CMakeFiles/gym.dir/bill.cpp.o: CMakeFiles/gym.dir/flags.make
+CMakeFiles/gym.dir/bill.cpp.o: ../bill.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/thavarshan/Codebase/apps/gym/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/gym.dir/bill.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gym.dir/bill.cpp.o -c /Users/thavarshan/Codebase/apps/gym/bill.cpp
+
+CMakeFiles/gym.dir/bill.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gym.dir/bill.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/thavarshan/Codebase/apps/gym/bill.cpp > CMakeFiles/gym.dir/bill.cpp.i
+
+CMakeFiles/gym.dir/bill.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gym.dir/bill.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/thavarshan/Codebase/apps/gym/bill.cpp -o CMakeFiles/gym.dir/bill.cpp.s
+
+CMakeFiles/gym.dir/details.cpp.o: CMakeFiles/gym.dir/flags.make
+CMakeFiles/gym.dir/details.cpp.o: ../details.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/thavarshan/Codebase/apps/gym/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/gym.dir/details.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gym.dir/details.cpp.o -c /Users/thavarshan/Codebase/apps/gym/details.cpp
+
+CMakeFiles/gym.dir/details.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gym.dir/details.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/thavarshan/Codebase/apps/gym/details.cpp > CMakeFiles/gym.dir/details.cpp.i
+
+CMakeFiles/gym.dir/details.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gym.dir/details.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/thavarshan/Codebase/apps/gym/details.cpp -o CMakeFiles/gym.dir/details.cpp.s
+
 CMakeFiles/gym.dir/main.cpp.o: CMakeFiles/gym.dir/flags.make
 CMakeFiles/gym.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/thavarshan/Codebase/apps/gym/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/gym.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/thavarshan/Codebase/apps/gym/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/gym.dir/main.cpp.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gym.dir/main.cpp.o -c /Users/thavarshan/Codebase/apps/gym/main.cpp
 
 CMakeFiles/gym.dir/main.cpp.i: cmake_force
@@ -89,17 +115,51 @@ CMakeFiles/gym.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gym.dir/main.cpp.s"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/thavarshan/Codebase/apps/gym/main.cpp -o CMakeFiles/gym.dir/main.cpp.s
 
+CMakeFiles/gym.dir/menus.cpp.o: CMakeFiles/gym.dir/flags.make
+CMakeFiles/gym.dir/menus.cpp.o: ../menus.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/thavarshan/Codebase/apps/gym/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/gym.dir/menus.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gym.dir/menus.cpp.o -c /Users/thavarshan/Codebase/apps/gym/menus.cpp
+
+CMakeFiles/gym.dir/menus.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gym.dir/menus.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/thavarshan/Codebase/apps/gym/menus.cpp > CMakeFiles/gym.dir/menus.cpp.i
+
+CMakeFiles/gym.dir/menus.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gym.dir/menus.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/thavarshan/Codebase/apps/gym/menus.cpp -o CMakeFiles/gym.dir/menus.cpp.s
+
+CMakeFiles/gym.dir/utils.cpp.o: CMakeFiles/gym.dir/flags.make
+CMakeFiles/gym.dir/utils.cpp.o: ../utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/thavarshan/Codebase/apps/gym/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/gym.dir/utils.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gym.dir/utils.cpp.o -c /Users/thavarshan/Codebase/apps/gym/utils.cpp
+
+CMakeFiles/gym.dir/utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gym.dir/utils.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/thavarshan/Codebase/apps/gym/utils.cpp > CMakeFiles/gym.dir/utils.cpp.i
+
+CMakeFiles/gym.dir/utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gym.dir/utils.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/thavarshan/Codebase/apps/gym/utils.cpp -o CMakeFiles/gym.dir/utils.cpp.s
+
 # Object files for target gym
 gym_OBJECTS = \
-"CMakeFiles/gym.dir/main.cpp.o"
+"CMakeFiles/gym.dir/bill.cpp.o" \
+"CMakeFiles/gym.dir/details.cpp.o" \
+"CMakeFiles/gym.dir/main.cpp.o" \
+"CMakeFiles/gym.dir/menus.cpp.o" \
+"CMakeFiles/gym.dir/utils.cpp.o"
 
 # External object files for target gym
 gym_EXTERNAL_OBJECTS =
 
+gym: CMakeFiles/gym.dir/bill.cpp.o
+gym: CMakeFiles/gym.dir/details.cpp.o
 gym: CMakeFiles/gym.dir/main.cpp.o
+gym: CMakeFiles/gym.dir/menus.cpp.o
+gym: CMakeFiles/gym.dir/utils.cpp.o
 gym: CMakeFiles/gym.dir/build.make
 gym: CMakeFiles/gym.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/thavarshan/Codebase/apps/gym/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable gym"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/thavarshan/Codebase/apps/gym/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable gym"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gym.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -1,12 +1,39 @@
+/**
+ * @file utils.cpp
+ * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
+ * @brief Rathnayaka Gym Application (ICBT Batch 95 - Programming Fundementals Assignment).
+ * @version 1.0
+ * @date 2021-02-20
+ *
+ * @copyright Copyright (c) 2021
+ *
+ */
+
 #include "utils.h"
 #include <fstream>
 #include <iostream>
 
-bool isWithinRange(unsigned low, unsigned high, unsigned input)
+/**
+ * @brief Deterine if the given input is within acceptable range.
+ *
+ * @param low
+ * @param high
+ * @param input
+ * @return true
+ * @return false
+ */
+bool inRange(unsigned low, unsigned high, unsigned input)
 {
     return ((input - low) <= (high - low));
 }
 
+/**
+ * @brief Determine if the given file exists.
+ *
+ * @param name
+ * @return true
+ * @return false
+ */
 bool fileExists(const char *name)
 {
     std::ifstream file(name);
@@ -14,6 +41,11 @@ bool fileExists(const char *name)
     return file.good();
 }
 
+/**
+ * @brief Read content of given file and display it for the user.
+ *
+ * @param file
+ */
 void readFile(const char *file)
 {
     if (!fileExists(file))
