@@ -29,7 +29,7 @@ int main(int argc, char const *argv[])
 
     do
     {
-        choice = displayMenu();
+        choice = displayMainMenu();
 
         getDetails(choice);
     } while (choice <= 4);

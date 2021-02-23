@@ -7,7 +7,7 @@
  *
  * @return int
  */
-int displayMenu()
+int displayMainMenu()
 {
     int option;
 
@@ -23,4 +23,13 @@ int displayMenu()
     std::cin >> option;
 
     return option;
+}
+
+/**
+ * @brief Show menu for user to choose a purchase from.
+ *
+ * @return int
+ */
+int displayPurchaseMenu()
+{
 }
