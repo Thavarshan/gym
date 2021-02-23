@@ -1,7 +1,7 @@
 /**
  * @file main.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
- * @brief Rathnayaka Gym Application (ICBT Batch 95 - Programming Fundementals Assignment).
+ * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundementals Assignment).
  * @version 1.0
  * @date 2021-02-20
  *
@@ -28,7 +28,7 @@ int main(int argc, char const *argv[])
     int choice;
 
     // Then we display a welcome message to the user.
-    printf("Welcome to Rathnayaka Gyms.\n");
+    printf("Welcome to Rathnayaka GYMS.\n");
 
     // Menu on loop.
     do
