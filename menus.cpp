@@ -2,22 +2,25 @@
 #include <cstdio>
 #include <iostream>
 
-using namespace std;
-
+/**
+ * @brief Show application menu for user to choose what to do next.
+ *
+ * @return int
+ */
 int displayMenu()
 {
     int option;
 
-    printf("Welcome to Rathnayaka Gym.\n");
     printf("\n");
+    printf("What would you like to do?\n");
     printf("<1> View fitness package details.\n");
     printf("<2> View food supplement details.\n");
-    printf("<3> View food supplement details.\n");
-    printf("<4> Purchase packages.\n");
-    printf("<5> More about Rathnayaka Gyms.\n");
+    printf("<3> Purchase packages.\n");
+    printf("<4> More about Rathnayaka Gyms.\n");
+    printf("<5> Exit application.\n");
     printf("\n");
     printf("Please choose an option: ");
-    cin >> option;
+    std::cin >> option;
 
     return option;
 }

@@ -9,7 +9,8 @@
 				"-std=c++17",
 				"-stdlib=libc++",
 				"-g",
-				"${file}",
+				"-I${workspaceFolder}",
+				"${workspaceFolder}/*.cpp",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}"
 			],

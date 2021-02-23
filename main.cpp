@@ -10,12 +10,9 @@
  */
 
 #include "bill.h"
+#include "details.h"
 #include "menus.h"
-#include "packages.h"
-#include <cstdio>
-#include <string>
-
-using namespace std;
+#include <iostream>
 
 /**
  * @brief Execute the program.
@@ -26,8 +23,18 @@ using namespace std;
  */
 int main(int argc, char const *argv[])
 {
-    int choice = displayMenu();
+    int choice;
 
-    /* code */
+    printf("Welcome to Rathnayaka Gym.\n");
+
+    do
+    {
+        choice = displayMenu();
+
+        getDetails(choice);
+    } while (choice <= 4);
+
+    printf("Thank you for visiting us! Please come again.\n");
+
     return 0;
 }
