@@ -1,13 +1,24 @@
+#include <map>
 #include <string>
 
+/**
+ * @brief Calculate total payable amount and deduct discounts if user is eligible.
+ *
+ * @param purchases
+ */
 void calculateBill(int purchases[])
 {
 }
 
-void generateInvoice(int purchases[])
+/**
+ * @brief
+ *
+ * @param choices
+ * @return std::string*
+ */
+std::string *makePurchase(std::map<std::string, int> choices)
 {
-}
+    std::string details[] = {};
 
-std::string *makePurchase(int choices[2])
-{
+    return details;
 }

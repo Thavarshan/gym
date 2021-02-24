@@ -1,5 +1,6 @@
 #pragma once
+
+#include <map>
 #include <string>
 
-std::string *makePurchase(int choices[2]);
-void generateInvoice(int purchases[]);
+std::string *makePurchase(std::map<std::string, int> choices);

@@ -1,4 +1,7 @@
 #pragma once
 
+#include <map>
+#include <string>
+
 int displayMainMenu();
-int *displayPurchaseMenu();
+std::map<std::string, int> displayPurchaseMenu();

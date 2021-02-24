@@ -12,6 +12,7 @@
 #include "menus.h"
 #include "details.h"
 #include <iostream>
+#include <map>
 #include <string>
 
 /**
@@ -42,21 +43,28 @@ int displayMainMenu()
 /**
  * @brief Show menu for user to choose a purchase from.
  *
- * @return struct
+ * @return std::map<std::string, int>
  */
-int *displayPurchaseMenu()
+std::map<std::string, int> displayPurchaseMenu()
 {
-    int choices[2] = {};
+    std::string package, supplement;
+    int pkgUnits, splUnits;
 
     printf("Which membership package would you like to prchase? ");
     getDetails(1);
     printf("Type in the package ID: ");
-    std::cin >> choices[0];
+    std::cin >> package;
+    printf("How many would you like to purchase: ");
+    std::cin >> pkgUnits;
 
     printf("Would you like to prchase a supplement package to go along with your membership? ");
     getDetails(2);
     printf("Type in the supplements package ID: ");
-    std::cin >> choices[1];
+    std::cin >> supplement;
+    printf("How many would you like to purchase: ");
+    std::cin >> splUnits;
+
+    std::map<std::string, int> choices = {{package, pkgUnits}, {supplement, splUnits}};
 
     return choices;
 }

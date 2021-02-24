@@ -15,6 +15,7 @@
 #include "menus.h"
 #include "utils.h"
 #include <iostream>
+#include <map>
 #include <string>
 
 /**
@@ -42,15 +43,11 @@ int main(int argc, char const *argv[])
         {
             // As a special case of the user's choice, if the user chooses the 4th option
             // we redirect them to the purchase module.
-            int *choices;
-            choices = displayPurchaseMenu();
+            std::map<std::string, int> choices = displayPurchaseMenu();
 
-            // Using the package and supplement choices the user made we calculate the final bill
-            // and store them within an array.
-            // std::string details[] = makePurchase(choices);
-
-            // Using the above details we generate an invoice and display it to the user.
-            // generateInvoice(details);
+            // Using the package and supplement choices the user made we calculate the final bill.
+            // Then using the bill details we generate an invoice and display it to the user.
+            generateInvoice(makePurchase(choices));
 
             break;
         }
