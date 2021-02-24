@@ -2,5 +2,6 @@
 
 #include <map>
 #include <string>
+#include <vector>
 
-std::string *makePurchase(std::map<std::string, int> choices);
+std::vector<std::string> makePurchase(std::map<std::string, int> choices);

@@ -1,5 +1,6 @@
 #include <map>
 #include <string>
+#include <vector>
 
 /**
  * @brief Calculate total payable amount and deduct discounts if user is eligible.
@@ -14,11 +15,11 @@ void calculateBill(int purchases[])
  * @brief
  *
  * @param choices
- * @return std::string*
+ * @return std::vector<std::string>
  */
-std::string *makePurchase(std::map<std::string, int> choices)
+std::vector<std::string> makePurchase(std::map<std::string, int> choices)
 {
-    std::string details[] = {};
+    std::vector<std::string> details(7);
 
     return details;
 }

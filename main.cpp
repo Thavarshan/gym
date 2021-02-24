@@ -17,6 +17,7 @@
 #include <iostream>
 #include <map>
 #include <string>
+#include <vector>
 
 /**
  * @brief Execute the program.
@@ -46,8 +47,10 @@ int main(int argc, char const *argv[])
             std::map<std::string, int> choices = displayPurchaseMenu();
 
             // Using the package and supplement choices the user made we calculate the final bill.
+            std::vector<std::string> details = makePurchase(choices);
+
             // Then using the bill details we generate an invoice and display it to the user.
-            generateInvoice(makePurchase(choices));
+            generateInvoice(details);
 
             break;
         }

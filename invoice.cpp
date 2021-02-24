@@ -2,13 +2,14 @@
 #include <iostream>
 #include <stdio.h>
 #include <string>
+#include <vector>
 
 /**
  * @brief Display the invoice of the purchase details for the user.
  *
  * @param details
  */
-void generateInvoice(std::string details[])
+void generateInvoice(std::vector<std::string> details)
 {
     std::string invoiceTitle = "Invoice No ";
     std::string invoiceNumber = "01";

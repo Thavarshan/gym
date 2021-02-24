@@ -1,5 +1,6 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
-void generateInvoice(std::string details[]);
+void generateInvoice(std::vector<std::string> details);
