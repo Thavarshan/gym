@@ -1,3 +1,5 @@
 #pragma once
+#include <string>
 
-void purchase(int choice);
+std::string *makePurchase(int choices[2]);
+void generateInvoice(int purchases[]);

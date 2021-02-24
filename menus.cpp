@@ -10,7 +10,9 @@
  */
 
 #include "menus.h"
+#include "details.h"
 #include <iostream>
+#include <string>
 
 /**
  * @brief Show application menu for user to choose what to do next.
@@ -40,11 +42,21 @@ int displayMainMenu()
 /**
  * @brief Show menu for user to choose a purchase from.
  *
- * @return int
+ * @return struct
  */
-int displayPurchaseMenu()
+int *displayPurchaseMenu()
 {
-    printf("Get ready to implress!\n");
+    int choices[2] = {};
 
-    return 0;
+    printf("Which membership package would you like to prchase? ");
+    getDetails(1);
+    printf("Type in the package ID: ");
+    std::cin >> choices[0];
+
+    printf("Would you like to prchase a supplement package to go along with your membership? ");
+    getDetails(2);
+    printf("Type in the supplements package ID: ");
+    std::cin >> choices[1];
+
+    return choices;
 }

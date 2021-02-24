@@ -1,4 +1,4 @@
 #pragma once
 
 int displayMainMenu();
-int displayPurchaseMenu();
+int *displayPurchaseMenu();

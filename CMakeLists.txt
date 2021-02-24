@@ -4,7 +4,7 @@ project(gym VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
-file(GLOB src CONFIGURE_DEPENDS "*.h" "*.cpp")
+file(GLOB src CONFIGURE_DEPENDS "*.h" ".hpp" "*.cpp" "*.c")
 
 add_executable(gym ${src})
 
