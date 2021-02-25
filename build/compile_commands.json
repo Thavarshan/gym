@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/Users/thavarshan/Codebase/apps/gym/build",
-  "command": "/usr/bin/clang++   -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -o CMakeFiles/gym.dir/main.cpp.o -c /Users/thavarshan/Codebase/apps/gym/main.cpp",
-  "file": "/Users/thavarshan/Codebase/apps/gym/main.cpp"
-}
-]

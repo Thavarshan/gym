@@ -1,7 +1,7 @@
 #pragma once
-#ifndef MENUS_H
-#define MENUS_H
 
-int displayMenu();
+#include <map>
+#include <string>
 
-#endif
+int displayMainMenu();
+std::map<std::string, int> displayPurchaseMenu();

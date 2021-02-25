@@ -1,22 +1,17 @@
-#include <fstream>
-#include <iostream>
-
 /**
- * @brief Read content of ".txt" file and display it for the user.
+ * @file details.cpp
+ * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
+ * @brief Rathnayaka Gym Application (ICBT Batch 95 - Programming Fundementals Assignment).
+ * @version 1.0
+ * @date 2021-02-20
  *
- * @param file
+ * @copyright Copyright (c) 2021
+ *
  */
-void readFile(const char *file)
-{
-    std::ifstream dataFile(file);
 
-    if (dataFile.is_open())
-    {
-        printf("\n");
-        std::cout << dataFile.rdbuf() << std::endl;
-        printf("\n");
-    }
-}
+#include "utils.h"
+#include <iostream>
+#include <stdexcept>
 
 /**
  * @brief Lookup table for details available about the business.
@@ -27,10 +22,10 @@ void readFile(const char *file)
 const char *details(int index)
 {
     const char *details[4] = {
-        "details/instructions.txt",
-        "details/packages.txt",
-        "details/supplements.txt",
-        "details/about.txt",
+        "./details/instructions.txt",
+        "./details/packages.txt",
+        "./details/supplements.txt",
+        "./details/about.txt",
     };
 
     return details[index];
@@ -49,6 +44,6 @@ void getDetails(int choice)
     }
     catch (...)
     {
-        readFile(details(0));
+        printf("\n");
     }
 }

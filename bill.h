@@ -1,5 +1,7 @@
 #pragma once
-#ifndef BILL_H
-#define BILL_H
 
-#endif
+#include <map>
+#include <string>
+#include <vector>
+
+std::vector<std::string> makePurchase(std::map<std::string, int> choices);
