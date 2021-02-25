@@ -59,7 +59,7 @@ Use the following command when using `clang++` to compile the project.
 
 ##### CMake
 
-If you prefer to use `CMake` to build the application use the following command.
+If you prefer to use `cmake` to build the application use the following command.
 
 ```shell
 /usr/local/bin/cmake --build . --config Debug --target all -- -j 6

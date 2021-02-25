@@ -12,7 +12,7 @@
 				"-I${workspaceFolder}/src/includes",
 				"${workspaceFolder}/src/*.cpp",
 				"-o",
-				"${workspaceFolder}/build/gym"
+				"${workspaceFolder}/gym"
 			],
 			"options": {
 				"cwd": "${workspaceFolder}/src"
