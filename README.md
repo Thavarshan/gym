@@ -43,6 +43,9 @@ On Windows systems run:
 ```
 
 On both cases a terminal window should open with a prompt asking you to choose and option.
+
+> When running the executable `gym` or `gym.exe` make sure it is located near the `details` directory.
+
 ## Development
 
 After cloning the project, the basic project structure should contain a `src` directory and `tests` directory. The `src` directory contains all the source files of the application while the `tests` directory contains all relevant tests for the application.
