@@ -505,7 +505,7 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 ./main
-
+gym.dSYM
 build
 
 CMakeLists.txt.user
