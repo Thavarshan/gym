@@ -9,11 +9,11 @@
  *
  */
 
-#include "bill.h"
-#include "details.h"
-#include "invoice.h"
-#include "menus.h"
-#include "utils.h"
+#include "includes/bill.h"
+#include "includes/details.h"
+#include "includes/invoice.h"
+#include "includes/menus.h"
+#include "includes/utils.h"
 #include <iostream>
 #include <map>
 #include <string>

@@ -1,7 +1,7 @@
-#include "details.h"
-#include "fort.hpp"
-#include "menus.h"
-#include "utils.h"
+#include "includes/details.h"
+#include "includes/fort.hpp"
+#include "includes/menus.h"
+#include "includes/utils.h"
 #include <cstdlib>
 #include <iostream>
 #include <map>

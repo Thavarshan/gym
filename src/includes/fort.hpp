@@ -410,7 +410,7 @@ namespace fort
  * template class are {@link char_table} and {@link utf8_table}.
  */
     template <table_type TT = table_type::character>
-    class table : public property_owner<table<TT> >
+    class table : public property_owner<table<TT>>
     {
         /**
      *  Utility types.
