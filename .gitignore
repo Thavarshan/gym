@@ -506,7 +506,7 @@ fabric.properties
 
 main
 
-build/
+build
 
 CMakeLists.txt.user
 CMakeCache.txt
