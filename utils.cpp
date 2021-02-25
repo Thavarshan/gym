@@ -12,6 +12,23 @@
 #include "utils.h"
 #include <fstream>
 #include <iostream>
+#include <string>
+
+/**
+ * @brief Ask name from the user.
+ *
+ * @return std::string
+ */
+std::string askName()
+{
+    std::string name;
+
+    printf("\n");
+    printf("Please type in your name: ");
+    std::cin >> name;
+
+    return name;
+}
 
 /**
  * @brief Deterine if the given input is within acceptable range.
@@ -34,7 +51,7 @@ bool inRange(unsigned low, unsigned high, unsigned input)
  * @return true
  * @return false
  */
-bool fileExists(const char *name)
+bool fileExists(std::string name)
 {
     std::ifstream file(name);
 
@@ -46,7 +63,7 @@ bool fileExists(const char *name)
  *
  * @param file
  */
-void readFile(const char *file)
+void readFile(std::string file)
 {
     if (!fileExists(file))
     {

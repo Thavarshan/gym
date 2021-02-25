@@ -21,14 +21,14 @@ std::map<std::string, float> calculateBillAmount(std::vector<float> &amounts)
 
     if (total > 5000.00)
     {
-        discount = (total * 0.05);
+        discount = total * 0.05;
     }
 
     due = total - discount;
 
-    charges.insert(std::make_pair("Total", total));
-    charges.insert(std::make_pair("Discount", discount));
-    charges.insert(std::make_pair("Due", due));
+    charges.insert(std::make_pair("total", total));
+    charges.insert(std::make_pair("discount", discount));
+    charges.insert(std::make_pair("due", due));
 
     return charges;
 }
@@ -54,11 +54,6 @@ std::map<std::string, float> makePurchase(std::map<std::string, int> &choices)
     for (auto const &[charge, amount] : calculateBillAmount(amounts))
     {
         details.insert(std::make_pair(charge, amount));
-    }
-
-    for (auto const &[charge, amount] : details)
-    {
-        std::cout << charge << " and " << amount << std::endl;
     }
 
     return details;

@@ -10,20 +10,22 @@
  */
 
 #include "utils.h"
+#include <algorithm>
 #include <iostream>
 #include <map>
 #include <stdexcept>
 #include <string>
+#include <vector>
 
 /**
  * @brief Lookup table for details available about the business.
  *
  * @param index
- * @return const char*
+ * @return std::string
  */
-const char *details(int index)
+std::string details(int index)
 {
-    const char *details[4] = {
+    std::vector<std::string> details{
         "./details/instructions.txt",
         "./details/packages.txt",
         "./details/supplements.txt",
@@ -31,6 +33,41 @@ const char *details(int index)
     };
 
     return details[index];
+}
+
+/**
+ * @brief Determine if the given string is a valid package ID.
+ *
+ * @param id
+ * @return true
+ * @return false
+ */
+bool isPackage(std::string id)
+{
+    std::vector<std::string> packages{
+        "N/A",
+        "PKGDT001",
+        "PKGDT002",
+        "PKGDT003",
+        "PKGDT004",
+        "PKGDT005",
+        "ITMP001",
+        "ITMB002",
+        "ITMB003",
+        "ITMF004",
+        "ITMC005",
+        "ITMS006",
+        "ITMG007",
+    };
+
+    if (std::find(packages.begin(), packages.end(), id) != packages.end())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 /**
@@ -42,6 +79,7 @@ const char *details(int index)
 float packagePriceLookup(std::string id)
 {
     std::map<std::string, float> packages{
+        {"N/A", 0.00},
         {"PKGDT001", 1500.00},
         {"PKGDT002", 5500.00},
         {"PKGDT003", 3000.00},
@@ -54,6 +92,33 @@ float packagePriceLookup(std::string id)
         {"ITMC005", 3000.00},
         {"ITMS006", 6500.00},
         {"ITMG007", 20000.00},
+    };
+
+    return packages[id];
+}
+
+/**
+ * @brief Determine the name of a given membership/supplement package.
+ *
+ * @param id
+ * @return std::string
+ */
+std::string packageNameLookup(std::string id)
+{
+    std::map<std::string, std::string> packages{
+        {"N/A", "N/A"},
+        {"PKGDT001", "DAY WORKOUT"},
+        {"PKGDT002", "EXECUTIVE MEM(FULL)"},
+        {"PKGDT003", "1 MONTH MEMBERSHIP"},
+        {"PKGDT004", "MASTERS MEMBERSHIP OVER 60 Yrs"},
+        {"PKGDT005", "NON-PEAK EXECUTIVE"},
+        {"ITMP001", "PLATINUM (100% CREATINE)"},
+        {"ITMB002", "BEAST AMINOLYTES"},
+        {"ITMB003", "BEAST SUPER SAUNA"},
+        {"ITMF004", "ON FISH OIL (100 SOFT-GELS)"},
+        {"ITMC005", "CREATINE 5000 (60 SERVINGS)"},
+        {"ITMS006", "D-STUNNER ALPHA (30 SERVINGS)"},
+        {"ITMG007", "GOLD STANDARD GAINER 10LBS"},
     };
 
     return packages[id];

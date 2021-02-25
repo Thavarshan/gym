@@ -1,18 +1,41 @@
+#include "details.h"
 #include "fort.hpp"
+#include "menus.h"
+#include "utils.h"
+#include <cstdlib>
 #include <iostream>
+#include <map>
 #include <stdio.h>
 #include <string>
 #include <vector>
+
+/**
+ * @brief Get current date and time information.
+ *
+ * @return std::string
+ */
+std::string currentDateTime()
+{
+    // current date/time based on current system
+    time_t now = time(0);
+
+    // convert now to string form
+    char *dateTime = ctime(&now);
+
+    return dateTime;
+}
 
 /**
  * @brief Display the invoice of the purchase details for the user.
  *
  * @param details
  */
-void generateInvoice(std::vector<std::string> &details)
+void generateInvoice(std::map<std::string, float> &details)
 {
+    std::string name = askName();
+
     std::string invoiceTitle = "Invoice No ";
-    std::string invoiceNumber = "01";
+    std::string invoiceNumber = std::to_string(rand());
 
     fort::char_table table;
     /* Set table border style */
@@ -28,11 +51,11 @@ void generateInvoice(std::vector<std::string> &details)
 
     // Row 2
     table << "Customer Name"
-          << "Curabitur" << fort::endr;
+          << name << fort::endr;
 
     // Row 3
     table << "Date"
-          << "2018-06-07" << fort::endr;
+          << currentDateTime() << fort::endr;
 
     // Row 4
     table << "Service Name"
@@ -40,35 +63,36 @@ void generateInvoice(std::vector<std::string> &details)
           << "Units"
           << "Value" << fort::endr;
 
-    // Row 5
-    table << "EXECUTIVE MEM(FULL)"
-          << "5500.00"
-          << "1"
-          << "5500.00" << fort::endr;
+    for (auto const &[id, units] : details)
+    {
+        if (isPackage(id))
+        {
+            float price = packagePriceLookup(id);
 
-    // Row 6
-    table << "ON FISH OIL (100 SOFT-GELS)"
-          << "3500.00"
-          << "1"
-          << "3500.00" << fort::endr;
+            table << packageNameLookup(id)
+                  << price
+                  << units
+                  << price * units << fort::endr;
+        }
+    }
 
     // Row 7
     table << "Total Amount"
           << ""
           << ""
-          << "9000.00" << fort::endr;
+          << details["total"] << fort::endr;
 
     // Row 8
     table << "Discount Earned"
           << ""
           << ""
-          << "450.00" << fort::endr;
+          << details["discount"] << fort::endr;
 
     // Row 9
     table << "Total Due Amount"
           << ""
           << ""
-          << "8550.00" << fort::endr;
+          << details["due"] << fort::endr;
 
     table[0][0].set_cell_span(2);
     table[0][1].set_cell_span(3);
@@ -80,10 +104,12 @@ void generateInvoice(std::vector<std::string> &details)
     table[2][1].set_cell_span(3);
 
     table[6][0].set_cell_span(3);
-
     table[7][0].set_cell_span(3);
-
     table[8][0].set_cell_span(3);
 
-    std::cout << table.to_string() << std::endl;
+    printf("\n");
+    printf("Thank you for your purchase!\n");
+    printf("This is your receipt\n");
+    printf("%s\n", table.to_string().c_str());
+    printf("\n");
 }
