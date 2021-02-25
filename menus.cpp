@@ -48,7 +48,7 @@ int displayMainMenu()
 std::map<std::string, int> displayPurchaseMenu()
 {
     std::string package, supplement;
-    int pkgUnits, splUnits;
+    int pkgUnits, splUnits = 0;
 
     printf("Which membership package would you like to prchase? ");
     getDetails(1);
@@ -59,12 +59,16 @@ std::map<std::string, int> displayPurchaseMenu()
 
     printf("Would you like to prchase a supplement package to go along with your membership? ");
     getDetails(2);
-    printf("Type in the supplements package ID: ");
+    printf("Type in the supplements package ID (if you do not wish to purchase this item, please type in 'no'): ");
     std::cin >> supplement;
-    printf("How many would you like to purchase: ");
-    std::cin >> splUnits;
 
-    std::map<std::string, int> choices = {{package, pkgUnits}, {supplement, splUnits}};
+    if (supplement != "No" && supplement != "no")
+    {
+        printf("How many would you like to purchase: ");
+        std::cin >> splUnits;
+    }
+
+    std::map<std::string, int> choices{{package, pkgUnits}, {supplement, splUnits}};
 
     return choices;
 }

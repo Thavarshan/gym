@@ -9,7 +9,7 @@
  *
  * @param details
  */
-void generateInvoice(std::vector<std::string> details)
+void generateInvoice(std::vector<std::string> &details)
 {
     std::string invoiceTitle = "Invoice No ";
     std::string invoiceNumber = "01";

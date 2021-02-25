@@ -11,7 +11,9 @@
 
 #include "utils.h"
 #include <iostream>
+#include <map>
 #include <stdexcept>
+#include <string>
 
 /**
  * @brief Lookup table for details available about the business.
@@ -29,6 +31,32 @@ const char *details(int index)
     };
 
     return details[index];
+}
+
+/**
+ * @brief Determine the price of a given membership/supplement package.
+ *
+ * @param id
+ * @return float
+ */
+float packagePriceLookup(std::string id)
+{
+    std::map<std::string, float> packages{
+        {"PKGDT001", 1500.00},
+        {"PKGDT002", 5500.00},
+        {"PKGDT003", 3000.00},
+        {"PKGDT004", 5000.00},
+        {"PKGDT005", 3300.00},
+        {"ITMP001", 4000.00},
+        {"ITMB002", 6000.00},
+        {"ITMB003", 6000.00},
+        {"ITMF004", 3500.00},
+        {"ITMC005", 3000.00},
+        {"ITMS006", 6500.00},
+        {"ITMG007", 20000.00},
+    };
+
+    return packages[id];
 }
 
 /**

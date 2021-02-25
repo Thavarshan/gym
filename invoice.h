@@ -3,4 +3,4 @@
 #include <string>
 #include <vector>
 
-void generateInvoice(std::vector<std::string> details);
+void generateInvoice(std::vector<std::string> &details);
