@@ -106,7 +106,7 @@ float packagePriceLookup(std::string id)
 std::string packageNameLookup(std::string id)
 {
     std::map<std::string, std::string> packages{
-        {"N/A", "N/A"},
+        {"N/A", "No supplements"},
         {"PKGDT001", "DAY WORKOUT"},
         {"PKGDT002", "EXECUTIVE MEM(FULL)"},
         {"PKGDT003", "1 MONTH MEMBERSHIP"},
