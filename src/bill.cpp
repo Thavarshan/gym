@@ -1,3 +1,14 @@
+/**
+ * @file bill.cpp
+ * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
+ * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundementals Assignment).
+ * @version 1.0
+ * @date 2021-02-20
+ *
+ * @copyright Copyright (c) 2021
+ *
+ */
+
 #include "includes/details.h"
 #include <iostream>
 #include <map>

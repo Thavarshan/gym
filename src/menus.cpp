@@ -1,4 +1,15 @@
 /**
+ * @file menu.cpp
+ * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
+ * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundementals Assignment).
+ * @version 1.0
+ * @date 2021-02-20
+ *
+ * @copyright Copyright (c) 2021
+ *
+ */
+
+/**
  * @file menus.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka Gym Application (ICBT Batch 95 - Programming Fundementals Assignment).

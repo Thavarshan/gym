@@ -24,7 +24,7 @@ You should see a directory called `gym` at the place where you cloned the projec
 
 ## Usage
 
-If the project does not contain a executable file named `gym` the application will have to be compiled.
+If the project does not contain a executable file named `gym` the application will have to be compiled. See below for compilation instructions.
 
 ### Mac/Linux Systems
 
@@ -50,6 +50,12 @@ On both cases a terminal window should open with a prompt asking you to choose a
 
 After cloning the project, the basic project structure should contain a `src` directory and `tests` directory. The `src` directory contains all the source files of the application while the `tests` directory contains all relevant tests for the application.
 
+#### Project Structure & Libraries
+
+- All `header` files are located within the `src/includes` directory.
+- Information regarding **membership packages** and **supplement details** are store and retrived from within the `details` directory located in the project base path itself.
+- This app uses a console text table generator `c++` library called [`libfort`](https://github.com/seleznevae/libfort) to generate invoice tables in the console window.
+
 #### Compilation
 
 ##### Clang++
@@ -68,4 +74,4 @@ If you prefer to use `cmake` to build the application use the following command.
 /usr/local/bin/cmake --build . --config Debug --target all -- -j 6
 ```
 
-> This application and project as a whole was developed and is maintained by **Thavarshan Thayananthajothy**.
+> This application and project as a whole was developed and is maintained by [**Thavarshan Thayananthajothy**](mailto:tjthavarshan@gmail.com).
