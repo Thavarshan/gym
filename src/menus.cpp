@@ -9,8 +9,8 @@
  *
  */
 
-#include "menus.h"
-#include "details.h"
+#include "includes/menus.h"
+#include "includes/details.h"
 #include <iostream>
 #include <map>
 #include <string>
