@@ -19,6 +19,7 @@
  * @brief Calculate total payable amount and deduct discounts if user is eligible.
  *
  * @param purchases
+ * @return std::map<std::string, float>
  */
 std::map<std::string, float> calculateBillAmount(std::vector<float> &amounts)
 {
@@ -38,14 +39,14 @@ std::map<std::string, float> calculateBillAmount(std::vector<float> &amounts)
     due = total - discount;
 
     charges.insert(std::make_pair("total", total));
-    charges.insert(std::make_pair("discount", discount));
+    charges.insert(std::make_pair("discount", discount == 0 ? 0.00 : discount));
     charges.insert(std::make_pair("due", due));
 
     return charges;
 }
 
 /**
- * @brief
+ * @brief Calculate bill amount for user choices invoice.
  *
  * @param choices
  * @return std::map<std::string, float>

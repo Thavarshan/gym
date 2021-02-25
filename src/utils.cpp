@@ -53,9 +53,42 @@ bool inRange(unsigned low, unsigned high, unsigned input)
  */
 bool fileExists(std::string name)
 {
+    // We try to open a given file.
     std::ifstream file(name);
 
-    return file.good();
+    // We determine if opening the file was successful.
+    bool status = file.good();
+
+    // Cleaning up.
+    file.close();
+
+    // We return the status of our operation.
+    return status;
+}
+
+/**
+ * @brief Write (append) given content to txt file.
+ *
+ * @param file
+ * @param content
+ */
+void writeFile(std::string file, std::string content)
+{
+    // We first determine whether this file exists.
+    if (!fileExists(file))
+    {
+        // If not we throw an exception and end execution.
+        throw std::runtime_error("File does not exist.");
+    }
+
+    // If it does, we open it with the appropriate flags to append and not overrite the content within.
+    std::ofstream writefile(file, std::ios::out | std::ios::app);
+
+    // We write the content to the file.
+    writefile << content << std::endl;
+
+    // Make sure to close the FS service.
+    writefile.close();
 }
 
 /**
@@ -65,19 +98,25 @@ bool fileExists(std::string name)
  */
 void readFile(std::string file)
 {
+    // We first determine whether this file exists.
     if (!fileExists(file))
     {
+        // If not we throw an exception and end execution.
         throw std::runtime_error("File does not exist.");
     }
 
+    // If it does, we open the file to be read from.
     std::ifstream dataFile(file);
 
+    // We determine whether the file is open and is accessible.
     if (dataFile.is_open())
     {
+        // If it is, we read the contents from the file and display it to the screen.
         printf("\n");
         std::cout << dataFile.rdbuf() << std::endl;
         printf("\n");
     }
 
+    // Make sure to close the FS service.
     dataFile.close();
 }

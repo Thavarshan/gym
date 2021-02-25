@@ -14,6 +14,7 @@
 #include "includes/menus.h"
 #include "includes/utils.h"
 #include <cstdlib>
+#include <fstream>
 #include <iostream>
 #include <map>
 #include <stdio.h>
@@ -27,13 +28,13 @@
  */
 std::string currentDateTime()
 {
-      // current date/time based on current system
-      time_t now = time(0);
+    // current date/time based on current system
+    time_t now = time(0);
 
-      // convert now to string form
-      char *dateTime = ctime(&now);
+    // convert now to string form
+    char *dateTime = ctime(&now);
 
-      return dateTime;
+    return dateTime;
 }
 
 /**
@@ -43,84 +44,97 @@ std::string currentDateTime()
  */
 void generateInvoice(std::map<std::string, float> &details)
 {
-      std::string name = askName();
+    // Ask for the name of the user/customer.
+    std::string name = askName();
 
-      std::string invoiceTitle = "Invoice No ";
-      std::string invoiceNumber = std::to_string(rand());
+    // Generate a unique number for the invoice.
+    std::string invoiceTitle = "Invoice No ";
+    std::string invoiceNumber = std::to_string(rand());
 
-      fort::char_table table;
-      /* Set table border style */
-      table.set_border_style(FT_DOUBLE2_STYLE);
+    // Create table creator module from 'libfort' library.
+    fort::char_table table;
 
-      // Fill table with data
+    // Set table border style.
+    table.set_border_style(FT_DOUBLE2_STYLE);
 
-      // Row 1
-      table << invoiceTitle + invoiceNumber
-            << "RATHNAYAKA GYMS\n"
-               "Beyond Fitness"
-            << fort::endr;
+    // Fill table with data
 
-      // Row 2
-      table << "Customer Name"
-            << name << fort::endr;
+    // Row 1
+    table << invoiceTitle + invoiceNumber
+          << "RATHNAYAKA GYMS\n"
+             "Beyond Fitness"
+          << fort::endr;
 
-      // Row 3
-      table << "Date"
-            << currentDateTime() << fort::endr;
+    // Row 2
+    table << "Customer Name" << name << fort::endr;
 
-      // Row 4
-      table << "Service Name"
-            << "Price (Rs)"
-            << "Units"
-            << "Value" << fort::endr;
+    // Row 3
+    table << "Date" << currentDateTime() << fort::endr;
 
-      for (auto const &[id, units] : details)
-      {
-            if (isPackage(id))
-            {
-                  float price = packagePriceLookup(id);
+    // Row 4
+    table << "Service Name"
+          << "Price (Rs)"
+          << "Units"
+          << "Value" << fort::endr;
 
-                  table << packageNameLookup(id)
-                        << price
-                        << units
-                        << price * units << fort::endr;
-            }
-      }
+    for (auto const &[id, units] : details)
+    {
+        // First we determine if the given string is a valid package/comodity name.
+        if (isPackage(id))
+        {
+            // If it is we gather information on it.
+            float price = packagePriceLookup(id);
 
-      // Row 7
-      table << "Total Amount"
-            << ""
-            << ""
-            << details["total"] << fort::endr;
+            // And print it out to display the user's purchases.
+            table << packageNameLookup(id)
+                  << price
+                  << units
+                  << price * units << fort::endr;
+        }
+    }
 
-      // Row 8
-      table << "Discount Earned"
-            << ""
-            << ""
-            << details["discount"] << fort::endr;
+    // Row 7
+    table << "Total Amount"
+          << ""
+          << ""
+          << details["total"] << fort::endr;
 
-      // Row 9
-      table << "Total Due Amount"
-            << ""
-            << ""
-            << details["due"] << fort::endr;
+    // Row 8
+    table << "Discount Earned"
+          << ""
+          << ""
+          << details["discount"] << fort::endr;
 
-      table[0][0].set_cell_span(2);
-      table[0][1].set_cell_span(3);
+    // Row 9
+    table << "Total Due Amount"
+          << ""
+          << ""
+          << details["due"] << fort::endr;
 
-      table[1][0].set_cell_span(2);
-      table[1][1].set_cell_span(3);
+    // Table formatting to give an invoice specific design.
+    table[0][0].set_cell_span(2);
+    table[0][1].set_cell_span(3);
 
-      table[2][0].set_cell_span(2);
-      table[2][1].set_cell_span(3);
+    table[1][0].set_cell_span(2);
+    table[1][1].set_cell_span(3);
 
-      table[6][0].set_cell_span(3);
-      table[7][0].set_cell_span(3);
-      table[8][0].set_cell_span(3);
+    table[2][0].set_cell_span(2);
+    table[2][1].set_cell_span(3);
 
-      printf("\n");
-      printf("Thank you for your purchase!\n");
-      printf("This is your receipt\n");
-      printf("%s\n", table.to_string().c_str());
-      printf("\n");
+    table[6][0].set_cell_span(3);
+    table[7][0].set_cell_span(3);
+    table[8][0].set_cell_span(3);
+
+    // Table content as a string.
+    std::string invoice = table.to_string();
+
+    // Write table content to file.
+    writeFile("./details/purchases.txt", invoice);
+
+    // Print table content to screen.
+    printf("\n");
+    printf("Thank you for your purchase!\n");
+    printf("This is your receipt\n");
+    printf("%s\n", invoice.c_str());
+    printf("\n");
 }
