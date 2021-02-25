@@ -6,7 +6,7 @@ Rathnayaka GYMS is a fitness center which has been grown rapidly throughout the 
 
 Due to increasing number of members they have planned to automate their billing process. Imagine that you are a software developer in this project and design and develop a system for Rathnayaka GYMS.
 
-**Basic functions of the app:**
+#### Basic functions of the app
 - View fitness package details
 - View food supplement details
 - Calculate bill
