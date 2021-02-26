@@ -11,7 +11,11 @@ file(GLOB src CONFIGURE_DEPENDS
     "./src/*.c"
 )
 
+add_subdirectory(googletest)
+include_directories(googletest/googletest/include)
+
 add_executable(gym ${src})
+add_subdirectory(tests)
 
 set_property(TARGET gym PROPERTY CXX_STANDARD 17)
 

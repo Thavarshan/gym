@@ -26,10 +26,10 @@
 std::string details(int index)
 {
     std::vector<std::string> details{
-        "./details/instructions.txt",
-        "./details/packages.txt",
-        "./details/supplements.txt",
-        "./details/about.txt",
+        "details/instructions.txt",
+        "details/packages.txt",
+        "details/supplements.txt",
+        "details/about.txt",
     };
 
     return details[index];
