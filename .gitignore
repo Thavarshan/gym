@@ -506,7 +506,7 @@ fabric.properties
 
 ./main
 gym.dSYM
-build
+build-vscode
 
 CMakeLists.txt.user
 CMakeCache.txt
