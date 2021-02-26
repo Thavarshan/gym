@@ -24,7 +24,7 @@
 std::map<std::string, float> calculateBillAmount(std::vector<float> &amounts)
 {
     std::map<std::string, float> charges;
-    float total, discount, due = 0.00;
+    float total, discount, due;
 
     for (float &amount : amounts)
     {
