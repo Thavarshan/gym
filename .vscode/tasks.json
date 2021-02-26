@@ -11,10 +11,8 @@
 				"-g",
 				"-I${workspaceFolder}/src/includes",
 				"${workspaceFolder}/src/*.cpp",
-				"${workspaceFolder}/tests/*.cpp",
 				"-o",
-				"${workspaceFolder}/build/gym",
-				"${workspaceFolder}/build/tests"
+				"${workspaceFolder}/build/app",
 			],
 			"options": {
 				"cwd": "${workspaceFolder}/src"

@@ -24,16 +24,15 @@
 std::map<std::string, float> calculateBillAmount(std::vector<float> &amounts)
 {
     std::map<std::string, float> charges;
-    float total, discount, due = 0.00;
+    float total = 0.00;
 
     for (float &amount : amounts)
     {
         total += amount;
     }
 
-    discount = total > 5000.00 ? total * 0.05 : 0.00;
-
-    due = total - discount;
+    float discount = total > 5000.00 ? total * 0.05 : 0.00;
+    float due = total - discount;
 
     charges.insert(std::make_pair("total", total));
     charges.insert(std::make_pair("discount", discount));
