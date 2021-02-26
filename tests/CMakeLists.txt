@@ -18,4 +18,4 @@ add_executable(tests ${src})
 target_link_libraries(tests PUBLIC gtest)
 add_test(NAME tests COMMAND tests)
 
-set_property(TARGET gym PROPERTY CXX_STANDARD 17)
+set_property(TARGET tests PROPERTY CXX_STANDARD 17)

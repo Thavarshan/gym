@@ -10,7 +10,7 @@ TEST(util_tests, inRange)
     EXPECT_FALSE(inRange(45, 50, 30));
 }
 
-TEST(bill_tests, makePurchase)
+TEST(bill_tests, makePurchaseWithDiscount)
 {
     std::map<std::string, int> choices{{"PKGDT001", 1}, {"ITMP001", 1}};
     std::map<std::string, float> details{
@@ -19,6 +19,20 @@ TEST(bill_tests, makePurchase)
         {"total", 5500.00},
         {"discount", 275.00},
         {"due", 5225.00},
+    };
+
+    EXPECT_EQ(details, makePurchase(choices));
+}
+
+TEST(bill_tests, makePurchaseWithoutDiscount)
+{
+    std::map<std::string, int> choices{{"PKGDT001", 1}, {"N/A", 0}};
+    std::map<std::string, float> details{
+        {"PKGDT001", 1},
+        {"N/A", 0},
+        {"total", 1500.00},
+        {"discount", 0.00},
+        {"due", 1500.00},
     };
 
     EXPECT_EQ(details, makePurchase(choices));
