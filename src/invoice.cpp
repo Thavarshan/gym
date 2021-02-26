@@ -32,7 +32,7 @@ std::string currentDateTime()
     time_t now = time(0);
 
     // convert now to string form
-    char *dateTime = ctime(&now);
+    std::string dateTime = ctime(&now);
 
     return dateTime;
 }

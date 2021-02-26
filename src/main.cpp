@@ -29,7 +29,7 @@
 int main(int argc, char const *argv[])
 {
     // We first define a variable to store the user's choice in.
-    int choice;
+    int choice = 0;
 
     // Then we display a welcome message to the user.
     printf("Welcome to Rathnayaka GYMS.\n");
@@ -51,8 +51,6 @@ int main(int argc, char const *argv[])
 
             // Then using the bill details we generate an invoice and display it to the user.
             generateInvoice(details);
-
-            break;
         }
         else
         {
