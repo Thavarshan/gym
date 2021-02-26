@@ -18,7 +18,7 @@ TEST(bill_tests, makePurchase)
         {"ITMP001", 1},
         {"total", 5500.00},
         {"discount", 275.00},
-        {"due", 5227.00},
+        {"due", 5225.00},
     };
 
     EXPECT_EQ(details, makePurchase(choices));
