@@ -12,8 +12,8 @@ TEST(util_tests, inRange)
 
 TEST(bill_tests, makePurchase)
 {
-    std::map<std::string, int> choices{{"PKGDT001", 1}, {"ITMP001", 1}};
-    std::map<std::string, float> details{
+    std::map<std::string, int> initialChoices{{"PKGDT001", 1}, {"ITMP001", 1}};
+    std::map<std::string, float> initialDetails{
         {"PKGDT001", 1},
         {"ITMP001", 1},
         {"total", 5500.00},
@@ -21,7 +21,18 @@ TEST(bill_tests, makePurchase)
         {"due", 5225.00},
     };
 
-    EXPECT_EQ(details, makePurchase(choices));
+    EXPECT_EQ(initialDetails, makePurchase(initialChoices));
+
+    std::map<std::string, int> secondChoices{{"PKGDT001", 1}, {"N/A", 0}};
+    std::map<std::string, float> secondDetails{
+        {"PKGDT001", 1},
+        {"N/A", 0},
+        {"total", 1500.00},
+        {"discount", 0.00},
+        {"due", 1500.00},
+    };
+
+    EXPECT_EQ(secondDetails, makePurchase(secondChoices));
 }
 
 TEST(details_tests, details)
