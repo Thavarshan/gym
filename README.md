@@ -31,7 +31,8 @@ If the project does not contain a executable file named `gym` the application wi
 If you are running a `unix` based system you can execute the application by running:
 
 ```shell
-./build/gym
+cd build
+./gym
 ```
 
 ### Windows Systems
@@ -39,12 +40,13 @@ If you are running a `unix` based system you can execute the application by runn
 On Windows systems run:
 
 ```shell
-./build/gym.exe
+cd build
+./gym.exe
 ```
 
 On both cases a terminal window should open with a prompt asking you to choose and option.
 
-> When running the executable `gym` or `gym.exe` make sure it is located near the `details` directory.
+> When running the executable `gym` or `gym.exe` make sure you **current-working-directory (cwd)** is located at the same place where the `details` directory.
 
 ## Development
 
