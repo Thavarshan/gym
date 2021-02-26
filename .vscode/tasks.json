@@ -9,13 +9,13 @@
 				"-std=c++17",
 				"-stdlib=libc++",
 				"-g",
-				"-I${workspaceFolder}",
-				"${workspaceFolder}/*.cpp",
+				"-I${workspaceFolder}/src/includes",
+				"${workspaceFolder}/src/*.cpp",
 				"-o",
-				"${fileDirname}/${fileBasenameNoExtension}"
+				"${workspaceFolder}/gym"
 			],
 			"options": {
-				"cwd": "${workspaceFolder}"
+				"cwd": "${workspaceFolder}/src"
 			},
 			"problemMatcher": [
 				"$gcc"

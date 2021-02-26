@@ -1,4 +1,15 @@
 /**
+ * @file menu.cpp
+ * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
+ * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundementals Assignment).
+ * @version 1.0
+ * @date 2021-02-20
+ *
+ * @copyright Copyright (c) 2021
+ *
+ */
+
+/**
  * @file menus.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka Gym Application (ICBT Batch 95 - Programming Fundementals Assignment).
@@ -9,8 +20,8 @@
  *
  */
 
-#include "menus.h"
-#include "details.h"
+#include "includes/menus.h"
+#include "includes/details.h"
 #include <iostream>
 #include <map>
 #include <string>
@@ -48,23 +59,35 @@ int displayMainMenu()
 std::map<std::string, int> displayPurchaseMenu()
 {
     std::string package, supplement;
-    int pkgUnits, splUnits;
+    int pkgUnits, splUnits = 0;
 
+    printf("\n");
     printf("Which membership package would you like to prchase? ");
+    printf("\n");
     getDetails(1);
     printf("Type in the package ID: ");
     std::cin >> package;
     printf("How many would you like to purchase: ");
     std::cin >> pkgUnits;
 
+    printf("\n");
     printf("Would you like to prchase a supplement package to go along with your membership? ");
+    printf("\n");
     getDetails(2);
-    printf("Type in the supplements package ID: ");
+    printf("Type in the supplements package ID (if you do not wish to purchase this item, please type in 'no'): ");
     std::cin >> supplement;
-    printf("How many would you like to purchase: ");
-    std::cin >> splUnits;
 
-    std::map<std::string, int> choices = {{package, pkgUnits}, {supplement, splUnits}};
+    if (supplement != "No" && supplement != "no")
+    {
+        printf("How many would you like to purchase: ");
+        std::cin >> splUnits;
+    }
+    else
+    {
+        supplement = "N/A";
+    }
+
+    std::map<std::string, int> choices{{package, pkgUnits}, {supplement, splUnits}};
 
     return choices;
 }

@@ -504,8 +504,8 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
-main
-
+./main
+gym.dSYM
 build
 
 CMakeLists.txt.user
@@ -519,3 +519,4 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+main

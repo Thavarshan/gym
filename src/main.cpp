@@ -9,11 +9,11 @@
  *
  */
 
-#include "bill.h"
-#include "details.h"
-#include "invoice.h"
-#include "menus.h"
-#include "utils.h"
+#include "includes/bill.h"
+#include "includes/details.h"
+#include "includes/invoice.h"
+#include "includes/menus.h"
+#include "includes/utils.h"
 #include <iostream>
 #include <map>
 #include <string>
@@ -47,7 +47,7 @@ int main(int argc, char const *argv[])
             std::map<std::string, int> choices = displayPurchaseMenu();
 
             // Using the package and supplement choices the user made we calculate the final bill.
-            std::vector<std::string> details = makePurchase(choices);
+            std::map<std::string, float> details = makePurchase(choices);
 
             // Then using the bill details we generate an invoice and display it to the user.
             generateInvoice(details);
