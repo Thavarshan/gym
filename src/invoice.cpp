@@ -42,7 +42,7 @@ std::string currentDateTime()
  *
  * @param details
  */
-void generateInvoice(std::map<std::string, float> &details)
+void generateInvoice(std::map<std::string, double> &details)
 {
     // Ask for the name of the user/customer.
     std::string name = askName();
@@ -83,7 +83,7 @@ void generateInvoice(std::map<std::string, float> &details)
         if (isPackage(id))
         {
             // If it is we gather information on it.
-            float price = packagePriceLookup(id);
+            double price = packagePriceLookup(id);
 
             // And print it out to display the user's purchases.
             table << packageNameLookup(id)

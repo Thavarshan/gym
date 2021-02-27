@@ -74,11 +74,11 @@ bool isPackage(std::string id)
  * @brief Determine the price of a given membership/supplement package.
  *
  * @param id
- * @return float
+ * @return double
  */
-float packagePriceLookup(std::string id)
+double packagePriceLookup(std::string id)
 {
-    std::map<std::string, float> packages{
+    std::map<std::string, double> packages{
         {"N/A", 0.00},
         {"PKGDT001", 1500.00},
         {"PKGDT002", 5500.00},
