@@ -36,17 +36,14 @@
 #include "gmock/gmock-spec-builders.h"
 
 #include <stdlib.h>
-
 #include <iostream>  // NOLINT
 #include <map>
 #include <memory>
 #include <set>
 #include <string>
 #include <vector>
-
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
-#include "gtest/internal/gtest-port.h"
 
 #if GTEST_OS_CYGWIN || GTEST_OS_LINUX || GTEST_OS_MAC
 # include <unistd.h>  // NOLINT
@@ -73,8 +70,7 @@ GTEST_API_ void LogWithLocation(testing::internal::LogSeverity severity,
                                 const char* file, int line,
                                 const std::string& message) {
   ::std::ostringstream s;
-  s << internal::FormatFileLocation(file, line) << " " << message
-    << ::std::endl;
+  s << file << ":" << line << ": " << message << ::std::endl;
   Log(severity, s.str(), 0);
 }
 
@@ -295,8 +291,8 @@ void ReportUninterestingCall(CallReaction reaction, const std::string& msg) {
               "call should not happen.  Do not suppress it by blindly adding "
               "an EXPECT_CALL() if you don't mean to enforce the call.  "
               "See "
-              "https://github.com/google/googletest/blob/master/docs/"
-              "gmock_cook_book.md#"
+              "https://github.com/google/googletest/blob/master/googlemock/"
+              "docs/cook_book.md#"
               "knowing-when-to-expect for details.\n",
           stack_frames_to_skip);
       break;
@@ -433,10 +429,10 @@ UntypedActionResultHolderBase* UntypedFunctionMockerBase::UntypedInvokeWith(
 
   // The UntypedFindMatchingExpectation() function acquires and
   // releases g_gmock_mutex.
-
   const ExpectationBase* const untyped_expectation =
-      this->UntypedFindMatchingExpectation(untyped_args, &untyped_action,
-                                           &is_excessive, &ss, &why);
+      this->UntypedFindMatchingExpectation(
+          untyped_args, &untyped_action, &is_excessive,
+          &ss, &why);
   const bool found = untyped_expectation != nullptr;
 
   // True if and only if we need to print the call's arguments
@@ -461,42 +457,26 @@ UntypedActionResultHolderBase* UntypedFunctionMockerBase::UntypedInvokeWith(
     untyped_expectation->DescribeLocationTo(&loc);
   }
 
-  UntypedActionResultHolderBase* result = nullptr;
-
-  auto perform_action = [&] {
-    return untyped_action == nullptr
-               ? this->UntypedPerformDefaultAction(untyped_args, ss.str())
-               : this->UntypedPerformAction(untyped_action, untyped_args);
-  };
-  auto handle_failures = [&] {
-    ss << "\n" << why.str();
-
-    if (!found) {
-      // No expectation matches this call - reports a failure.
-      Expect(false, nullptr, -1, ss.str());
-    } else if (is_excessive) {
-      // We had an upper-bound violation and the failure message is in ss.
-      Expect(false, untyped_expectation->file(), untyped_expectation->line(),
-             ss.str());
-    } else {
-      // We had an expected call and the matching expectation is
-      // described in ss.
-      Log(kInfo, loc.str() + ss.str(), 2);
-    }
-  };
-#if GTEST_HAS_EXCEPTIONS
-  try {
-    result = perform_action();
-  } catch (...) {
-    handle_failures();
-    throw;
-  }
-#else
-  result = perform_action();
-#endif
-
+  UntypedActionResultHolderBase* const result =
+      untyped_action == nullptr
+          ? this->UntypedPerformDefaultAction(untyped_args, ss.str())
+          : this->UntypedPerformAction(untyped_action, untyped_args);
   if (result != nullptr) result->PrintAsActionResult(&ss);
-  handle_failures();
+  ss << "\n" << why.str();
+
+  if (!found) {
+    // No expectation matches this call - reports a failure.
+    Expect(false, nullptr, -1, ss.str());
+  } else if (is_excessive) {
+    // We had an upper-bound violation and the failure message is in ss.
+    Expect(false, untyped_expectation->file(),
+           untyped_expectation->line(), ss.str());
+  } else {
+    // We had an expected call and the matching expectation is
+    // described in ss.
+    Log(kInfo, loc.str() + ss.str(), 2);
+  }
+
   return result;
 }
 
@@ -640,7 +620,7 @@ class MockObjectRegistry {
     if (leaked_count > 0) {
       std::cout << "\nERROR: " << leaked_count << " leaked mock "
                 << (leaked_count == 1 ? "object" : "objects")
-                << " found at program exit. Expectations on a mock object are "
+                << " found at program exit. Expectations on a mock object is "
                    "verified when the object is destructed. Leaking a mock "
                    "means that its expectations aren't verified, which is "
                    "usually a test bug. If you really intend to leak a mock, "

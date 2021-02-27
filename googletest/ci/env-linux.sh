@@ -1,4 +1,7 @@
-# Copyright 2021 Google Inc. All Rights Reserved.
+#!/usr/bin/env bash
+# Copyright 2017 Google Inc.
+# All Rights Reserved.
+#
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -25,48 +28,14 @@
 # THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-"""Unit test for Google Test's global test environment behavior.
 
-A user can specify a global test environment via
-testing::AddGlobalTestEnvironment. Failures in the global environment should
-result in all unit tests being skipped.
+#
+# This file should be sourced, and not executed as a standalone script.
+#
 
-This script tests such functionality by invoking
-googletest-global-environment-unittest_ (a program written with Google Test).
-"""
+# TODO() - we can check if this is being sourced using $BASH_VERSION and $BASH_SOURCE[0] != ${0}.
 
-import gtest_test_utils
-
-
-def RunAndReturnOutput():
-  """Runs the test program and returns its output."""
-
-  return gtest_test_utils.Subprocess([
-      gtest_test_utils.GetTestExecutablePath(
-          'googletest-global-environment-unittest_')
-  ]).output
-
-
-class GTestGlobalEnvironmentUnitTest(gtest_test_utils.TestCase):
-  """Tests global test environment failures."""
-
-  def testEnvironmentSetUpFails(self):
-    """Tests the behavior of not specifying the fail_fast."""
-
-    # Run the test.
-    txt = RunAndReturnOutput()
-
-    # We should see the text of the global environment setup error.
-    self.assertIn('Canned environment setup error', txt)
-
-    # Our test should have been skipped due to the error, and not treated as a
-    # pass.
-    self.assertIn('[  SKIPPED ] 1 test', txt)
-    self.assertIn('[  PASSED  ] 0 tests', txt)
-
-    # The test case shouldn't have been run.
-    self.assertNotIn('Unexpected call', txt)
-
-
-if __name__ == '__main__':
-  gtest_test_utils.Main()
+if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
+    if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
+    if [ "$CXX" = "clang++" ]; then export CXX="clang++-3.9" CC="clang-3.9"; fi
+fi
