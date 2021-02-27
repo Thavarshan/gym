@@ -25,6 +25,26 @@
 				"isDefault": true
 			},
 			"detail": "compiler: /usr/bin/clang++"
-		}
+		},
+        {
+			"type": "cppbuild",
+			"label": "C/C++: g++.exe build active file",
+			"command": "C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-g",
+				"-I${workspaceFolder}/src/includes",
+				"${workspaceFolder}/src/*.cpp",
+				"-o",
+				"${workspaceFolder}/build/app.exe",
+			],
+			"options": {
+				"cwd": "C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "compiler: \"C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe\""
+		},
 	]
 }

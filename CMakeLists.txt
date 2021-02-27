@@ -11,11 +11,11 @@ file(GLOB src CONFIGURE_DEPENDS
     "./src/*.c"
 )
 
-add_subdirectory(googletest)
-include_directories(googletest/googletest/include)
+# add_subdirectory(googletest)
+# include_directories(googletest/googletest/include)
 
 add_executable(app ${src})
-add_subdirectory(tests)
+# add_subdirectory(tests)
 
 set_property(TARGET app PROPERTY CXX_STANDARD 17)
 
