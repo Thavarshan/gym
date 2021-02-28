@@ -25,7 +25,8 @@ std::string askName()
 
     printf("\n");
     printf("Please type in your name: ");
-    std::cin >> name;
+    std::cin.ignore();
+    std::getline(std::cin, name);
 
     return name;
 }
@@ -39,7 +40,7 @@ std::string askName()
  * @return true
  * @return false
  */
-bool inRange(unsigned low, unsigned high, unsigned input)
+const bool inRange(unsigned low, unsigned high, unsigned input)
 {
     return ((input - low) <= (high - low));
 }
@@ -51,7 +52,7 @@ bool inRange(unsigned low, unsigned high, unsigned input)
  * @return true
  * @return false
  */
-bool fileExists(std::string name)
+const bool fileExists(std::string name)
 {
     // We try to open a given file.
     std::ifstream file(name);
@@ -112,9 +113,7 @@ void readFile(std::string file)
     if (dataFile.is_open())
     {
         // If it is, we read the contents from the file and display it to the screen.
-        printf("\n");
         std::cout << dataFile.rdbuf() << std::endl;
-        printf("\n");
     }
 
     // Make sure to close the FS service.
