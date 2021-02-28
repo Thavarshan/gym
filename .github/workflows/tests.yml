@@ -43,6 +43,12 @@ jobs:
       # Execute the build.  You can specify a specific target with "--target <NAME>"
       run: cmake --build . --config $BUILD_TYPE
 
+    - name: Archive build artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: ci-build-files
+        path: build-ci
+
     - name: Test
       working-directory: ${{github.workspace}}/build-ci
       shell: bash

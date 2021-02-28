@@ -3,6 +3,7 @@
 #include "../src/includes/invoice.h"
 #include "../src/includes/utils.h"
 #include <gtest/gtest.h>
+#include <string>
 
 TEST(util_tests, inRange)
 {
@@ -13,7 +14,7 @@ TEST(util_tests, inRange)
 TEST(bill_tests, makePurchaseWithDiscount)
 {
     std::map<std::string, int> choices{{"PKGDT001", 1}, {"ITMP001", 1}};
-    std::map<std::string, float> details{
+    std::map<std::string, double> details{
         {"PKGDT001", 1},
         {"ITMP001", 1},
         {"total", 5500.00},
@@ -27,7 +28,7 @@ TEST(bill_tests, makePurchaseWithDiscount)
 TEST(bill_tests, makePurchaseWithoutDiscount)
 {
     std::map<std::string, int> choices{{"PKGDT001", 1}, {"N/A", 0}};
-    std::map<std::string, float> details{
+    std::map<std::string, double> details{
         {"PKGDT001", 1},
         {"N/A", 0},
         {"total", 1500.00},
@@ -69,7 +70,7 @@ TEST(details_tests, packageNameLookup)
 TEST(invoice_tests, currentDateTime)
 {
     time_t now = time(0);
-    char *dateTime = ctime(&now);
+    std::string dateTime = ctime(&now);
 
     EXPECT_EQ(dateTime, currentDateTime());
 }

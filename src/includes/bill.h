@@ -4,4 +4,4 @@
 #include <string>
 #include <vector>
 
-std::map<std::string, float> makePurchase(std::map<std::string, int> &choices);
+std::map<std::string, double> makePurchase(std::map<std::string, int> &choices);

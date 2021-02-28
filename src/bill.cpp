@@ -19,20 +19,20 @@
  * @brief Calculate total payable amount and deduct discounts if user is eligible.
  *
  * @param purchases
- * @return std::map<std::string, float>
+ * @return std::map<std::string, double>
  */
-std::map<std::string, float> calculateBillAmount(std::vector<float> &amounts)
+std::map<std::string, double> calculateBillAmount(std::vector<double> &amounts)
 {
-    std::map<std::string, float> charges;
-    float total = 0.00;
+    std::map<std::string, double> charges;
+    double total = 0.00;
 
-    for (float &amount : amounts)
+    for (double &amount : amounts)
     {
         total += amount;
     }
 
-    float discount = total > 5000.00 ? total * 0.05 : 0.00;
-    float due = total - discount;
+    double discount = total > 5000.00 ? total * 0.05 : 0.00;
+    double due = total - discount;
 
     charges.insert(std::make_pair("total", total));
     charges.insert(std::make_pair("discount", discount));
@@ -45,18 +45,18 @@ std::map<std::string, float> calculateBillAmount(std::vector<float> &amounts)
  * @brief Calculate bill amount for user choices invoice.
  *
  * @param choices
- * @return std::map<std::string, float>
+ * @return std::map<std::string, double>
  */
-std::map<std::string, float> makePurchase(std::map<std::string, int> &choices)
+std::map<std::string, double> makePurchase(std::map<std::string, int> &choices)
 {
-    std::vector<float> amounts;
-    std::map<std::string, float> details;
+    std::vector<double> amounts;
+    std::map<std::string, double> details;
 
     for (auto const &[id, units] : choices)
     {
-        amounts.push_back(packagePriceLookup(id) * (float)units);
+        amounts.push_back(packagePriceLookup(id) * (double)units);
 
-        details.insert(std::make_pair(id, (float)units));
+        details.insert(std::make_pair(id, (double)units));
     }
 
     for (auto const &[charge, amount] : calculateBillAmount(amounts))

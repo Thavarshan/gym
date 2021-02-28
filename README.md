@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Rathnayaka GYMS is a fitness center which has been grown rapidly throughout the country. They provide a quality healthcare service and giving their members control over their health is paramount at all Rathnayaka GYMS. They help members prevent and overcome degenerative diseases, achieve their optimum fitness goals, realize personal lifestyle development objectives and rehabilitate them into good health. This is accomplished by designing exercise programs which are effective, efficient and motivational.
+Rathnayaka GYMS is a fitness center that has been grown rapidly throughout the country. They provide a quality healthcare service and give their members control over their health is paramount at all Rathnayaka GYMS. They help members prevent and overcome degenerative diseases, achieve their optimum fitness goals, realize personal lifestyle development objectives, and rehabilitate them into good health. This is accomplished by designing exercise programs that are effective, efficient, and motivational.
 
-Due to increasing number of members they have planned to automate their billing process. Imagine that you are a software developer in this project and design and develop a system for Rathnayaka GYMS.
+Due to the increasing number of members, they have planned to automate their billing process. Imagine that you are a software developer in this project and design and develop a system for Rathnayaka GYMS.
 
 #### Basic functions of the app
 - View fitness package details
@@ -14,7 +14,7 @@ Due to increasing number of members they have planned to automate their billing 
 
 ## Installation
 
-Project is only installable through `git` and should be cloned from the remote repository. To clone the project to your local development environment or even production environment, run the below `shell` command through your terminal.
+The project is only installable through `git` and should be cloned from the remote repository. To clone the project to your local development environment or even production environment, run the below `shell` command through your terminal.
 
 ```shell
 git clone git@github.com:Thavarshan/gym-app.git gym
@@ -24,11 +24,11 @@ You should see a directory called `gym` at the place where you cloned the projec
 
 ## Usage
 
-If the project does not contain a executable file named `gym` the application will have to be compiled. See below for compilation instructions.
+If the project does not contain an executable file named `gym` the application will have to be compiled. See below for compilation instructions.
 
 ### Mac/Linux Systems
 
-If you are running a `unix` based system you can execute the application by running:
+If you are running a `Unix based system you can execute the application by running:
 
 ```shell
 cd build
@@ -44,9 +44,9 @@ cd build
 ./gym.exe
 ```
 
-On both cases a terminal window should open with a prompt asking you to choose and option.
+In both cases, a terminal window should open with a prompt asking you to choose an option.
 
-> When running the executable `gym` or `gym.exe` make sure you **current-working-directory (cwd)** is located at the same place where the `details` directory.
+> When running the executable `gym` or `gym.exe` make sure your **current-working-directory (cwd)** is located at the same place where the `details` directory.
 
 ## Development
 
@@ -55,7 +55,7 @@ After cloning the project, the basic project structure should contain a `src` di
 #### Project Structure & Libraries
 
 - All `header` files are located within the `src/includes` directory.
-- Information regarding **membership packages** and **supplement details** are store and retrived from within the `details` directory located in the project base path itself.
+- Information regarding **membership packages** and **supplement details** are store and retrieved from within the `details` directory located in the project base path itself.
 - This app uses a console text table generator `c++` library called [`libfort`](https://github.com/seleznevae/libfort) to generate invoice tables in the console window.
 
 #### Compilation
