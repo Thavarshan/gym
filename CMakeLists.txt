@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(GYM_APP VERSION 1.0.0)
 
-# include(CTest)
-# enable_testing()
+include(CTest)
+enable_testing()
 
 file(GLOB src CONFIGURE_DEPENDS
     "./src/*.h"
@@ -11,11 +11,11 @@ file(GLOB src CONFIGURE_DEPENDS
     "./src/*.c"
 )
 
-# add_subdirectory(googletest)
-# include_directories(googletest/googletest/include)
+add_subdirectory(googletest)
+include_directories(googletest/googletest/include)
 
 add_executable(app ${src})
-# add_subdirectory(tests)
+add_subdirectory(tests)
 
 set_property(TARGET app PROPERTY CXX_STANDARD 17)
 

@@ -13,6 +13,7 @@
 #include "includes/fort.hpp"
 #include "includes/menus.h"
 #include "includes/utils.h"
+#include "includes/invoice.h"
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
