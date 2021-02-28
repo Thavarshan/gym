@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.0.0)
 
 add_executable(
     tests
-    bill_test.cpp
-    util_test.cpp
-    details_test.cpp
+    # bill_test.cpp
+    # util_test.cpp
+    # details_test.cpp
     )
 
 target_link_libraries(tests gtest_main app)

@@ -11,7 +11,7 @@ add_subdirectory(googletest)
 add_subdirectory(src)
 
 enable_testing()
-# add_subdirectory(tests)
+add_subdirectory(tests)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
