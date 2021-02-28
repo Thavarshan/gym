@@ -2,7 +2,7 @@
 #include "gtest/gtest.h"
 #include <string>
 
-TEST(bill_test, makePurchaseWithDiscount)
+TEST(BillTest, MakePurchaseWithDiscount)
 {
     std::map<std::string, int> choices{{"PKGDT001", 1}, {"ITMP001", 1}};
     std::map<std::string, double> details{
@@ -16,7 +16,7 @@ TEST(bill_test, makePurchaseWithDiscount)
     EXPECT_EQ(details, makePurchase(choices));
 }
 
-TEST(bill_test, makePurchaseWithoutDiscount)
+TEST(BillTest, makePurchaseWithoutDiscount)
 {
     std::map<std::string, int> choices{{"PKGDT001", 1}, {"N/A", 0}};
     std::map<std::string, double> details{
