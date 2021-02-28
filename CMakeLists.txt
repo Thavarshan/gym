@@ -9,10 +9,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 add_subdirectory(googletest)
 
-option(
-  gtest_force_shared_crt
-  "Use shared (DLL) run-time lib even when Google Test is built as static lib."
-  ON)
+option(gtest_force_shared_crt ON)
 
 add_subdirectory(src)
 
