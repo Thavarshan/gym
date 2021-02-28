@@ -119,3 +119,21 @@ void readFile(std::string file)
     // Make sure to close the FS service.
     dataFile.close();
 }
+
+/**
+ * @brief Create a file and write the given contents to the  file.
+ *
+ * @param file
+ * @param content
+ */
+void createAndWriteToFile(std::string file, std::string content)
+{
+    // Create new file.
+    std::ofstream outfile(file);
+
+    // Write contents to created file.
+    outfile << content << std::endl;
+
+    // Cleanup after.
+    outfile.close();
+}
