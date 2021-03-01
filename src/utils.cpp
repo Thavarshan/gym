@@ -2,7 +2,7 @@
  * @file utils.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundementals Assignment).
- * @version 1.0
+ * @version 1.3.5
  * @date 2021-02-20
  *
  * @copyright Copyright (c) 2021
@@ -21,10 +21,14 @@
  */
 std::string askName()
 {
+    // This is where we will save the user's input.
     std::string name;
 
+    // We ask the user for their name.
     printf("\n");
     printf("Please type in your name: ");
+    // Since we are asking for the full-name of the user and it contains spaces in between
+    // we use the below code to incorporate the spaces.
     std::cin.ignore();
     std::getline(std::cin, name);
 
@@ -42,6 +46,7 @@ std::string askName()
  */
 const bool inRange(unsigned low, unsigned high, unsigned input)
 {
+    // This is an old trick we use to find if the given value is within range.
     return ((input - low) <= (high - low));
 }
 
@@ -52,10 +57,10 @@ const bool inRange(unsigned low, unsigned high, unsigned input)
  */
 std::string currentDateTime()
 {
-    // current date/time based on current system
+    // This should give us the current date/time based on current system.
     time_t now = time(0);
 
-    // convert now to string form
+    // We then convert it to string format.
     std::string dateTime = ctime(&now);
 
     return dateTime;
@@ -73,13 +78,14 @@ const bool fileExists(std::string name)
     // We try to open a given file.
     std::ifstream file(name);
 
-    // We determine if opening the file was successful.
+    // We then determine if opening the file was successful and save the
+    // status (true/false) to a variable.
     bool status = file.good();
 
-    // Cleaning up.
+    // We don some cleaning up.
     file.close();
 
-    // We return the status of our operation.
+    // Finally we return the status of our operation.
     return status;
 }
 
@@ -91,20 +97,14 @@ const bool fileExists(std::string name)
  */
 void writeFile(std::string file, std::string content)
 {
-    // We first determine whether this file exists.
-    if (!fileExists(file))
-    {
-        // If not we throw an exception and end execution.
-        throw std::runtime_error("File does not exist.");
-    }
+    // We first try to open a given file, and if it does not exist we will create it
+    // using the name provided.
+    std::ofstream writefile(file);
 
-    // If it does, we open it with the appropriate flags to append and not overrite the content within.
-    std::ofstream writefile(file, std::ios::out | std::ios::app);
-
-    // We write the content to the file.
+    // We then write the contents to the file.
     writefile << content << std::endl;
 
-    // Make sure to close the FS service.
+    // We need to make sure to close the file system service.
     writefile.close();
 }
 
@@ -115,7 +115,7 @@ void writeFile(std::string file, std::string content)
  */
 void readFile(std::string file)
 {
-    // We first determine whether this file exists.
+    // We first determine whether the given file exists.
     if (!fileExists(file))
     {
         // If not we throw an exception and end execution.
@@ -132,24 +132,6 @@ void readFile(std::string file)
         std::cout << dataFile.rdbuf() << std::endl;
     }
 
-    // Make sure to close the FS service.
+    // Again we need to make sure to close the file system service.
     dataFile.close();
-}
-
-/**
- * @brief Create a file and write the given contents to the  file.
- *
- * @param file
- * @param content
- */
-void createAndWriteToFile(std::string file, std::string content)
-{
-    // Create new file.
-    std::ofstream outfile(file);
-
-    // Write contents to created file.
-    outfile << content << std::endl;
-
-    // Cleanup after.
-    outfile.close();
 }
