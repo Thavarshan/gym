@@ -29,11 +29,13 @@ file(GLOB src CONFIGURE_DEPENDS
     "./src/*.c"
 )
 
-add_subdirectory(googletest)
-include_directories(googletest/googletest/include)
-
 add_executable(app ${src})
-add_subdirectory(tests)
+
+if(CMAKE_BUILD_TYPE MATCHES Debug)
+    add_subdirectory(googletest)
+    include_directories(googletest/googletest/include)
+    add_subdirectory(tests)
+endif()
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
