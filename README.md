@@ -28,7 +28,7 @@ If the project does not contain an executable file named `gym` the application w
 
 ### Mac/Linux Systems
 
-If you are running a `Unix based system you can execute the application by running:
+If you are running a **Unix** based system you can execute the application by running:
 
 ```shell
 cd build
@@ -65,7 +65,7 @@ After cloning the project, the basic project structure should contain a `src` di
 Use the following command when using `clang++` to compile the project.
 
 ```shell
-/usr/bin/clang++ -std=c++17 -stdlib=libc++ -g -I/src/includes ./src/*.cpp -o ./build/gym
+/usr/bin/clang++ -std=c++17 -stdlib=libc++ -g -I/src/includes ./src/*.cpp -o ./build/app
 ```
 
 ##### CMake
