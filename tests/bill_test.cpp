@@ -6,7 +6,7 @@ TEST(BillTest, MakePurchaseWithDiscount)
 {
     std::map<std::string, int> choices{{"PKGDT001", 1}, {"ITMP001", 1}};
     std::map<std::string, double> details{
-        {"PKGDT002", 1},
+        {"PKGDT001", 1},
         {"ITMP001", 1},
         {"total", 5500.00},
         {"discount", 275.00},
