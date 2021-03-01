@@ -43,7 +43,7 @@ std::string details(int index)
  * @return true
  * @return false
  */
-bool isPackage(std::string id)
+const bool isPackage(std::string id)
 {
     // A list of only IDs of all packages available to purchase including the ID of a "null" purchase.
     std::vector<std::string> packages{
@@ -63,14 +63,7 @@ bool isPackage(std::string id)
     };
 
     // We determine if the given ID is actually a valid package ID by looking it up on the above vector.
-    if (std::find(packages.begin(), packages.end(), id) != packages.end())
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return (std::find(packages.begin(), packages.end(), id) != packages.end());
 }
 
 /**
@@ -136,10 +129,10 @@ std::string packageNameLookup(std::string id)
  */
 void getDetails(int choice)
 {
-    // We can only allow an existing index to be passed in as the choice e.x. 0, 1, 2, 3 only.
+    // We can only allow an existing index to be passed in as the choice. e.x. 0, 1, 2, 3 only.
     try
     {
-        // If the choice value is within the given range (0, 1, 2, 3) then we get the name of the file the details are stored in
+        // If the choice value is within the given range (0, 1, 2, 3) then we get the name of the file the details are stored in,
         // and retrive the file from the relevant location. Once the file is read the content is printed out to the screen.
         readFile(details(choice)); // This function is found in "utils.cpp"
     }

@@ -18,7 +18,7 @@
 /**
  * @brief Calculate total payable amount and deduct discounts if user is eligible.
  *
- * @param purchases
+ * @param amounts
  * @return std::map<std::string, double>
  */
 std::map<std::string, double> calculateBillAmount(std::vector<double> &amounts)
