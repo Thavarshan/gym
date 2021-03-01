@@ -1,5 +1,5 @@
 /**
- * @file menu.cpp
+ * @file menus.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundementals Assignment).
  * @version 1.3.5
