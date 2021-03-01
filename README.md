@@ -32,7 +32,7 @@ If you are running a `Unix based system you can execute the application by runni
 
 ```shell
 cd build
-./gym
+./app
 ```
 
 ### Windows Systems
@@ -41,12 +41,12 @@ On Windows systems run:
 
 ```shell
 cd build
-./gym.exe
+./app.exe
 ```
 
 In both cases, a terminal window should open with a prompt asking you to choose an option.
 
-> When running the executable `gym` or `gym.exe` make sure your **current-working-directory (cwd)** is located at the same place where the `details` directory.
+> When running the executable `app` or `app.exe` make sure your **current-working-directory (cwd)** is located at the same place where the `details` directory.
 
 ## Development
 
