@@ -20,14 +20,14 @@ foreach(CompilerFlag ${CompilerFlags})
     string(REPLACE "/MD" "/MT" ${CompilerFlag} "${${CompilerFlag}}")
 endforeach()
 
-add_subdirectory(googletest)
-
-option(gtest_force_shared_crt ON)
-
 add_subdirectory(src)
 
+if(CMAKE_BUILD_TYPE EQUAL Debug)
+add_subdirectory(googletest)
+option(gtest_force_shared_crt ON)
 enable_testing()
 add_subdirectory(tests)
+endif()
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
