@@ -1,21 +1,19 @@
 cmake_minimum_required(VERSION 3.0.0)
 
-file(GLOB src CONFIGURE_DEPENDS
-    "../src/utils.cpp"
-    "../src/bill.cpp"
-    "../src/details.cpp"
-    "../src/invoice.cpp"
-    "../src/fort.cpp"
-    "../src/includes/*.h"
-    "../src/includes/*.hpp"
-    "*.h"
-    ".hpp"
-    "*.cpp"
-    "*.c"
-)
+add_executable(
+    tests
+    bill_test.cpp
+    util_test.cpp
+    details_test.cpp
+    )
 
-add_executable(tests ${src})
-target_link_libraries(tests PUBLIC gtest)
-add_test(NAME tests COMMAND tests)
+target_link_libraries(tests gtest_main app)
+
+add_test(
+    NAME
+        tests
+    COMMAND
+        ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}/tests
+    )
 
 set_property(TARGET tests PROPERTY CXX_STANDARD 17)

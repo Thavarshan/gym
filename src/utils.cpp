@@ -46,6 +46,22 @@ const bool inRange(unsigned low, unsigned high, unsigned input)
 }
 
 /**
+ * @brief Get current date and time information.
+ *
+ * @return std::string
+ */
+std::string currentDateTime()
+{
+    // current date/time based on current system
+    time_t now = time(0);
+
+    // convert now to string form
+    std::string dateTime = ctime(&now);
+
+    return dateTime;
+}
+
+/**
  * @brief Determine if the given file exists.
  *
  * @param name

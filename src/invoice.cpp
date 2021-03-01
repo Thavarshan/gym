@@ -9,11 +9,11 @@
  *
  */
 
+#include "includes/invoice.h"
 #include "includes/details.h"
 #include "includes/fort.hpp"
 #include "includes/menus.h"
 #include "includes/utils.h"
-#include "includes/invoice.h"
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
@@ -21,22 +21,6 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
-
-/**
- * @brief Get current date and time information.
- *
- * @return std::string
- */
-std::string currentDateTime()
-{
-    // current date/time based on current system
-    time_t now = time(0);
-
-    // convert now to string form
-    std::string dateTime = ctime(&now);
-
-    return dateTime;
-}
 
 /**
  * @brief Display the invoice of the purchase details for the user.
