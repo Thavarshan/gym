@@ -9,6 +9,7 @@
  *
  */
 
+#include "includes/invoice.h"
 #include "includes/details.h"
 #include "includes/fort.hpp"
 #include "includes/menus.h"
@@ -22,22 +23,6 @@
 #include <vector>
 
 /**
- * @brief Get current date and time information.
- *
- * @return std::string
- */
-std::string currentDateTime()
-{
-    // current date/time based on current system
-    time_t now = time(0);
-
-    // convert now to string form
-    std::string dateTime = ctime(&now);
-
-    return dateTime;
-}
-
-/**
  * @brief Display the invoice of the purchase details for the user.
  *
  * @param details
@@ -48,8 +33,7 @@ void generateInvoice(std::map<std::string, double> &details)
     std::string name = askName();
 
     // Generate a unique number for the invoice.
-    std::string invoiceTitle = "Invoice No ";
-    std::string invoiceNumber = std::to_string(rand());
+    std::string invoiceTitle = "Invoice No " + std::to_string(rand());
 
     // Create table creator module from 'libfort' library.
     fort::char_table table;
@@ -60,7 +44,7 @@ void generateInvoice(std::map<std::string, double> &details)
     // Fill table with data
 
     // Row 1
-    table << invoiceTitle + invoiceNumber
+    table << invoiceTitle
           << "RATHNAYAKA GYMS\n"
              "Beyond Fitness"
           << fort::endr;
@@ -129,12 +113,13 @@ void generateInvoice(std::map<std::string, double> &details)
     std::string invoice = table.to_string();
 
     // Write table content to file.
-    writeFile("./details/purchases.txt", invoice);
+    createAndWriteToFile("./invoices/" + invoiceTitle + ".txt", invoice);
 
     // Print table content to screen.
     printf("\n");
     printf("Thank you for your purchase!\n");
     printf("This is your receipt\n");
+    printf("\n");
     printf("%s\n", invoice.c_str());
     printf("\n");
 }

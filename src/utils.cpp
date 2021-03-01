@@ -46,6 +46,22 @@ const bool inRange(unsigned low, unsigned high, unsigned input)
 }
 
 /**
+ * @brief Get current date and time information.
+ *
+ * @return std::string
+ */
+std::string currentDateTime()
+{
+    // current date/time based on current system
+    time_t now = time(0);
+
+    // convert now to string form
+    std::string dateTime = ctime(&now);
+
+    return dateTime;
+}
+
+/**
  * @brief Determine if the given file exists.
  *
  * @param name
@@ -118,4 +134,22 @@ void readFile(std::string file)
 
     // Make sure to close the FS service.
     dataFile.close();
+}
+
+/**
+ * @brief Create a file and write the given contents to the  file.
+ *
+ * @param file
+ * @param content
+ */
+void createAndWriteToFile(std::string file, std::string content)
+{
+    // Create new file.
+    std::ofstream outfile(file);
+
+    // Write contents to created file.
+    outfile << content << std::endl;
+
+    // Cleanup after.
+    outfile.close();
 }
