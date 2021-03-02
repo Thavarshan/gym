@@ -2,7 +2,7 @@
  * @file invoice.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundementals Assignment).
- * @version 1.0
+ * @version 1.3.5
  * @date 2021-02-20
  *
  * @copyright Copyright (c) 2021
@@ -29,21 +29,22 @@
  */
 void generateInvoice(std::map<std::string, double> &details)
 {
-    // Ask for the name of the user/customer.
-    std::string name = askName();
+    // Before we generate an invoice we need to ask for the name of the user/customer.
+    std::string name = askName(); // This function is found in "utils.cpp"
 
-    // Generate a unique number for the invoice.
-    std::string invoiceTitle = "Invoice No " + std::to_string(rand());
+    // We also need to generate a unique number for the invoice.
+    std::string invoiceTitle = "Invoice No " + std::to_string(std::rand());
 
-    // Create table creator module from 'libfort' library.
+    // We then use the table creator module from 'libfort' library to generate a table to contain all
+    // the relevant content to be displayed.
     fort::char_table table;
 
-    // Set table border style.
-    table.set_border_style(FT_DOUBLE2_STYLE);
+    // We set a table border style.
+    table.set_border_style(FT_BASIC2_STYLE);
 
-    // Fill table with data
+    // Now we fill the table with content.
 
-    // Row 1
+    // Row 1 content goes here.
     table << invoiceTitle
           << "RATHNAYAKA GYMS\n"
              "Beyond Fitness"
@@ -61,16 +62,17 @@ void generateInvoice(std::map<std::string, double> &details)
           << "Units"
           << "Value" << fort::endr;
 
+    // Row 5 and 6 contain information about which packages the user purchased and how many of each they purchased.
     for (auto const &[id, units] : details)
     {
-        // First we determine if the given string is a valid package/comodity name.
-        if (isPackage(id))
+        // First we determine if the given string is a valid package name.
+        if (isPackage(id)) // This function is found in "details.cpp"
         {
             // If it is we gather information on it.
-            double price = packagePriceLookup(id);
+            double price = packagePriceLookup(id); // This function is found in "details.cpp"
 
             // And print it out to display the user's purchases.
-            table << packageNameLookup(id)
+            table << packageNameLookup(id) // This function is found in "details.cpp"
                   << price
                   << units
                   << price * units << fort::endr;
@@ -109,13 +111,13 @@ void generateInvoice(std::map<std::string, double> &details)
     table[7][0].set_cell_span(3);
     table[8][0].set_cell_span(3);
 
-    // Table content as a string.
+    // We need to convert the table content to string format.
     std::string invoice = table.to_string();
 
-    // Write table content to file.
-    createAndWriteToFile("./invoices/" + invoiceTitle + ".txt", invoice);
+    // Here we write the table contents to a ".txt" file.
+    writeFile("./invoices/" + invoiceTitle + ".txt", invoice); // This function is found in "utils.cpp"
 
-    // Print table content to screen.
+    // We finally print the table contents to the screen with a thank you message.
     printf("\n");
     printf("Thank you for your purchase!\n");
     printf("This is your receipt\n");
