@@ -1,4 +1,4 @@
-#include "../src/includes/utils.h"
+#include "../src/include/utils.h"
 #include "gtest/gtest.h"
 
 TEST(UtilTest, IntegerIsInRange)
