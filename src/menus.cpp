@@ -60,8 +60,16 @@ std::map<std::string, int> displayPurchaseMenu()
     printf("Which membership package would you like to prchase? ");
     printf("\n");
     getDetails(1); // This function is found in "details.cpp"
-    printf("Type in the package ID: ");
-    std::cin >> package;
+
+    do
+    {
+        // We can only allow a valid package ID to be entered by the user.
+        // So, until a valid package ID is provided the
+        // request will be asked again in a loop.
+        printf("Type in the package ID: ");
+        std::cin >> package;
+    } while (!isPackage(package));
+
     printf("How many would you like to purchase: ");
     std::cin >> pkgUnits;
 
@@ -70,8 +78,14 @@ std::map<std::string, int> displayPurchaseMenu()
     printf("Would you like to prchase a supplement package to go along with your membership? ");
     printf("\n");
     getDetails(2); // This function is found in "details.cpp"
-    printf("Type in the supplements package ID (if you do not wish to purchase this item, please type in 'no'): ");
-    std::cin >> supplement;
+
+    do
+    {
+        // Again, to make sure the user types in a valid supplement package ID we keep asking again
+        // and again until a valid ID is entered.
+        printf("Type in the supplements package ID (if you do not wish to purchase this item, please type in 'no'): ");
+        std::cin >> supplement;
+    } while (!isPackage(supplement));
 
     // We now do some cleanup by setting acceptable values to the variables.
     if (supplement != "No" && supplement != "no")

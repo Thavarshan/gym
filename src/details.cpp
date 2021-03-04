@@ -47,6 +47,8 @@ const bool isPackage(std::string id)
 {
     // A list of only IDs of all packages available to purchase including the ID of a "null" purchase.
     std::vector<std::string> packages{
+        "no",
+        "No",
         "N/A",
         "PKGDT001",
         "PKGDT002",
