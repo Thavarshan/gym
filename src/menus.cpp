@@ -2,7 +2,7 @@
  * @file menus.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundementals Assignment).
- * @version 1.3.5
+ * @version 1.4.0
  * @date 2021-02-20
  *
  * @copyright Copyright (c) 2021
@@ -81,8 +81,8 @@ std::map<std::string, int> displayPurchaseMenu()
 
     do
     {
-        // Again, to make sure the user types in a valid supplement package ID we keep asking again
-        // and again until a valid ID is entered.
+        // Again, to make sure the user types in a valid supplement package ID
+        // we keep asking again and again until a valid ID is entered.
         printf("Type in the supplements package ID (if you do not wish to purchase this item, please type in 'no'): ");
         std::cin >> supplement;
     } while (!isPackage(supplement));
