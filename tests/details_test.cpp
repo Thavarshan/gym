@@ -1,4 +1,4 @@
-#include "../src/includes/details.h"
+#include "../src/include/details.h"
 #include "gtest/gtest.h"
 
 TEST(DetailsTest, GetDetailsAccordingToIndex)

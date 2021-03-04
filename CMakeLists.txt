@@ -23,8 +23,8 @@ foreach(CompilerFlag ${CompilerFlags})
 endforeach()
 
 file(GLOB src CONFIGURE_DEPENDS
-    "./src/includes/*.h"
-    "./src/includes/*.hpp"
+    "./src/include/*.h"
+    "./src/include/*.hpp"
     "./src/*.cpp"
     "./src/*.c"
 )
