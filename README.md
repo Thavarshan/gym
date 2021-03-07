@@ -13,19 +13,9 @@ Due to the increasing number of members, they have planned to automate their bil
 - Calculate bill
 - Information about business.
 
-## Installation
-
-The project is only installable through `git` and should be cloned from the remote repository. To clone the project to your local development environment or even production environment, run the below `shell` command through your terminal.
-
-```shell
-git clone git@github.com:Thavarshan/gym-app.git gym
-```
-
-You should see a directory called `gym` at the place where you cloned the project.
-
 ## Usage
 
-Please download the latest release of the application from [here](https://github.com/Thavarshan/gym-app/releases/download/v1.4.0/app.zip). Once downloaded you should find a directory named `app`. Inside the `app` directory you will find the following executables and directories.
+Please download the latest release of the application form [here](https://github.com/Thavarshan/gym-app/releases/download/v1.4.0/app.zip). Once downloaded you should find a directory named `app`. Inside the `app` directory you will find the following executables and directories.
 
 - app - Unix executable.
 - app.exe - Windows executable.
@@ -42,23 +32,31 @@ If you are on a Windows machine you can directly double click on and open the `a
 
 > Please make sure that the `details` and `invoices` directories are located right next to both `app` and `app.exe` executables inside the `app` directory. These directories are essential for the application to function properly.
 
-Once the application is run you should be able to see a menu with a list of actions for you to choose from and a input prompting for your action choice. Type in the relative number associated with the action you would like to perform on to the prompt and press `enter`.
+Once the application is run you should be able to see a menu with a list of actions for you to choose from and an input prompting for your action choice. Type in the relative number associated with the action you would like to perform on to the prompt and press `enter`.
 
-Upon choice of an action relating to "view details" the application will display relevant details on the screen. These details are accessed from the `details` directory located next to the executable file itself.
+Upon choice of an action relating to "view details", the application will display relevant details on the screen. These details are accessed from the `details` directory located next to the executable file itself.
 
-If option no. **4** is chosen you will be redirected to another prompt asking for your choice of membership package to purchase. This is followed by another prompt asking how many packages you would like to purchase and yet another similar prompt asking if you would like to purchase any supplement packages to accompany your purchase of a membership package.
+If option no. **4** is chosen you will be redirected to another prompt asking for your choice of a membership package to purchase. This is followed by another prompt asking how many packages you would like to purchase and yet another similar prompt asking if you would like to purchase any supplement packages to accompany your purchase of a membership package.
 
 Please provide valid `package IDs` on both instances you are prompted for a choice otherwise the prompt will loop back and ask again until a valid `package ID` is provided.
 
-Once package and supplements are purchased the application will ask for your name. You can provide your full name with spaces included and the app will capture it as a whole string.
+Once the package and supplements are purchased the application will ask for your name. You can provide your full name with spaces included and the app will capture it as a whole string.
 
-Finally the bill amount and relevant charges are calculated and an invoice is generated and displayed back to you.
+Finally, the bill amount and relevant charges are calculated and an invoice is generated and displayed back to you.
 
 The invoice is also written to a file and saved within the `invoices` directory for use by the business.
 
 ## Development
 
-All coding was done by [**Thavarshan Thayananthajothy**](mailto:tjthavarshan@gmail.com) (CL/HDCSE/95/15). No existing application were used as reference and extra knowledge on how to accomplish certain tasks was acquired through online research. The application source code follows `C++17` standards and `clang-format` coding standards.
+The project (not the app) is only installable through `git` and should be cloned from the remote repository. To clone the project to your local development environment or even production environment, run the below `shell` command through your terminal.
+
+```shell
+git clone git@github.com:Thavarshan/gym-app.git gym
+```
+
+You should see a directory called `gym` or `gym-app` at the place where you cloned the project.
+
+All coding was done by [**Thavarshan Thayananthajothy**](mailto:tjthavarshan@gmail.com) (CL/HDCSE/95/15). No existing applications were used as a reference and extra knowledge on how to accomplish certain tasks was acquired through online research. The application source code follows `C++17` standards and `clang-format` coding standards.
 
 ### Tools & IDE
 
@@ -71,19 +69,19 @@ All coding was done by [**Thavarshan Thayananthajothy**](mailto:tjthavarshan@gma
 
 ### Unit Testing
 
-All unit testing both locally and on cloud through CI was accomplished through [GoogleTest](https://github.com/google/googletest). [CMake](https://cmake.org/) was used to compile and test the executable and libraries.
+All unit testing both locally and on the cloud through CI was accomplished through [GoogleTest](https://github.com/google/googletest). [CMake](https://cmake.org/) was used to compile and test the executables and libraries.
 
 ### Continuous Integration (CI)
 
 #### What is CI?
 
-Continuous integration is a coding philosophy and set of practices that drive development teams to implement small changes and check in code to version control repositories frequently (IDG Communications, Inc. 2020).
+Continuous integration is a coding philosophy and set of practices that drive development teams to implement small changes and check-in code to version control repositories frequently (IDG Communications, Inc. 2020).
 
 #### Implementation
 
-The free service of CI provided by [Github](https://github.com/) was utilized for CI pipeline. Every time code is pushed to `Github` a special automated action is run where a cloud droplet / virtual machines hosted on the cloud is propagated and is used to build and test the code in different platforms.
+The free service of CI provided by [Github](https://github.com/) was utilized for the CI pipeline. Every time code is pushed to `Github` a special automated action is run where a cloud droplet / virtual machine hosted on the cloud is propagated and is used to build and test the code in different platforms.
 
-The code is compiled, built and tested on `Linux`, `Mac` and `Windows` platforms. You can view all CI processes [here](https://github.com/Thavarshan/gym-app/actions).
+The code is compiled, built, and tested on `Linux`, `Mac` and `Windows` platforms. You can view all CI processes [here](https://github.com/Thavarshan/gym-app/actions).
 
 Three services are run every time the code is pushed to `Github`.
 
@@ -103,7 +101,7 @@ As mentioned previously static code analysis service is automatically run by the
 
 ### Releases
 
-Similar to static code analysis service the CI pipeline also performs an action where the application on successful testing build for release or regular usage by end-user. The service produces a usable executable files for both `Unix` and `Windows` platforms.
+Similar to static code analysis service the CI pipeline also performs an action where the application on successful testing builds for release or regular usage by end-user. The service produces usable executable files for both `Unix` and `Windows` platforms.
 
 #### Semantic Versioning
 
