@@ -508,7 +508,6 @@ gym.dSYM
 app.dSYM
 main.dSYM
 build-vscode
-build
 
 CMakeLists.txt.user
 CMakeCache.txt

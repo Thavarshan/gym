@@ -2,7 +2,7 @@
  * @file details.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka Gym Application (ICBT Batch 95 - Programming Fundementals Assignment).
- * @version 1.4.0
+ * @version 1.4.2
  * @date 2021-02-20
  *
  * @copyright Copyright (c) 2021
@@ -26,6 +26,7 @@
 std::string details(int index)
 {
     // We will use this to show the relevant content to the user during the entrace menu part.
+    // These are a list of file locations to relevant details.
     std::vector<std::string> details{
         "details/instructions.txt",
         "details/packages.txt",
@@ -76,7 +77,7 @@ const bool isPackage(std::string id)
  */
 double packagePriceLookup(std::string id)
 {
-    // A list of package ID and its relevant unit price.
+    // A list of package ID and its unit price.
     std::map<std::string, double> packages{
         {"N/A", 0.00},
         {"PKGDT001", 1500.00},
@@ -104,7 +105,7 @@ double packagePriceLookup(std::string id)
  */
 std::string packageNameLookup(std::string id)
 {
-    // A list of package ID and its relevant name.
+    // A list of package ID and its name.
     std::map<std::string, std::string> packages{
         {"N/A", "No supplements"},
         {"PKGDT001", "DAY WORKOUT"},
@@ -131,16 +132,20 @@ std::string packageNameLookup(std::string id)
  */
 void getDetails(int choice)
 {
-    // We can only allow an existing index to be passed in as the choice. e.x. 0, 1, 2, 3 only.
+    // We can only allow an existing index to be passed
+    // in as the choice. e.x. 0, 1, 2, 3 only.
     try
     {
-        // If the choice value is within the given range (0, 1, 2, 3) then we get the name of the file the details are stored in,
-        // and retrive the file from the relevant location. Once the file is read the content is printed out to the screen.
+        // If the choice value is within the given range (0, 1, 2, 3) then we
+        // get the name of the file the details are stored in, and retrieve
+        // the file from the relevant location. Once the file is read the
+        // content is printed out to the screen.
         readFile(details(choice)); // This function is found in "utils.cpp"
     }
     catch (...)
     {
-        // In the case no valid choice is found we print out a blank line.
-        printf("\n");
+        // In the case no valid choice is found we print out the
+        // instaructions on how to properly use the application.
+        readFile(details(0));
     }
 }
