@@ -2,7 +2,7 @@
  * @file main.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundementals Assignment).
- * @version 1.4.0
+ * @version 1.4.2
  * @date 2021-02-20
  *
  * @copyright Copyright (c) 2021
@@ -31,7 +31,7 @@ int main(int argc, char const *argv[])
     // We first define a variable to store the user's choice in.
     int choice = 0;
 
-    // Then we display a welcome message to the user.
+    // Then, we display a welcome message to the user.
     printf("Welcome to Rathnayaka GYMS.\n");
 
     // Menu on loop (wait for user to choose an option).
@@ -54,7 +54,7 @@ int main(int argc, char const *argv[])
         }
         else
         {
-            // Otherwise we get the details of packages, supplements and about details.
+            // Otherwise, we get the details of packages, supplements, and about details.
             getDetails(choice); // This function is found in "details.cpp"
         }
 
