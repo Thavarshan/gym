@@ -14,8 +14,6 @@ name: Code Analysis
 on:
   push:
   pull_request:
-  schedule:
-    - cron: '24 8 * * 5'
 
 jobs:
   analyze:
