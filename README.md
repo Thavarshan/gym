@@ -10,8 +10,8 @@ Due to the increasing number of members, they have planned to automate their bil
 
 - View fitness package details
 - View food supplement details
-- Calculate bill
-- Information about business.
+- Calculate bill for invoice
+- Information about business
 
 ## Usage
 
