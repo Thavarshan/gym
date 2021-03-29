@@ -10,8 +10,8 @@ Due to the increasing number of members, they have planned to automate their bil
 
 - View fitness package details
 - View food supplement details
-- Calculate bill
-- Information about business.
+- Calculate bill for invoice
+- Information about business
 
 ## Usage
 
@@ -48,7 +48,7 @@ The invoice is also written to a file and saved within the `invoices` directory 
 
 #### How To Inspect The Source Code
 
-The source code follows the below directory structure
+The source code follows the below directory structure:
 
 ```
 .
@@ -95,6 +95,8 @@ Please note that an external library called [`libfort`](https://github.com/selez
 1. `fort.cpp`
 2. `include/fort.h`
 3. `include/fort.hpp`
+
+> Source code has multiple lines between code block to improve readability.
 
 ##### Useful Links
 
