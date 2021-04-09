@@ -29,7 +29,7 @@ std::string authUserLookup(std::string email)
     // A list of authenticatable users.
     std::map<std::string, std::string> users{
         {"john@example.com", "cattleFarmer123"},
-        {"g@g.g", "ggg"},
+        {"tjthavarshan@gmail.com", "iforgetmypasswords"},
     };
 
     // We first check if the given email is in the above list.
