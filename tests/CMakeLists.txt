@@ -5,6 +5,7 @@ file(GLOB src CONFIGURE_DEPENDS
     "../src/utils.cpp"
     "../src/bill.cpp"
     "../src/details.cpp"
+    "../src/auth.cpp"
     "../src/invoice.cpp"
     "../src/fort.cpp"
     "../src/include/*.h"

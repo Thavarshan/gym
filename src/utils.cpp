@@ -10,6 +10,7 @@
  */
 
 #include "include/utils.h"
+#include <algorithm>
 #include <fstream>
 #include <iostream>
 #include <string>
