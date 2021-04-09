@@ -2,7 +2,7 @@
  * @file utils.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundementals Assignment).
- * @version 1.4.2
+ * @version 2.0.1
  * @date 2021-02-20
  *
  * @copyright Copyright (c) 2021
@@ -13,6 +13,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <vector>
 
 /**
  * @brief Ask name from the user.
@@ -26,13 +27,27 @@ std::string askName()
 
     // We ask the user for their name (full-name).
     printf("\n");
-    printf("Please type in your full name: ");
+    printf("Please type in the customer\'s full name: ");
     // Since we are asking for the full-name of the user and it contains spaces
     // in between, we use the below code to incorporate the spaces.
     std::cin.ignore();
     std::getline(std::cin, name);
 
     return name;
+}
+
+/**
+ * @brief Determine if the given element is in the list.
+ *
+ * @param element
+ * @param list
+ * @return true
+ * @return false
+ */
+const bool inList(std::string element, std::vector<std::string> &list)
+{
+    // This checks if the given element is in the given vector.
+    return (std::find(list.begin(), list.end(), element) != list.end());
 }
 
 /**

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(GYM_APP VERSION 1.0.0)
+project(GYM_APP VERSION 2.0.1)
 
 include(CTest)
 enable_testing()

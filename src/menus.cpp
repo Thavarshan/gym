@@ -12,6 +12,7 @@
 #include "include/menus.h"
 #include "include/details.h"
 #include <iostream>
+#include <limits>
 #include <map>
 #include <string>
 
@@ -37,6 +38,14 @@ int displayMainMenu()
 
     printf("Please choose an option: ");
     std::cin >> option;
+
+    while (std::cin.fail())
+    {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Bad entry.  Enter a NUMBER: ";
+        std::cin >> option;
+    }
 
     // The option will be an index that we use to choose which details should be retrieved from
     // a vector of elements containing files with package details as its content.
