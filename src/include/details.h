@@ -2,6 +2,7 @@
 
 #include <string>
 
+std::string authUserLookup(std::string email);
 std::string details(int index);
 const bool isPackage(std::string id);
 void getDetails(int choice);

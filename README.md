@@ -8,6 +8,7 @@ Due to the increasing number of members, they have planned to automate their bil
 
 #### Basic functions of the app
 
+- Authenticate allowable users
 - View fitness package details
 - View food supplement details
 - Calculate bill for invoice
@@ -15,7 +16,7 @@ Due to the increasing number of members, they have planned to automate their bil
 
 ## Usage
 
-Please download the latest release of the application form [here](https://github.com/Thavarshan/gym-app/releases/download/v1.4.2/app.zip). Once downloaded you should find a directory named `app`. Inside the `app` directory you will find the following executables and directories.
+Please download the latest release of the application form [here](https://github.com/Thavarshan/gym-app/releases/download/v2.0.1/app.zip). Once downloaded you should find a directory named `app`. Inside the `app` directory you will find the following executables and directories.
 
 - app - Unix executable.
 - app.exe - Windows executable.
@@ -24,7 +25,7 @@ Please download the latest release of the application form [here](https://github
 
 #### How to use the app
 
-If you are on a Windows machine you can directly double click on and open the `app.exe` file and the application should startup on a terminal screen. It is recommended that the `app.exe` be run through a `terminal` app like `Powershell` on Windows. If you are on a Linux or Mac machine you need to access the `app` directory through your `terminal` application and one the `app` executable file through the `treminal` application by running:
+If you are on a Windows machine you can directly double click on and open the `app.exe` file and the application should startup on a terminal screen. It is recommended that the `app.exe` be run through a `terminal` app like `Powershell` on Windows. If you are on a Linux or Mac machine you need to access the `app` directory through your `terminal` application and run the `app` executable file through the `treminal` application by running the command:
 
 ```shell
 ./app
@@ -38,7 +39,7 @@ Upon choice of an action relating to "view details", the application will displa
 
 If option no. **4** is chosen you will be redirected to another prompt asking for your choice of a membership package to purchase. This is followed by another prompt asking how many packages you would like to purchase and yet another similar prompt asking if you would like to purchase any supplement packages to accompany your purchase of a membership package.
 
-Please provide valid `package IDs` on both instances you are prompted for a choice otherwise the prompt will loop back and ask again until a valid `package ID` is provided.
+Please provide valid `package ID` on both instances you are prompted for a choice otherwise the prompt will loop back and ask again until a valid `package ID` is provided.
 
 Once the package and supplements are purchased the application will ask for your name. You can provide your full name with spaces included and the app will capture it as a whole string.
 
@@ -56,12 +57,14 @@ The source code follows the below directory structure:
     ├── src/
     │   ├── includes/
     │   │   ├── bill.h
+    │   │   ├── auth.h
     │   │   ├── menus.h
     │   │   ├── invoice.h
     │   │   ├── details.h
     │   │   ├── fort.h
     │   │   └── fort.hpp
     │   ├── main.cpp <- Start here!
+    │   ├── auth.cpp
     │   ├── menus.cpp
     │   ├── invoice.cpp
     │   ├── details.cpp
@@ -70,6 +73,7 @@ The source code follows the below directory structure:
     ├── tests/
     │   ├── bill_test.cpp
     │   ├── details_test.cpp
+    │   ├── auth_test.cpp
     │   ├── util_test.cpp
     │   ├── main.cpp
     │   └── CMakeLists.txt
@@ -80,11 +84,12 @@ The source code follows the below directory structure:
 When inspecting the code please start with the `src` directory and follow the below order.
 
 1. `main.cpp`
-2. `menus.cpp`
-3. `details.cpp`
-4. `bill.cpp`
-5. `utils.cpp`
-6. `invoice.cpp`
+2. `auth.cpp`
+3. `menus.cpp`
+4. `details.cpp`
+5. `bill.cpp`
+6. `utils.cpp`
+7. `invoice.cpp`
 
 > The relevant header files are located within the `include` directory inside the `src` directory.
 
@@ -100,7 +105,7 @@ Please note that an external library called [`libfort`](https://github.com/selez
 
 ##### Useful Links
 
-1. [Source code on `Github`](https://github.com/Thavarshan/gym1.app)
+1. [Source code on `Github`](https://github.com/Thavarshan/gym-app)
 2. [CI/CD actions](https://github.com/Thavarshan/gym-app/actions)
 3. [Releases](https://github.com/Thavarshan/gym-app/releases)
 
@@ -165,6 +170,6 @@ Similar to static code analysis service the CI pipeline also performs an action 
 
 Semantic versioning is a formal convention for specifying compatibility using a three-part version number: major version; minor version; and patch.
 
-The application is released based on semantic versioning and is available for download [here](https://github.com/Thavarshan/gym-app/releases/download/v1.4.2/app.zip).
+The application is released based on semantic versioning and is available for download [here](https://github.com/Thavarshan/gym-app/releases/download/v2.0.1/app.zip).
 
 > This application and project as a whole was developed and is maintained by [**Thavarshan Thayananthajothy**](mailto:tjthavarshan@gmail.com).

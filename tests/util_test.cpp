@@ -1,5 +1,15 @@
 #include "../src/include/utils.h"
 #include "gtest/gtest.h"
+#include <vector>
+#include <string>
+
+TEST(UtilTest, ElementIsInList)
+{
+    std::vector<std::string> list = {"apple", "oranges"};
+
+    EXPECT_TRUE(inList("apple", list));
+    EXPECT_FALSE(inList("grapes", list));
+}
 
 TEST(UtilTest, IntegerIsInRange)
 {

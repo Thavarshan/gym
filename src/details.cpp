@@ -2,7 +2,7 @@
  * @file details.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka Gym Application (ICBT Batch 95 - Programming Fundementals Assignment).
- * @version 1.4.2
+ * @version 2.0.1
  * @date 2021-02-20
  *
  * @copyright Copyright (c) 2021
@@ -11,11 +11,37 @@
 
 #include "include/utils.h"
 #include <algorithm>
+#include <exception>
 #include <iostream>
 #include <map>
 #include <stdexcept>
 #include <string>
 #include <vector>
+
+/**
+ * @brief Get the password of the given email address.
+ *
+ * @param email
+ * @return std::string
+ */
+std::string authUserLookup(std::string email)
+{
+    // A list of authenticatable users.
+    std::map<std::string, std::string> users{
+        {"john@example.com", "cattleFarmer123"},
+        {"tjthavarshan@gmail.com", "iforgetmypasswords"},
+    };
+
+    // We first check if the given email is in the above list.
+    if (users.find(email) != users.end())
+    {
+        // If it is, we return the password belonging to the email.
+        return users[email];
+    }
+
+    // Otherwise we throw a logic error.
+    throw std::runtime_error("Login failed.");
+}
 
 /**
  * @brief Lookup table for details available about the business.
@@ -66,7 +92,7 @@ const bool isPackage(std::string id)
     };
 
     // We determine if the given ID is actually a valid package ID by looking it up on the above vector.
-    return (std::find(packages.begin(), packages.end(), id) != packages.end());
+    return inList(id, packages);
 }
 
 /**

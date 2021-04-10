@@ -2,13 +2,14 @@
  * @file main.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundementals Assignment).
- * @version 1.4.2
+ * @version 2.0.1
  * @date 2021-02-20
  *
  * @copyright Copyright (c) 2021
  *
  */
 
+#include "include/auth.h"
 #include "include/bill.h"
 #include "include/details.h"
 #include "include/invoice.h"
@@ -30,9 +31,19 @@ int main(int argc, char const *argv[])
 {
     // We first define a variable to store the user's choice in.
     int choice = 0;
+    bool authenticated = false;
 
     // Then, we display a welcome message to the user.
     printf("Welcome to Rathnayaka GYMS.\n");
+
+    // Authentication menu on loop (wait for user to enter correct credentials).
+    do
+    {
+        // We ask for the user's email address and password, then run them through
+        // some checks to see if they are valid and authorized to give access to.
+        // If they are, we log the user in to the application.
+        authenticated = login(); // This function is found in "auth.cpp"
+    } while (authenticated == 0);
 
     // Menu on loop (wait for user to choose an option).
     do
@@ -52,6 +63,12 @@ int main(int argc, char const *argv[])
             // Then using the bill details we generate an invoice and display it to the user.
             generateInvoice(details); // This function is found in "invoice.cpp"
         }
+        else if (choice == 5)
+        {
+            // If the user chooses to exit the appliction by choosing no. 5, we
+            // break the loop and end the execution of the program.
+            break;
+        }
         else
         {
             // Otherwise, we get the details of packages, supplements, and about details.
@@ -59,7 +76,10 @@ int main(int argc, char const *argv[])
         }
 
         // We loops back and asks for the user input given that the user choice is within bounds.
-    } while (inRange(choice, 0, 4)); // This function is found in "utils.cpp"
+    } while (true); // This function is found in "utils.cpp"
+
+    // We will log the user out before we exit the application.
+    authenticated = false;
 
     // We finally thank the user and end the execution of the program.
     printf("Thank you for visiting us! Please come again.\n");
