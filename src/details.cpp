@@ -33,10 +33,10 @@ std::string authUserLookup(std::string email)
     };
 
     // We first check if the given email is in the above list.
-    if (users.find(email) == users.end())
+    if (users.find(email) != users.end())
     {
         // If it is, we return the password belonging to the email.
-        return users["email"];
+        return users[email];
     }
 
     // Otherwise we throw a logic error.

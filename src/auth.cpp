@@ -23,7 +23,7 @@
  * @return true
  * @return false
  */
-const bool authenticate(std::map<std::string, std::string> &credentials)
+bool authenticate(std::map<std::string, std::string> &credentials)
 {
     try
     {
@@ -64,6 +64,7 @@ bool login()
     std::cin >> email;
     printf("Enter your password: ");
     std::cin >> password;
+    printf("\n");
 
     credentials.insert(std::make_pair("email", email));
     credentials.insert(std::make_pair("password", password));

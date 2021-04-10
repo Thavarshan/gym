@@ -43,7 +43,7 @@ int main(int argc, char const *argv[])
         // some checks to see if they are valid and authorized to give access to.
         // If they are, we log the user in to the application.
         authenticated = login(); // This function is found in "auth.cpp"
-    } while (authenticated);
+    } while (authenticated == 0);
 
     // Menu on loop (wait for user to choose an option).
     do

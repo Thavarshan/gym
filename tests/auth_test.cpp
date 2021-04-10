@@ -1,18 +1,31 @@
 #include "../src/include/auth.h"
+#include "../src/include/details.h"
 #include "gtest/gtest.h"
 #include <map>
 #include <string>
 
+TEST(AuthTest, AuthUserLookup)
+{
+    std::map<std::string, std::string> users{
+        {"tjthavarshan@gmail.com", "iforgetmypasswords"},
+        {"john@example.com", "jumpinthroughhoops"},
+    };
+
+    EXPECT_EQ("iforgetmypasswords", authUserLookup("tjthavarshan@gmail.com"));
+}
+
 TEST(AuthTest, AuthenticateUser)
 {
     std::map<std::string, std::string> correctCredentials{
-        {"tjthavarshan@gmail.com", "iforgetmypasswords"},
+        {"email", "tjthavarshan@gmail.com"},
+        {"password", "iforgetmypasswords"},
     };
 
     std::map<std::string, std::string> incorrectCredentials{
-        {"thavarshan@gmail.com", "iremembermypasswords"},
+        {"email", "jane@example.com"},
+        {"password", "iremembermypasswords"},
     };
 
     EXPECT_TRUE(authenticate(correctCredentials));
-    EXPECT_TRUE(authenticate(incorrectCredentials));
+    EXPECT_FALSE(authenticate(incorrectCredentials));
 }
