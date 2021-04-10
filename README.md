@@ -1,5 +1,24 @@
 # Rathnayake Gym Application
 
+- [Rathnayake Gym Application](#rathnayake-gym-application)
+  - [Introduction](#introduction)
+      - [Basic functions of the app](#basic-functions-of-the-app)
+  - [Usage](#usage)
+      - [How to use the app](#how-to-use-the-app)
+      - [How To Inspect The Source Code](#how-to-inspect-the-source-code)
+        - [Useful Links](#useful-links)
+  - [Development](#development)
+    - [Tools & IDE](#tools--ide)
+    - [Unit Testing](#unit-testing)
+    - [Continuous Integration (CI)](#continuous-integration-ci)
+      - [What is CI?](#what-is-ci)
+      - [Implementation](#implementation)
+    - [Code Analysis](#code-analysis)
+      - [What is Static Code Analysis](#what-is-static-code-analysis)
+      - [Implementation](#implementation-1)
+    - [Releases](#releases)
+      - [Semantic Versioning](#semantic-versioning)
+
 ## Introduction
 
 Rathnayaka GYMS is a fitness center that has been grown rapidly throughout the country. They provide a quality healthcare service and give their members control over their health is paramount at all Rathnayaka GYMS. They help members prevent and overcome degenerative diseases, achieve their optimum fitness goals, realize personal lifestyle development objectives, and rehabilitate them into good health. This is accomplished by designing exercise programs that are effective, efficient, and motivational.
@@ -33,7 +52,13 @@ If you are on a Windows machine you can directly double click on and open the `a
 
 > Please make sure that the `details` and `invoices` directories are located right next to both `app` and `app.exe` executables inside the `app` directory. These directories are essential for the application to function properly.
 
-Once the application is run you should be able to see a menu with a list of actions for you to choose from and an input prompting for your action choice. Type in the relative number associated with the action you would like to perform on to the prompt and press `enter`.
+Once the application is running you will be prompted to log in to the system by entering a valid email address and password. Use the below provided for the test run:
+
+| Email                | Password        |
+|----------------------|-----------------|
+| john@example.com     | cattleFarmer123 |
+
+After you have been logged in you should be able to see a menu with a list of actions for you to choose from and an input prompting for your action choice. Type in the relative number associated with the action you would like to perform on to the prompt and press `enter`.
 
 Upon choice of an action relating to "view details", the application will display relevant details on the screen. These details are accessed from the `details` directory located next to the executable file itself.
 
