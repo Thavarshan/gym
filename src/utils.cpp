@@ -2,7 +2,7 @@
  * @file utils.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundementals Assignment).
- * @version 2.0.1
+ * @version 2.5.4
  * @date 2021-02-20
  *
  * @copyright Copyright (c) 2021
@@ -13,8 +13,50 @@
 #include <algorithm>
 #include <fstream>
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <vector>
+
+/**
+ * @brief Split a string by a string.
+ *
+ * @param text
+ * @param delimeter
+ * @return std::vector<std::string>
+ */
+std::vector<std::string> explode(const std::string &text, const char &delimeter)
+{
+    std::string next;
+    std::vector<std::string> result;
+
+    // For each character in the string
+    for (std::string::const_iterator iterator = text.begin(); iterator != text.end(); iterator++)
+    {
+        // If we've hit the terminal character
+        if (*iterator == delimeter)
+        {
+            // If we have some characters accumulated
+            if (!next.empty())
+            {
+                // Add them to the result vector
+                result.push_back(next);
+                next.clear();
+            }
+        }
+        else
+        {
+            // Accumulate the next character into the sequence
+            next += *iterator;
+        }
+    }
+
+    if (!next.empty())
+    {
+        result.push_back(next);
+    }
+
+    return result;
+}
 
 /**
  * @brief Ask name from the user.
@@ -129,8 +171,10 @@ void writeFile(std::string file, std::string content)
  *
  * @param file
  */
-void readFile(std::string file)
+std::string readFile(std::string file)
 {
+    std::string data;
+
     // We first determine whether the given file exists.
     if (!fileExists(file))
     {
@@ -144,10 +188,14 @@ void readFile(std::string file)
     // We determine whether the file is open and is accessible.
     if (dataFile.is_open())
     {
-        // If it is, we read the contents from the file and display it to the screen.
-        std::cout << dataFile.rdbuf() << std::endl;
+        // If it is, we read the contents from the file and save it to a variable.
+        std::ostringstream stringStream;
+        stringStream << dataFile.rdbuf();
+        data = stringStream.str();
     }
 
     // Again we need to make sure to close the file system service.
     dataFile.close();
+
+    return data;
 }

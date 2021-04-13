@@ -2,21 +2,33 @@
  * @file details.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka Gym Application (ICBT Batch 95 - Programming Fundementals Assignment).
- * @version 2.0.1
+ * @version 2.5.4
  * @date 2021-02-20
  *
  * @copyright Copyright (c) 2021
  *
  */
 
+#include "include/details.h"
 #include "include/utils.h"
 #include <algorithm>
+#include <cstdio>
 #include <exception>
 #include <iostream>
 #include <map>
 #include <stdexcept>
 #include <string>
 #include <vector>
+
+/**
+ * @brief Package registry.
+ */
+std::map<std::string, struct Package> registry;
+
+/**
+ * @brief Authenticatable users.
+ */
+std::map<std::string, std::string> users;
 
 /**
  * @brief Get the password of the given email address.
@@ -26,12 +38,6 @@
  */
 std::string authUserLookup(std::string email)
 {
-    // A list of authenticatable users.
-    std::map<std::string, std::string> users{
-        {"john@example.com", "cattleFarmer123"},
-        {"tjthavarshan@gmail.com", "iforgetmypasswords"},
-    };
-
     // We first check if the given email is in the above list.
     if (users.find(email) != users.end())
     {
@@ -72,27 +78,40 @@ std::string details(int index)
  */
 const bool isPackage(std::string id)
 {
-    // A list of only IDs of all packages available to purchase including the ID of a "null" purchase.
-    std::vector<std::string> packages{
-        "no",
-        "No",
-        "N/A",
-        "PKGDT001",
-        "PKGDT002",
-        "PKGDT003",
-        "PKGDT004",
-        "PKGDT005",
-        "ITMP001",
-        "ITMB002",
-        "ITMB003",
-        "ITMF004",
-        "ITMC005",
-        "ITMS006",
-        "ITMG007",
-    };
+    // We determine if the given ID is actually a valid package ID by looking it up on the package registry.
+    return registry.find(id) != registry.end();
+}
 
-    // We determine if the given ID is actually a valid package ID by looking it up on the above vector.
-    return inList(id, packages);
+/**
+ * @brief Lookup a specific detail about the package with the given ID.
+ *
+ * @param key
+ * @param id
+ * @return std::string
+ */
+std::string packageDetailLookup(std::string key, std::string id)
+{
+    std::string item;
+
+    if (key == "price")
+    {
+        item = registry[id].price;
+    }
+    else if (key == "name")
+    {
+        item = registry[id].name;
+    }
+    else
+    {
+        throw std::runtime_error("Invalid key provided");
+    }
+
+    if (item.empty())
+    {
+        throw std::runtime_error("Package ID is invalid");
+    }
+
+    return item;
 }
 
 /**
@@ -103,24 +122,7 @@ const bool isPackage(std::string id)
  */
 double packagePriceLookup(std::string id)
 {
-    // A list of package ID and its unit price.
-    std::map<std::string, double> packages{
-        {"N/A", 0.00},
-        {"PKGDT001", 1500.00},
-        {"PKGDT002", 5500.00},
-        {"PKGDT003", 3000.00},
-        {"PKGDT004", 5000.00},
-        {"PKGDT005", 3300.00},
-        {"ITMP001", 4000.00},
-        {"ITMB002", 6000.00},
-        {"ITMB003", 6000.00},
-        {"ITMF004", 3500.00},
-        {"ITMC005", 3000.00},
-        {"ITMS006", 6500.00},
-        {"ITMG007", 20000.00},
-    };
-
-    return packages[id];
+    return std::stod(packageDetailLookup("price", id));
 }
 
 /**
@@ -131,24 +133,7 @@ double packagePriceLookup(std::string id)
  */
 std::string packageNameLookup(std::string id)
 {
-    // A list of package ID and its name.
-    std::map<std::string, std::string> packages{
-        {"N/A", "No supplements"},
-        {"PKGDT001", "DAY WORKOUT"},
-        {"PKGDT002", "EXECUTIVE MEM(FULL)"},
-        {"PKGDT003", "1 MONTH MEMBERSHIP"},
-        {"PKGDT004", "MASTERS MEMBERSHIP OVER 60 Yrs"},
-        {"PKGDT005", "NON-PEAK EXECUTIVE"},
-        {"ITMP001", "PLATINUM (100% CREATINE)"},
-        {"ITMB002", "BEAST AMINOLYTES"},
-        {"ITMB003", "BEAST SUPER SAUNA"},
-        {"ITMF004", "ON FISH OIL (100 SOFT-GELS)"},
-        {"ITMC005", "CREATINE 5000 (60 SERVINGS)"},
-        {"ITMS006", "D-STUNNER ALPHA (30 SERVINGS)"},
-        {"ITMG007", "GOLD STANDARD GAINER 10LBS"},
-    };
-
-    return packages[id];
+    return packageDetailLookup("name", id);
 }
 
 /**
@@ -166,12 +151,12 @@ void getDetails(int choice)
         // get the name of the file the details are stored in, and retrieve
         // the file from the relevant location. Once the file is read the
         // content is printed out to the screen.
-        readFile(details(choice)); // This function is found in "utils.cpp"
+        std::cout << (readFile(details(choice))) << std::endl; // This function is found in "utils.cpp"
     }
     catch (...)
     {
         // In the case no valid choice is found we print out the
         // instaructions on how to properly use the application.
-        readFile(details(0));
+        std::cout << (readFile(details(0))) << std::endl;
     }
 }

@@ -2,7 +2,7 @@
  * @file main.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundementals Assignment).
- * @version 2.0.1
+ * @version 2.5.4
  * @date 2021-02-20
  *
  * @copyright Copyright (c) 2021
@@ -11,6 +11,7 @@
 
 #include "include/auth.h"
 #include "include/bill.h"
+#include "include/db.h"
 #include "include/details.h"
 #include "include/invoice.h"
 #include "include/menus.h"
@@ -29,6 +30,8 @@
  */
 int main(int argc, char const *argv[])
 {
+    loadData();
+
     // We first define a variable to store the user's choice in.
     int choice = 0;
     bool authenticated = false;
@@ -42,7 +45,8 @@ int main(int argc, char const *argv[])
         // We ask for the user's email address and password, then run them through
         // some checks to see if they are valid and authorized to give access to.
         // If they are, we log the user in to the application.
-        authenticated = login(); // This function is found in "auth.cpp"
+        // This function is found in "auth.cpp"
+        authenticated = login();
     } while (authenticated == 0);
 
     // Menu on loop (wait for user to choose an option).

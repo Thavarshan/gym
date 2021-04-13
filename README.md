@@ -83,6 +83,7 @@ The source code follows the below directory structure:
     │   ├── includes/
     │   │   ├── bill.h
     │   │   ├── auth.h
+    │   │   ├── db.h
     │   │   ├── menus.h
     │   │   ├── invoice.h
     │   │   ├── details.h
@@ -90,6 +91,7 @@ The source code follows the below directory structure:
     │   │   └── fort.hpp
     │   ├── main.cpp <- Start here!
     │   ├── auth.cpp
+    │   ├── db.cpp
     │   ├── menus.cpp
     │   ├── invoice.cpp
     │   ├── details.cpp
@@ -109,6 +111,7 @@ The source code follows the below directory structure:
 When inspecting the code please start with the `src` directory and follow the below order.
 
 1. `main.cpp`
+1. `db.cpp`
 2. `auth.cpp`
 3. `menus.cpp`
 4. `details.cpp`
