@@ -57,7 +57,7 @@ Once the application is running you will be prompted to log in to the system by 
 
 | Email                | Password        |
 |----------------------|-----------------|
-| john@example.com     | cattleFarmer123 |
+| staff@gym.com        | password123     |
 
 After you have been logged in you should be able to see a menu with a list of actions for you to choose from and an input prompting for your action choice. Type in the relative number associated with the action you would like to perform on to the prompt and press `enter`.
 
