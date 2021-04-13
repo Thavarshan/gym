@@ -1,9 +1,22 @@
 #include "../src/include/bill.h"
+#include "../src/include/details.h"
 #include "gtest/gtest.h"
 #include <string>
 
 TEST(BillTest, MakePurchaseWithDiscount)
 {
+    struct Package record1;
+    struct Package record2;
+
+    record1.name = "DAY WORKOUT";
+    record1.price = "1500";
+
+    record2.name = "BEAST AMINOLYTES";
+    record2.price = "4000";
+
+    registry.insert(std::make_pair("PKGDT001", record1));
+    registry.insert(std::make_pair("ITMP001", record2));
+
     std::map<std::string, int> choices{{"PKGDT001", 1}, {"ITMP001", 1}};
     std::map<std::string, double> details{
         {"PKGDT001", 1},
@@ -18,6 +31,18 @@ TEST(BillTest, MakePurchaseWithDiscount)
 
 TEST(BillTest, makePurchaseWithoutDiscount)
 {
+    struct Package record1;
+    struct Package record2;
+
+    record1.name = "DAY WORKOUT";
+    record1.price = "1500";
+
+    record2.name = "No supplements";
+    record2.price = "0";
+
+    registry.insert(std::make_pair("PKGDT001", record1));
+    registry.insert(std::make_pair("N/A", record2));
+
     std::map<std::string, int> choices{{"PKGDT001", 1}, {"N/A", 0}};
     std::map<std::string, double> details{
         {"PKGDT001", 1},

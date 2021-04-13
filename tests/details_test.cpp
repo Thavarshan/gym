@@ -1,5 +1,7 @@
 #include "../src/include/details.h"
 #include "gtest/gtest.h"
+#include <exception>
+#include <stdexcept>
 
 TEST(DetailsTest, GetDetailsAccordingToIndex)
 {
@@ -26,5 +28,18 @@ TEST(DetailsTest, LookupPackageNames)
 {
     EXPECT_EQ("DAY WORKOUT", packageNameLookup("PKGDT001"));
     EXPECT_EQ("No supplements", packageNameLookup("N/A"));
-    EXPECT_NE("FAKE PACKAGE NAME", packageNameLookup("PKGDT002"));
+
+    try
+    {
+        packageNameLookup("PKGDT002");
+        FAIL() << "Expected std::runtime_error";
+    }
+    catch (std::runtime_error const &err)
+    {
+        EXPECT_EQ(err.what(), std::string("Package ID is invalid"));
+    }
+    catch (...)
+    {
+        FAIL() << "Expected std::runtime_error";
+    }
 }

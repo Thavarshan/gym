@@ -6,16 +6,15 @@
 
 TEST(AuthTest, AuthUserLookup)
 {
-    std::map<std::string, std::string> users{
-        {"tjthavarshan@gmail.com", "iforgetmypasswords"},
-        {"john@example.com", "jumpinthroughhoops"},
-    };
+    users.insert(std::make_pair("tjthavarshan@gmail.com", "iforgetmypasswords"));
 
     EXPECT_EQ("iforgetmypasswords", authUserLookup("tjthavarshan@gmail.com"));
 }
 
 TEST(AuthTest, AuthenticateUser)
 {
+    users.insert(std::make_pair("tjthavarshan@gmail.com", "iforgetmypasswords"));
+
     std::map<std::string, std::string> correctCredentials{
         {"email", "tjthavarshan@gmail.com"},
         {"password", "iforgetmypasswords"},
