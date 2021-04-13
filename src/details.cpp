@@ -91,23 +91,32 @@ const bool isPackage(std::string id)
  */
 std::string packageDetailLookup(std::string key, std::string id)
 {
+    // This variable will be used to store and return the requested data.
     std::string item;
 
+    // We first check if the key they have provided is valid. Valid key's used by
+    // the package structure are, "price" and "name".
     if (key == "price")
     {
+        // We access the structure and save the value to the variable defined.
         item = registry[id].price;
     }
     else if (key == "name")
     {
+        // We access the structure and save the value to the variable defined.
         item = registry[id].name;
     }
     else
     {
+        // In the case an invalid key is provided be throw an error
+        // pointing out exactly what the user did wrong.
         throw std::runtime_error("Invalid key provided");
     }
 
+    // We also have to check if the provided key has any value within the registry.
     if (item.empty())
     {
+        // If not we do the same and throw an error.
         throw std::runtime_error("Package ID is invalid");
     }
 
@@ -122,6 +131,7 @@ std::string packageDetailLookup(std::string key, std::string id)
  */
 double packagePriceLookup(std::string id)
 {
+    // We will check and return package price details.
     return std::stod(packageDetailLookup("price", id));
 }
 
@@ -133,6 +143,7 @@ double packagePriceLookup(std::string id)
  */
 std::string packageNameLookup(std::string id)
 {
+    // We will check and return package name details.
     return packageDetailLookup("name", id);
 }
 

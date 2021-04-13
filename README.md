@@ -27,6 +27,7 @@ Due to the increasing number of members, they have planned to automate their bil
 
 #### Basic functions of the app
 
+- File based database
 - Authenticate allowable users
 - View fitness package details
 - View food supplement details
@@ -35,7 +36,7 @@ Due to the increasing number of members, they have planned to automate their bil
 
 ## Usage
 
-Please download the latest release of the application form [here](https://github.com/Thavarshan/gym-app/releases/download/v2.0.1/app.zip). Once downloaded you should find a directory named `app`. Inside the `app` directory you will find the following executables and directories.
+Please download the latest release of the application form [here](https://github.com/Thavarshan/gym-app/releases/download/v2.5.4/app.zip). Once downloaded you should find a directory named `app`. Inside the `app` directory you will find the following executables and directories.
 
 - app - Unix executable.
 - app.exe - Windows executable.
@@ -111,13 +112,13 @@ The source code follows the below directory structure:
 When inspecting the code please start with the `src` directory and follow the below order.
 
 1. `main.cpp`
-1. `db.cpp`
-2. `auth.cpp`
-3. `menus.cpp`
-4. `details.cpp`
-5. `bill.cpp`
-6. `utils.cpp`
-7. `invoice.cpp`
+2. `db.cpp`
+3. `auth.cpp`
+4. `menus.cpp`
+5. `details.cpp`
+6. `bill.cpp`
+7. `utils.cpp`
+8. `invoice.cpp`
 
 > The relevant header files are located within the `include` directory inside the `src` directory.
 
@@ -198,6 +199,6 @@ Similar to static code analysis service the CI pipeline also performs an action 
 
 Semantic versioning is a formal convention for specifying compatibility using a three-part version number: major version; minor version; and patch.
 
-The application is released based on semantic versioning and is available for download [here](https://github.com/Thavarshan/gym-app/releases/download/v2.0.1/app.zip).
+The application is released based on semantic versioning and is available for download [here](https://github.com/Thavarshan/gym-app/releases/download/v2.5.4/app.zip).
 
 > This application and project as a whole was developed and is maintained by [**Thavarshan Thayananthajothy**](mailto:tjthavarshan@gmail.com).

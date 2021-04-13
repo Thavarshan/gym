@@ -27,8 +27,8 @@ bool authenticate(std::map<std::string, std::string> &credentials)
 {
     try
     {
-        // We authenticate the user by checking if the given email address is in the list if
-        // authorized personale allowed to use this application.
+        // We authenticate the user by checking if the given email address is in
+        // the list if authorized personale allowed to use this application.
         std::string password = authUserLookup(credentials["email"]);
 
         // We then run a secondary check to see if the password they have provided
@@ -54,6 +54,9 @@ bool authenticate(std::map<std::string, std::string> &credentials)
  */
 bool login()
 {
+    // These variables will be used to store the user's email and
+    // password inputs. Aswell as the combination of both so
+    // they can be passed between modules as a pair.
     std::string email, password;
     std::map<std::string, std::string> credentials;
 
@@ -66,8 +69,12 @@ bool login()
     std::cin >> password;
     printf("\n");
 
+    // We will save the user's inputs as a key, value pair
+    // so we can distinguish between both credentials.
     credentials.insert(std::make_pair("email", email));
     credentials.insert(std::make_pair("password", password));
 
+    // We will now try to validate the user input details and
+    // attempt to authenticate the user into the application.
     return authenticate(credentials);
 }

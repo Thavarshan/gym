@@ -30,9 +30,13 @@
  */
 int main(int argc, char const *argv[])
 {
-    loadData();
+    // We first load all the necessary data for the application. This data is
+    // loaded from "build/details/packages.csv" and "build/details/users.csv".
+    // This will act as our database.
+    loadData(); // This function is found in "db.cpp"
 
-    // We first define a variable to store the user's choice in.
+    // We then define a variable to store the user's choice and another to
+    // indicate whether the user has been authenticated in to the app.
     int choice = 0;
     bool authenticated = false;
 
@@ -45,8 +49,7 @@ int main(int argc, char const *argv[])
         // We ask for the user's email address and password, then run them through
         // some checks to see if they are valid and authorized to give access to.
         // If they are, we log the user in to the application.
-        // This function is found in "auth.cpp"
-        authenticated = login();
+        authenticated = login(); // This function is found in "auth.cpp"
     } while (authenticated == 0);
 
     // Menu on loop (wait for user to choose an option).
@@ -84,6 +87,9 @@ int main(int argc, char const *argv[])
 
     // We will log the user out before we exit the application.
     authenticated = false;
+
+    // We also have to release the memory we used to store the application data.
+    terminateDatabase();
 
     // We finally thank the user and end the execution of the program.
     printf("Thank you for visiting us! Please come again.\n");
