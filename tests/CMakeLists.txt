@@ -3,6 +3,7 @@ set_property(TARGET app PROPERTY CXX_STANDARD 17)
 
 file(GLOB src CONFIGURE_DEPENDS
     "../src/utils.cpp"
+    "../src/db.cpp"
     "../src/bill.cpp"
     "../src/details.cpp"
     "../src/auth.cpp"

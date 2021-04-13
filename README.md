@@ -1,5 +1,24 @@
 # Rathnayake Gym Application
 
+- [Rathnayake Gym Application](#rathnayake-gym-application)
+  - [Introduction](#introduction)
+      - [Basic functions of the app](#basic-functions-of-the-app)
+  - [Usage](#usage)
+      - [How to use the app](#how-to-use-the-app)
+      - [How To Inspect The Source Code](#how-to-inspect-the-source-code)
+        - [Useful Links](#useful-links)
+  - [Development](#development)
+    - [Tools & IDE](#tools--ide)
+    - [Unit Testing](#unit-testing)
+    - [Continuous Integration (CI)](#continuous-integration-ci)
+      - [What is CI?](#what-is-ci)
+      - [Implementation](#implementation)
+    - [Code Analysis](#code-analysis)
+      - [What is Static Code Analysis](#what-is-static-code-analysis)
+      - [Implementation](#implementation-1)
+    - [Releases](#releases)
+      - [Semantic Versioning](#semantic-versioning)
+
 ## Introduction
 
 Rathnayaka GYMS is a fitness center that has been grown rapidly throughout the country. They provide a quality healthcare service and give their members control over their health is paramount at all Rathnayaka GYMS. They help members prevent and overcome degenerative diseases, achieve their optimum fitness goals, realize personal lifestyle development objectives, and rehabilitate them into good health. This is accomplished by designing exercise programs that are effective, efficient, and motivational.
@@ -8,6 +27,7 @@ Due to the increasing number of members, they have planned to automate their bil
 
 #### Basic functions of the app
 
+- File based database
 - Authenticate allowable users
 - View fitness package details
 - View food supplement details
@@ -16,7 +36,7 @@ Due to the increasing number of members, they have planned to automate their bil
 
 ## Usage
 
-Please download the latest release of the application form [here](https://github.com/Thavarshan/gym-app/releases/download/v2.0.1/app.zip). Once downloaded you should find a directory named `app`. Inside the `app` directory you will find the following executables and directories.
+Please download the latest release of the application form [here](https://github.com/Thavarshan/gym-app/releases/download/v2.5.4/app.zip). Once downloaded you should find a directory named `app`. Inside the `app` directory you will find the following executables and directories.
 
 - app - Unix executable.
 - app.exe - Windows executable.
@@ -33,7 +53,13 @@ If you are on a Windows machine you can directly double click on and open the `a
 
 > Please make sure that the `details` and `invoices` directories are located right next to both `app` and `app.exe` executables inside the `app` directory. These directories are essential for the application to function properly.
 
-Once the application is run you should be able to see a menu with a list of actions for you to choose from and an input prompting for your action choice. Type in the relative number associated with the action you would like to perform on to the prompt and press `enter`.
+Once the application is running you will be prompted to log in to the system by entering a valid email address and password. Use the below provided for the test run:
+
+| Email                | Password        |
+|----------------------|-----------------|
+| john@example.com     | cattleFarmer123 |
+
+After you have been logged in you should be able to see a menu with a list of actions for you to choose from and an input prompting for your action choice. Type in the relative number associated with the action you would like to perform on to the prompt and press `enter`.
 
 Upon choice of an action relating to "view details", the application will display relevant details on the screen. These details are accessed from the `details` directory located next to the executable file itself.
 
@@ -58,6 +84,7 @@ The source code follows the below directory structure:
     │   ├── includes/
     │   │   ├── bill.h
     │   │   ├── auth.h
+    │   │   ├── db.h
     │   │   ├── menus.h
     │   │   ├── invoice.h
     │   │   ├── details.h
@@ -65,6 +92,7 @@ The source code follows the below directory structure:
     │   │   └── fort.hpp
     │   ├── main.cpp <- Start here!
     │   ├── auth.cpp
+    │   ├── db.cpp
     │   ├── menus.cpp
     │   ├── invoice.cpp
     │   ├── details.cpp
@@ -84,12 +112,13 @@ The source code follows the below directory structure:
 When inspecting the code please start with the `src` directory and follow the below order.
 
 1. `main.cpp`
-2. `auth.cpp`
-3. `menus.cpp`
-4. `details.cpp`
-5. `bill.cpp`
-6. `utils.cpp`
-7. `invoice.cpp`
+2. `db.cpp`
+3. `auth.cpp`
+4. `menus.cpp`
+5. `details.cpp`
+6. `bill.cpp`
+7. `utils.cpp`
+8. `invoice.cpp`
 
 > The relevant header files are located within the `include` directory inside the `src` directory.
 
@@ -170,6 +199,6 @@ Similar to static code analysis service the CI pipeline also performs an action 
 
 Semantic versioning is a formal convention for specifying compatibility using a three-part version number: major version; minor version; and patch.
 
-The application is released based on semantic versioning and is available for download [here](https://github.com/Thavarshan/gym-app/releases/download/v2.0.1/app.zip).
+The application is released based on semantic versioning and is available for download [here](https://github.com/Thavarshan/gym-app/releases/download/v2.5.4/app.zip).
 
 > This application and project as a whole was developed and is maintained by [**Thavarshan Thayananthajothy**](mailto:tjthavarshan@gmail.com).

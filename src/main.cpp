@@ -2,7 +2,7 @@
  * @file main.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundementals Assignment).
- * @version 2.0.1
+ * @version 2.5.4
  * @date 2021-02-20
  *
  * @copyright Copyright (c) 2021
@@ -11,6 +11,7 @@
 
 #include "include/auth.h"
 #include "include/bill.h"
+#include "include/db.h"
 #include "include/details.h"
 #include "include/invoice.h"
 #include "include/menus.h"
@@ -29,7 +30,13 @@
  */
 int main(int argc, char const *argv[])
 {
-    // We first define a variable to store the user's choice in.
+    // We first load all the necessary data for the application. This data is
+    // loaded from "build/details/packages.csv" and "build/details/users.csv".
+    // This will act as our database.
+    loadData(); // This function is found in "db.cpp"
+
+    // We then define a variable to store the user's choice and another to
+    // indicate whether the user has been authenticated in to the app.
     int choice = 0;
     bool authenticated = false;
 
@@ -80,6 +87,9 @@ int main(int argc, char const *argv[])
 
     // We will log the user out before we exit the application.
     authenticated = false;
+
+    // We also have to release the memory we used to store the application data.
+    terminateDatabase();
 
     // We finally thank the user and end the execution of the program.
     printf("Thank you for visiting us! Please come again.\n");
