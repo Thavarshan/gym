@@ -2,10 +2,10 @@
 
 - [Rathnayake Gym Application](#rathnayake-gym-application)
   - [Introduction](#introduction)
-      - [Basic functions of the app](#basic-functions-of-the-app)
+      - [Basic Functions of the App](#basic-functions-of-the-app)
   - [Usage](#usage)
-      - [How to use the app](#how-to-use-the-app)
-      - [How To Inspect The Source Code](#how-to-inspect-the-source-code)
+      - [How to Use the App](#how-to-use-the-app)
+      - [How to Inspect the Source Code](#how-to-inspect-the-source-code)
         - [Useful Links](#useful-links)
   - [Development](#development)
     - [Tools & IDE](#tools--ide)
@@ -25,7 +25,7 @@ Rathnayaka GYMS is a fitness center that has been grown rapidly throughout the c
 
 Due to the increasing number of members, they have planned to automate their billing process. Imagine that you are a software developer in this project and design and develop a system for Rathnayaka GYMS.
 
-#### Basic functions of the app
+#### Basic Functions of the App
 
 - File based database
 - Authenticate allowable users
@@ -37,14 +37,14 @@ Due to the increasing number of members, they have planned to automate their bil
 
 ## Usage
 
-Please download the latest release of the application form [here](https://github.com/Thavarshan/gym-app/releases/download/v2.5.5/app.zip). Once downloaded you should find a directory named `app`. Inside the `app` directory you will find the following executables and directories.
+Please download the latest release of the application form [here](https://github.com/Thavarshan/gym-app/releases/download/v2.5.6/app.zip). Once downloaded you should find a directory named `app`. Inside the `app` directory you will find the following executables and directories.
 
 - app - Unix executable.
 - app.exe - Windows executable.
 - invoices - Directory where invoices generated after each purchase is stored.
 - details - Details regarding packages and business are stored and accessed by the app.
 
-#### How to use the app
+#### How to Use the App
 
 If you are on a Windows machine you can directly double click on and open the `app.exe` file and the application should startup on a terminal screen. It is recommended that the `app.exe` be run through a `terminal` app like `Powershell` on Windows. If you are on a Linux or Mac machine you need to access the `app` directory through your `terminal` application and run the `app` executable file through the `treminal` application by running the command:
 
@@ -74,7 +74,7 @@ Finally, the bill amount and relevant charges are calculated and an invoice is g
 
 The invoice is also written to a file and saved within the `invoices` directory for use by the business.
 
-#### How To Inspect The Source Code
+#### How to Inspect the Source Code
 
 The source code follows the below directory structure:
 
@@ -200,6 +200,6 @@ Similar to static code analysis service the CI pipeline also performs an action 
 
 Semantic versioning is a formal convention for specifying compatibility using a three-part version number: major version; minor version; and patch.
 
-The application is released based on semantic versioning and is available for download [here](https://github.com/Thavarshan/gym-app/releases/download/v2.5.5/app.zip).
+The application is released based on semantic versioning and is available for download [here](https://github.com/Thavarshan/gym-app/releases/download/v2.5.6/app.zip).
 
 > This application and project as a whole was developed and is maintained by [**Thavarshan Thayananthajothy**](mailto:tjthavarshan@gmail.com).
