@@ -135,6 +135,10 @@ void terminateDatabase()
 {
     // We must clear out the map data structures we used
     // to store package and user related information.
+
+    // We first clear product related details.
     registry.clear();
+
+    // Followed by clearing the user related information.
     users.clear();
 }
