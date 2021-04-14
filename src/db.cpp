@@ -1,8 +1,8 @@
 /**
  * @file db.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
- * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundementals Assignment).
- * @version 2.5.4
+ * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundamentals Assignment).
+ * @version 2.5.5
  * @date 2021-02-20
  *
  * @copyright Copyright (c) 2021
@@ -33,7 +33,7 @@ void loadPackageData(std::string dataFile)
     std::string line, records;
 
     // We then read the csv files and store then in string format.
-    records = readFile(dataFile);
+    records = readFile(dataFile); // This function is found in "utils.cpp"
 
     // We then convert the data into a string stream so it can then
     // be parsed into the format we require the data to be in.
@@ -42,9 +42,9 @@ void loadPackageData(std::string dataFile)
     // We now iterate through the stream line by line.
     while (std::getline(recordStream, line))
     {
-        // Each line contains data that is seperated by commas, so we split the
+        // Each line contains data that is separated by commas, so we split the
         // string into single string components using the commas.
-        std::vector<std::string> result = explode(line, ',');
+        std::vector<std::string> result = explode(line, ','); // This function is found in "utils.cpp"
 
         // The first peice of string is the ID followed by the name and price.
         // Each peice will be split and saved into a structure specifically
@@ -53,7 +53,7 @@ void loadPackageData(std::string dataFile)
         {
             // The appropriate peices will be saved into
             // the structure indexed by the package ID.
-            struct Package record;
+            struct Package record; // This is declared in "details.h"
             record.name = result[1];
             record.price = result[2];
 
@@ -76,7 +76,7 @@ void loadUserData(std::string dataFile)
     std::string line, records;
 
     // We then read the csv files and store then in string format.
-    records = readFile(dataFile);
+    records = readFile(dataFile); // This function is found in "utils.cpp"
 
     // We then convert the data into a string stream so it can then
     // be parsed into the format we require the data to be in.
@@ -85,9 +85,9 @@ void loadUserData(std::string dataFile)
     // We now iterate through the stream line by line.
     while (std::getline(recordStream, line))
     {
-        // Since each line contains data seperated by commas we split the string
+        // Since each line contains data separated by commas we split the string
         // using the commas and each component will be stored accordingly.
-        std::vector<std::string> result = explode(line, ',');
+        std::vector<std::string> result = explode(line, ','); // This function is found in "utils.cpp"
 
         for (size_t i = 0; i < result.size(); i++)
         {

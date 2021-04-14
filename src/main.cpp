@@ -1,8 +1,8 @@
 /**
  * @file main.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
- * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundementals Assignment).
- * @version 2.5.4
+ * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundamentals Assignment).
+ * @version 2.5.5
  * @date 2021-02-20
  *
  * @copyright Copyright (c) 2021
@@ -89,7 +89,7 @@ int main(int argc, char const *argv[])
     authenticated = false;
 
     // We also have to release the memory we used to store the application data.
-    terminateDatabase();
+    terminateDatabase(); // This function is found in "db.cpp"
 
     // We finally thank the user and end the execution of the program.
     printf("Thank you for visiting us! Please come again.\n");

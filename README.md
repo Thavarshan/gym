@@ -33,10 +33,11 @@ Due to the increasing number of members, they have planned to automate their bil
 - View food supplement details
 - Calculate bill for invoice
 - Information about business
+- Multi platform support (Windows, Linux, Mac OS)
 
 ## Usage
 
-Please download the latest release of the application form [here](https://github.com/Thavarshan/gym-app/releases/download/v2.5.4/app.zip). Once downloaded you should find a directory named `app`. Inside the `app` directory you will find the following executables and directories.
+Please download the latest release of the application form [here](https://github.com/Thavarshan/gym-app/releases/download/v2.5.5/app.zip). Once downloaded you should find a directory named `app`. Inside the `app` directory you will find the following executables and directories.
 
 - app - Unix executable.
 - app.exe - Windows executable.
@@ -173,7 +174,7 @@ Continuous integration is a coding philosophy and set of practices that drive de
 
 The free service of CI provided by [Github](https://github.com/) was utilized for the CI pipeline. Every time code is pushed to `Github` a special automated action is run where a cloud droplet / virtual machine hosted on the cloud is propagated and is used to build and test the code in different platforms.
 
-The code is compiled, built, and tested on `Linux`, `Mac` and `Windows` platforms. You can view all CI processes [here](https://github.com/Thavarshan/gym-app/actions).
+The code is compiled, built, and tested on `Linux`, `Mac OS` and `Windows` platforms. You can view all CI processes [here](https://github.com/Thavarshan/gym-app/actions).
 
 Three services are run every time the code is pushed to `Github`.
 
@@ -199,6 +200,6 @@ Similar to static code analysis service the CI pipeline also performs an action 
 
 Semantic versioning is a formal convention for specifying compatibility using a three-part version number: major version; minor version; and patch.
 
-The application is released based on semantic versioning and is available for download [here](https://github.com/Thavarshan/gym-app/releases/download/v2.5.4/app.zip).
+The application is released based on semantic versioning and is available for download [here](https://github.com/Thavarshan/gym-app/releases/download/v2.5.5/app.zip).
 
 > This application and project as a whole was developed and is maintained by [**Thavarshan Thayananthajothy**](mailto:tjthavarshan@gmail.com).

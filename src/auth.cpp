@@ -1,8 +1,8 @@
 /**
  * @file auth.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
- * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundementals Assignment).
- * @version 2.5.4
+ * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundamentals Assignment).
+ * @version 2.5.5
  * @date 2021-02-20
  *
  * @copyright Copyright (c) 2021
@@ -29,7 +29,7 @@ bool authenticate(std::map<std::string, std::string> &credentials)
     {
         // We authenticate the user by checking if the given email address is in
         // the list if authorized personale allowed to use this application.
-        std::string password = authUserLookup(credentials["email"]);
+        std::string password = authUserLookup(credentials["email"]); // This function is found in "details.cpp"
 
         // We then run a secondary check to see if the password they have provided
         // is the one belonging to the email address saved in the list.
@@ -55,7 +55,7 @@ bool authenticate(std::map<std::string, std::string> &credentials)
 bool login()
 {
     // These variables will be used to store the user's email and
-    // password inputs. Aswell as the combination of both so
+    // password inputs. As well as the combination of both so
     // they can be passed between modules as a pair.
     std::string email, password;
     std::map<std::string, std::string> credentials;
