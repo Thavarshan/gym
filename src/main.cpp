@@ -41,7 +41,7 @@ int main(int argc, char const *argv[])
     bool authenticated = false;
 
     // Then, we display a welcome message to the user.
-    showWelcomeMessage();
+    displayMessage("welcome");
 
     // Authentication menu on loop (wait for user to enter correct credentials).
     do
@@ -92,7 +92,7 @@ int main(int argc, char const *argv[])
     terminateDatabase(); // This function is found in "db.cpp"
 
     // We finally thank the user and end the execution of the program.
-    showThankYouMessage();
+    displayMessage("thankyou");
 
     return 0;
 }

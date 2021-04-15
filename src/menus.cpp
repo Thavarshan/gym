@@ -18,19 +18,22 @@
 #include <string>
 
 /**
- * @brief Display a welcome message from the "welcome.txt" file.
+ * @brief Display a welcome/thank you message.
  */
-void showWelcomeMessage()
+void displayMessage(std::string type)
 {
-    std::cout << readFile("./display/welcome.txt") << std::endl;
-}
-
-/**
- * @brief Display a thank you message from the "welcome.txt" file.
- */
-void showThankYouMessage()
-{
-    std::cout << readFile("./display/thankyou.txt") << std::endl;
+    if (type == "welcome")
+    {
+        std::cout << readFile("./display/welcome.txt") << std::endl;
+    }
+    else if (type == "thankyou")
+    {
+        std::cout << readFile("./display/thankyou.txt") << std::endl;
+    }
+    else
+    {
+        std::cout << "Thanks for working with us. We hope you succeed." << std::endl;
+    }
 }
 
 /**

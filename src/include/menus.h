@@ -3,7 +3,6 @@
 #include <map>
 #include <string>
 
-void showWelcomeMessage();
-void showThankYouMessage();
+void displayMessage(std::string type);
 int displayMainMenu();
 std::map<std::string, int> displayPurchaseMenu();
