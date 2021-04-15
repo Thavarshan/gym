@@ -2,7 +2,7 @@
  * @file utils.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundamentals Assignment).
- * @version 2.5.6
+ * @version 2.6.1
  * @date 2021-02-20
  *
  * @copyright Copyright (c) 2021
@@ -13,9 +13,32 @@
 #include <algorithm>
 #include <fstream>
 #include <iostream>
+#include <limits>
 #include <sstream>
 #include <string>
 #include <vector>
+
+/**
+ * @brief Accept only a numeric value from the user.
+ *
+ * @return int
+ */
+int valideInputNumber()
+{
+    int option;
+
+    std::cin >> option;
+
+    while (std::cin.fail())
+    {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Bad entry. Enter a number: ";
+        std::cin >> option;
+    }
+
+    return option;
+}
 
 /**
  * @brief Split a string by a string.

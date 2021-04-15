@@ -1,19 +1,49 @@
 ** How to Use This App **
 
-If you are on a Windows machine you can directly double click on and open the "app.exe" file and the application should startup on a terminal screen. It is recommended that the "app.exe" be run through a `terminal` app like `Powershell` on Windows. If you are on a Linux or Mac machine you need to access the "app" directory through your `terminal` application and one the `app` executable file through the "treminal" application by running: "./app".
-
-* Please make sure that the "details" and "invoices" directories are located right next to both `app` and "app.exe" executables inside the `app` directory. These directories are essential for the application to function properly.
-
-Once the application is run you should be able to see a menu with a list of actions for you to choose from and a input prompting for your action choice. Type in the relative number associated with the action you would like to perform on to the prompt and press "enter".
-
-Upon choice of an action relating to "view details" the application will display relevant details on the screen. These details are accessed from the "details" directory located next to the executable file itself.
-
-If option no. "4" is chosen you will be redirected to another prompt asking for your choice of membership package to purchase. This is followed by another prompt asking how many packages you would like to purchase and yet another similar prompt asking if you would like to purchase any supplement packages to accompany your purchase of a membership package.
-
-Please provide valid "package ID" on both instances you are prompted for a choice otherwise the prompt will loop back and ask again until a valid "package ID" is provided.
-
-Once package and supplements are purchased the application will ask for your name. You can provide your full name with spaces included and the app will capture it as a whole string.
-
-Finally the bill amount and relevant charges are calculated and an invoice is generated and displayed back to you.
-
-The invoice is also written to a file and saved within the "invoices" directory for use by the business.
++---+---------------------------------------------------------------------------+
+|   | Instructions                                                              |
++---+---------------------------------------------------------------------------+
+| 1 | If you are on a Windows machine you can directly double click on          |
+|   | and open the "app.exe" file and the application should startup on         |
+|   | a terminal screen. It is recommended that the "app.exe" be run            |
+|   | through a `terminal` app like `Powershell` on Windows.                    |
+|   |                                                                           |
+|   | If you are on a Linux or Mac machine you need to access the "app"         |
+|   | directory through your `terminal` application and one the `app`           |
+|   | executable file through the "treminal" application                        |
+|   | by running: "./app".                                                      |
++---+---------------------------------------------------------------------------+
+| 2 | Please make sure that the "details" and "invoices" directories are        |
+|   | located right next to both `app` and "app.exe" executables inside         |
+|   | the `app` directory. These directories are essential for the              |
+|   | application to function properly.                                         |
++---+---------------------------------------------------------------------------+
+| 3 | Once the application is run you should be able to see a menu with a       |
+|   | list of actions for you to choose from and a input prompting for your     |
+|   | action choice. Type in the relative number associated with the action     |
+|   | you would like to perform on to the prompt and press "enter".             |
++---+---------------------------------------------------------------------------+
+| 4 | Upon choice of an action relating to "view details" the application will  |
+|   | display relevant details on the screen. These details are accessed from   |
+|   | the "details" directory located next to the executable file itself.       |
++---+---------------------------------------------------------------------------+
+| 5 | If option no. "4" is chosen you will be redirected to another prompt      |
+|   | asking for your choice of membership package to purchase. This is         |
+|   | followed by another prompt asking how many packages you would like        |
+|   | to purchase and yet another similar prompt asking if you would like       |
+|   | to purchase any supplement packages to accompany your purchase of a       |
+|   | membership package.                                                       |
++---+---------------------------------------------------------------------------+
+| 6 | Please provide valid "package ID" on both instances you are prompted      |
+|   | for a choice otherwise the prompt will loop back and ask again until      |
+|   | a valid "package ID" is provided.                                         |
++---+---------------------------------------------------------------------------+
+| 7 | Once package and supplements are purchased the application will ask       |
+|   | for your name. You can provide your full name with spaces included        |
+|   | and the app will capture it as a whole string.                            |
++---+---------------------------------------------------------------------------+
+| 8 | Finally the bill amount and relevant charges are calculated and an        |
+|   | invoice is generated and displayed back to you. The invoice is also       |
+|   | written to a file and saved within the "invoices" directory for           |
+|   | use by the business.                                                      |
++---+---------------------------------------------------------------------------+

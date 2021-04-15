@@ -2,7 +2,7 @@
  * @file main.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundamentals Assignment).
- * @version 2.5.6
+ * @version 2.6.1
  * @date 2021-02-20
  *
  * @copyright Copyright (c) 2021
@@ -41,7 +41,7 @@ int main(int argc, char const *argv[])
     bool authenticated = false;
 
     // Then, we display a welcome message to the user.
-    printf("Welcome to Rathnayaka GYMS.\n");
+    showWelcomeMessage();
 
     // Authentication menu on loop (wait for user to enter correct credentials).
     do
@@ -92,7 +92,7 @@ int main(int argc, char const *argv[])
     terminateDatabase(); // This function is found in "db.cpp"
 
     // We finally thank the user and end the execution of the program.
-    printf("Thank you for visiting us! Please come again.\n");
+    showThankYouMessage();
 
     return 0;
 }
