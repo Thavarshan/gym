@@ -1,5 +1,5 @@
-** Fitness Packages Details - DAY TIME MEMBERSHIP (5AM-5PM) **
-
++-----------------------------------------------------------------------------------+
+|              Fitness Packages Details - DAY TIME MEMBERSHIP (5AM-5PM)             |
 +------------+--------------------------------+-----------------+-------------------+
 | Package ID | Package Name                   | Membership Rate | Introductory Rate |
 +------------+--------------------------------+-----------------+-------------------+

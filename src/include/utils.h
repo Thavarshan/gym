@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 
+int valideInputNumber();
 std::vector<std::string> explode(const std::string &text, const char &delimeter);
 std::string askName();
 const bool inList(std::string element, std::vector<std::string> &list);

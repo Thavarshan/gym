@@ -43,6 +43,7 @@ Please download the latest release of the application form [here](https://github
 - app.exe - Windows executable.
 - invoices - Directory where invoices generated after each purchase is stored.
 - details - Details regarding packages and business are stored and accessed by the app.
+- display - App user interface specific files.
 
 #### How to Use the App
 
@@ -52,13 +53,13 @@ If you are on a Windows machine you can directly double click on and open the `a
 ./app
 ```
 
-> Please make sure that the `details` and `invoices` directories are located right next to both `app` and `app.exe` executables inside the `app` directory. These directories are essential for the application to function properly.
+> Please make sure that the `details`, `display` and `invoices` directories are located right next to both `app` and `app.exe` executables inside the `app` directory. These directories are essential for the application to function properly.
 
 Once the application is running you will be prompted to log in to the system by entering a valid email address and password. Use the below provided for the test run:
 
-| Email                | Password        |
-|----------------------|-----------------|
-| staff@gym.com        | password123     |
+| Email         | Password    |
+|---------------|-------------|
+| staff@gym.com | password123 |
 
 After you have been logged in you should be able to see a menu with a list of actions for you to choose from and an input prompting for your action choice. Type in the relative number associated with the action you would like to perform on to the prompt and press `enter`.
 

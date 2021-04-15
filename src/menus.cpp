@@ -11,10 +11,30 @@
 
 #include "include/menus.h"
 #include "include/details.h"
+#include "include/utils.h"
 #include <iostream>
 #include <limits>
 #include <map>
 #include <string>
+
+/**
+ * @brief Display a welcome/thank you message.
+ */
+void displayMessage(std::string type)
+{
+    if (type == "welcome")
+    {
+        std::cout << readFile("./display/welcome.txt") << std::endl;
+    }
+    else if (type == "thankyou")
+    {
+        std::cout << readFile("./display/thankyou.txt") << std::endl;
+    }
+    else
+    {
+        std::cout << "Thanks for working with us. We hope you succeed." << std::endl;
+    }
+}
 
 /**
  * @brief Show application menu for user to choose what to do next.
@@ -28,24 +48,11 @@ int displayMainMenu()
 
     // We then display a list of choices the user can make.
     printf("\n");
-    printf("What would you like to do?\n");
-    printf("<1> View fitness package details.\n");
-    printf("<2> View food supplement details.\n");
-    printf("<3> More about Rathnayaka Gyms.\n");
-    printf("<4> Purchase packages.\n");
-    printf("<5> Exit application.\n");
+    std::cout << readFile("./display/menu.txt") << std::endl;
     printf("\n");
 
     printf("Please choose an option: ");
-    std::cin >> option;
-
-    while (std::cin.fail())
-    {
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "Bad entry.  Enter a NUMBER: ";
-        std::cin >> option;
-    }
+    option = valideInputNumber();
 
     // The option will be an index that we use to choose which details should be retrieved from
     // a vector of elements containing files with package details as its content.
@@ -81,7 +88,7 @@ std::map<std::string, int> displayPurchaseMenu()
     } while (!isPackage(package)); // This function is found in "details.cpp"
 
     printf("How many would you like to purchase: ");
-    std::cin >> pkgUnits;
+    pkgUnits = valideInputNumber();
 
     // Now we ask for the supplement package choice.
     printf("\n");
@@ -104,7 +111,7 @@ std::map<std::string, int> displayPurchaseMenu()
         // we will proceed by asking them how many
         // units they would like to purchase.
         printf("How many would you like to purchase: ");
-        std::cin >> splUnits;
+        splUnits = valideInputNumber();
     }
     else
     {

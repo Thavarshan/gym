@@ -2,7 +2,7 @@
  * @file db.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundamentals Assignment).
- * @version 2.5.6
+ * @version 2.6.1
  * @date 2021-02-20
  *
  * @copyright Copyright (c) 2021
@@ -135,6 +135,10 @@ void terminateDatabase()
 {
     // We must clear out the map data structures we used
     // to store package and user related information.
+
+    // We first clear product related details.
     registry.clear();
+
+    // Followed by clearing the user related information.
     users.clear();
 }
