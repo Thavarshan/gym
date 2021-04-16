@@ -2,8 +2,8 @@
  * @file menus.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundamentals Assignment).
- * @version 1.4.2
- * @date 2021-02-20
+ * @version 2.6.2
+ * @date 2021-04-16
  *
  * @copyright Copyright (c) 2021
  *
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <limits>
 #include <map>
+#include <stdexcept>
 #include <string>
 
 /**
@@ -22,17 +23,17 @@
  */
 void displayMessage(std::string type)
 {
-    if (type == "welcome")
+    try
     {
-        std::cout << readFile("./display/welcome.txt") << std::endl;
+        // We will try to find the given file in the "display" directory
+        // and if we do find it we will print out it's contents.
+        std::cout << readFile("./display/" + type + ".txt") << std::endl; // This function is found in "utils.cpp"
     }
-    else if (type == "thankyou")
+    catch (const std::runtime_error &e)
     {
-        std::cout << readFile("./display/thankyou.txt") << std::endl;
-    }
-    else
-    {
-        std::cout << "Thanks for working with us. We hope you succeed." << std::endl;
+        // If we don't find the file, a runtime error is thrown and
+        // So, as a fallback measure we print a default message.
+        std::cout << "Thanks for working with us." << std::endl;
     }
 }
 
@@ -48,11 +49,11 @@ int displayMainMenu()
 
     // We then display a list of choices the user can make.
     printf("\n");
-    std::cout << readFile("./display/menu.txt") << std::endl;
+    std::cout << readFile("./display/menu.txt") << std::endl; // This function is found in "utils.cpp"
     printf("\n");
 
     printf("Please choose an option: ");
-    option = valideInputNumber();
+    option = valideInputNumber(); // This function is found in "utils.cpp"
 
     // The option will be an index that we use to choose which details should be retrieved from
     // a vector of elements containing files with package details as its content.
@@ -88,7 +89,7 @@ std::map<std::string, int> displayPurchaseMenu()
     } while (!isPackage(package)); // This function is found in "details.cpp"
 
     printf("How many would you like to purchase: ");
-    pkgUnits = valideInputNumber();
+    pkgUnits = valideInputNumber(); // This function is found in "utils.cpp"
 
     // Now we ask for the supplement package choice.
     printf("\n");
@@ -111,7 +112,7 @@ std::map<std::string, int> displayPurchaseMenu()
         // we will proceed by asking them how many
         // units they would like to purchase.
         printf("How many would you like to purchase: ");
-        splUnits = valideInputNumber();
+        splUnits = valideInputNumber(); // This function is found in "utils.cpp"
     }
     else
     {

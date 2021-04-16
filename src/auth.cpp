@@ -2,8 +2,8 @@
  * @file auth.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundamentals Assignment).
- * @version 2.6.1
- * @date 2021-02-20
+ * @version 2.6.2
+ * @date 2021-04-16
  *
  * @copyright Copyright (c) 2021
  *

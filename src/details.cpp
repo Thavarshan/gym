@@ -2,8 +2,8 @@
  * @file details.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka Gym Application (ICBT Batch 95 - Programming Fundamentals Assignment).
- * @version 2.6.1
- * @date 2021-02-20
+ * @version 2.6.2
+ * @date 2021-04-16
  *
  * @copyright Copyright (c) 2021
  *
@@ -168,6 +168,6 @@ void getDetails(int choice)
     {
         // In the case no valid choice is found we print out the
         // instaructions on how to properly use the application.
-        std::cout << (readFile(details(0))) << std::endl;
+        std::cout << (readFile(details(0))) << std::endl; // This function is found in "utils.cpp"
     }
 }

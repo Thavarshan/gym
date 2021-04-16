@@ -2,8 +2,8 @@
  * @file main.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundamentals Assignment).
- * @version 2.6.1
- * @date 2021-02-20
+ * @version 2.6.2
+ * @date 2021-04-16
  *
  * @copyright Copyright (c) 2021
  *
@@ -41,7 +41,7 @@ int main(int argc, char const *argv[])
     bool authenticated = false;
 
     // Then, we display a welcome message to the user.
-    displayMessage("welcome");
+    displayMessage("welcome"); // This function is found in "menus.cpp"
 
     // Authentication menu on loop (wait for user to enter correct credentials).
     do
@@ -50,7 +50,7 @@ int main(int argc, char const *argv[])
         // some checks to see if they are valid and authorized to give access to.
         // If they are, we log the user in to the application.
         authenticated = login(); // This function is found in "auth.cpp"
-    } while (authenticated == 0);
+    } while (!authenticated);
 
     // Menu on loop (wait for user to choose an option).
     do
@@ -92,7 +92,7 @@ int main(int argc, char const *argv[])
     terminateDatabase(); // This function is found in "db.cpp"
 
     // We finally thank the user and end the execution of the program.
-    displayMessage("thankyou");
+    displayMessage("thankyou"); // This function is found in "menus.cpp"
 
     return 0;
 }

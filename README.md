@@ -37,7 +37,7 @@ Due to the increasing number of members, they have planned to automate their bil
 
 ## Usage
 
-Please download the latest release of the application form [here](https://github.com/Thavarshan/gym-app/releases/download/v2.6.1/app.zip). Once downloaded you should find a directory named `app`. Inside the `app` directory you will find the following executables and directories.
+Please download the latest release of the application form [here](https://github.com/Thavarshan/gym-app/releases/download/v2.6.2/app.zip). Once downloaded you should find a directory named `app`. Inside the `app` directory you will find the following executables and directories.
 
 - app - Unix executable.
 - app.exe - Windows executable.
@@ -201,6 +201,6 @@ Similar to static code analysis service the CI pipeline also performs an action 
 
 Semantic versioning is a formal convention for specifying compatibility using a three-part version number: major version; minor version; and patch.
 
-The application is released based on semantic versioning and is available for download [here](https://github.com/Thavarshan/gym-app/releases/download/v2.6.1/app.zip).
+The application is released based on semantic versioning and is available for download [here](https://github.com/Thavarshan/gym-app/releases/download/v2.6.2/app.zip).
 
 > This application and project as a whole was developed and is maintained by [**Thavarshan Thayananthajothy**](mailto:tjthavarshan@gmail.com).

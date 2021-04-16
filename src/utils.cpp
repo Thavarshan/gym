@@ -2,8 +2,8 @@
  * @file utils.cpp
  * @author Thavarshan Thayananthajothy (tjthavarshan@gmail.com) <CL/HDCSE/95/15>
  * @brief Rathnayaka GYMS Application (ICBT Batch 95 - Programming Fundamentals Assignment).
- * @version 2.6.1
- * @date 2021-02-20
+ * @version 2.6.2
+ * @date 2021-04-16
  *
  * @copyright Copyright (c) 2021
  *
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <limits>
 #include <sstream>
+#include <stdexcept>
 #include <string>
 #include <vector>
 
@@ -25,18 +26,24 @@
  */
 int valideInputNumber()
 {
+    // We define a variable that will hold an integer value.
     int option;
 
+    // We then ask the user for an integer value.
     std::cin >> option;
 
+    // We determine if the given input is a numeric value and
+    // until the requirement is satisfied we will
+    // repeatedly ask for a correct input.
     while (std::cin.fail())
     {
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "Bad entry. Enter a number: ";
+        std::cout << "Bad entry. Please enter a number: ";
         std::cin >> option;
     }
 
+    // Only when the type is correct we return the input value.
     return option;
 }
 
