@@ -1,5 +1,5 @@
-#include "gtest/gtest.h"
 #include "../src/include/db.h"
+#include "gtest/gtest.h"
 
 /**
  * @brief Execute test program.
