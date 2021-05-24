@@ -1,4 +1,4 @@
-# Rathnayake Gym Application
+# Rathnayake Gym Application (Demo)
 
 - [Rathnayake Gym Application](#rathnayake-gym-application)
   - [Introduction](#introduction)
