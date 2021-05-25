@@ -1,7 +1,7 @@
 #include "../src/include/utils.h"
 #include "gtest/gtest.h"
-#include <vector>
 #include <string>
+#include <vector>
 
 TEST(UtilTest, ElementIsInList)
 {

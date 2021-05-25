@@ -27,13 +27,13 @@ Due to the increasing number of members, they have planned to automate their bil
 
 #### Basic Functions of the App
 
-- File based database
+- File-based database
 - Authenticate allowable users
 - View fitness package details
 - View food supplement details
 - Calculate bill for invoice
 - Information about business
-- Multi platform support (Windows, Linux, Mac OS)
+- Multi-platform support (Windows, Linux, Mac OS)
 
 ## Usage
 
@@ -53,7 +53,7 @@ If you are on a Windows machine you can directly double click on and open the `a
 ./app
 ```
 
-> Please make sure that the `details`, `display` and `invoices` directories are located right next to both `app` and `app.exe` executables inside the `app` directory. These directories are essential for the application to function properly.
+> Please make sure that the `details`, `display`, and `invoices` directories are located right next to both `app` and `app.exe` executables inside the `app` directory. These directories are essential for the application to function properly.
 
 Once the application is running you will be prompted to log in to the system by entering a valid email address and password. Use the below provided for the test run:
 
@@ -67,7 +67,7 @@ Upon choice of an action relating to "view details", the application will displa
 
 If option no. **4** is chosen you will be redirected to another prompt asking for your choice of a membership package to purchase. This is followed by another prompt asking how many packages you would like to purchase and yet another similar prompt asking if you would like to purchase any supplement packages to accompany your purchase of a membership package.
 
-Please provide valid `package ID` on both instances you are prompted for a choice otherwise the prompt will loop back and ask again until a valid `package ID` is provided.
+Please provide a valid `package ID` on both instances you are prompted for a choice otherwise the prompt will loop back and ask again until a valid `package ID` is provided.
 
 Once the package and supplements are purchased the application will ask for your name. You can provide your full name with spaces included and the app will capture it as a whole string.
 
@@ -124,7 +124,7 @@ When inspecting the code please start with the `src` directory and follow the be
 
 > The relevant header files are located within the `include` directory inside the `src` directory.
 
-The source code is also stored on [`Github`](https://github.com/) at [`Thavarshan/gym-app`](https://github.com/Thavarshan/gym-app) for storage, version management and CI/CD purposes. All unit test files are found within the `tests` directory and the testing framework itself is found inside the `googletest` directory.
+The source code is also stored on [`Github`](https://github.com/) at [`Thavarshan/gym-app`](https://github.com/Thavarshan/gym-app) for storage, version management, and CI/CD purposes. All unit test files are found within the `tests` directory and the testing framework itself is found inside the `googletest` directory.
 
 Please note that an external library called [`libfort`](https://github.com/seleznevae/libfort) is also included within the `src` directory in the files:
 
@@ -132,7 +132,7 @@ Please note that an external library called [`libfort`](https://github.com/selez
 2. `include/fort.h`
 3. `include/fort.hpp`
 
-> Source code has multiple lines between code block to improve readability.
+> Source code has multiple lines between code blocks to improve readability.
 
 ##### Useful Links
 
