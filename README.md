@@ -1,6 +1,6 @@
-# Rathnayake Gym Application
+# Vigaro
 
-- [Rathnayake Gym Application](#rathnayake-gym-application)
+- [Vigaro](#vigaro)
   - [Introduction](#introduction)
       - [Basic Functions of the App](#basic-functions-of-the-app)
   - [Usage](#usage)
@@ -21,9 +21,9 @@
 
 ## Introduction
 
-Rathnayaka GYMS is a fitness center that has been grown rapidly throughout the country. They provide a quality healthcare service and give their members control over their health is paramount at all Rathnayaka GYMS. They help members prevent and overcome degenerative diseases, achieve their optimum fitness goals, realize personal lifestyle development objectives, and rehabilitate them into good health. This is accomplished by designing exercise programs that are effective, efficient, and motivational.
+Vigaro is a fitness center that has been grown rapidly throughout the country. They provide a quality healthcare service and give their members control over their health is paramount at all Rathnayaka GYMS. They help members prevent and overcome degenerative diseases, achieve their optimum fitness goals, realize personal lifestyle development objectives, and rehabilitate them into good health. This is accomplished by designing exercise programs that are effective, efficient, and motivational.
 
-Due to the increasing number of members, they have planned to automate their billing process. Imagine that you are a software developer in this project and design and develop a system for Rathnayaka GYMS.
+Due to the increasing number of members, they have planned to automate their billing process. Imagine that you are a software developer in this project and design and develop a system for Vigaro.
 
 #### Basic Functions of the App
 
