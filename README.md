@@ -1,4 +1,4 @@
-# Gym
+# Gym: Membership Package Purchase and Invoice Generator
 
 - [Gym](#gym)
   - [Introduction](#introduction)
