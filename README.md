@@ -1,6 +1,6 @@
-# Vigaro
+# Gym
 
-- [Vigaro](#vigaro)
+- [Gym](#gym)
   - [Introduction](#introduction)
       - [Basic Functions of the App](#basic-functions-of-the-app)
   - [Usage](#usage)
@@ -21,7 +21,7 @@
 
 ## Introduction
 
-Vigaro is a fitness center that has been grown rapidly throughout the country. They provide a quality healthcare service and give their members control over their health is paramount at all Rathnayaka GYMS. They help members prevent and overcome degenerative diseases, achieve their optimum fitness goals, realize personal lifestyle development objectives, and rehabilitate them into good health. This is accomplished by designing exercise programs that are effective, efficient, and motivational.
+Gym is a fitness center that has been grown rapidly throughout the country. They provide a quality healthcare service and give their members control over their health is paramount at all Rathnayaka GYMS. They help members prevent and overcome degenerative diseases, achieve their optimum fitness goals, realize personal lifestyle development objectives, and rehabilitate them into good health. This is accomplished by designing exercise programs that are effective, efficient, and motivational.
 
 Due to the increasing number of members, they have planned to automate their billing process. Imagine that you are a software developer in this project and design and develop a system for Vigaro.
 
@@ -37,7 +37,7 @@ Due to the increasing number of members, they have planned to automate their bil
 
 ## Usage
 
-Please download the latest release of the application form [here](https://github.com/Thavarshan/gym-app/releases/download/v2.6.2/app.zip). Once downloaded you should find a directory named `app`. Inside the `app` directory you will find the following executables and directories.
+Please download the latest release of the application form [here](https://github.com/Thavarshan/gym/releases/download/v2.6.2/app.zip). Once downloaded you should find a directory named `app`. Inside the `app` directory you will find the following executables and directories.
 
 - app - Unix executable.
 - app.exe - Windows executable.
@@ -124,7 +124,7 @@ When inspecting the code please start with the `src` directory and follow the be
 
 > The relevant header files are located within the `include` directory inside the `src` directory.
 
-The source code is also stored on [`Github`](https://github.com/) at [`Thavarshan/gym-app`](https://github.com/Thavarshan/gym-app) for storage, version management, and CI/CD purposes. All unit test files are found within the `tests` directory and the testing framework itself is found inside the `googletest` directory.
+The source code is also stored on [`Github`](https://github.com/) at [`Thavarshan/gym`](https://github.com/Thavarshan/gym) for storage, version management, and CI/CD purposes. All unit test files are found within the `tests` directory and the testing framework itself is found inside the `googletest` directory.
 
 Please note that an external library called [`libfort`](https://github.com/seleznevae/libfort) is also included within the `src` directory in the files:
 
@@ -136,19 +136,19 @@ Please note that an external library called [`libfort`](https://github.com/selez
 
 ##### Useful Links
 
-1. [Source code on `Github`](https://github.com/Thavarshan/gym-app)
-2. [CI/CD actions](https://github.com/Thavarshan/gym-app/actions)
-3. [Releases](https://github.com/Thavarshan/gym-app/releases)
+1. [Source code on `Github`](https://github.com/Thavarshan/gym)
+2. [CI/CD actions](https://github.com/Thavarshan/gym/actions)
+3. [Releases](https://github.com/Thavarshan/gym/releases)
 
 ## Development
 
 The project (not the app) is only installable through `git` and should be cloned from the remote repository. To clone the project to your local development environment or even production environment, run the below `shell` command through your terminal.
 
 ```shell
-git clone git@github.com:Thavarshan/gym-app.git gym
+git clone git@github.com:Thavarshan/gym.git gym
 ```
 
-You should see a directory called `gym` or `gym-app` at the place where you cloned the project.
+You should see a directory called `gym` or `gym` at the place where you cloned the project.
 
 All coding was done by [**Thavarshan Thayananthajothy**](mailto:tjthavarshan@gmail.com) (CL/HDCSE/95/15). No existing applications were used as a reference and extra knowledge on how to accomplish certain tasks was acquired through online research. The application source code follows `C++17` standards and `clang-format` coding standards.
 
@@ -175,7 +175,7 @@ Continuous integration is a coding philosophy and set of practices that drive de
 
 The free service of CI provided by [Github](https://github.com/) was utilized for the CI pipeline. Every time code is pushed to `Github` a special automated action is run where a cloud droplet / virtual machine hosted on the cloud is propagated and is used to build and test the code in different platforms.
 
-The code is compiled, built, and tested on `Linux`, `Mac OS` and `Windows` platforms. You can view all CI processes [here](https://github.com/Thavarshan/gym-app/actions).
+The code is compiled, built, and tested on `Linux`, `Mac OS` and `Windows` platforms. You can view all CI processes [here](https://github.com/Thavarshan/gym/actions).
 
 Three services are run every time the code is pushed to `Github`.
 
@@ -201,6 +201,6 @@ Similar to static code analysis service the CI pipeline also performs an action 
 
 Semantic versioning is a formal convention for specifying compatibility using a three-part version number: major version; minor version; and patch.
 
-The application is released based on semantic versioning and is available for download [here](https://github.com/Thavarshan/gym-app/releases/download/v2.6.2/app.zip).
+The application is released based on semantic versioning and is available for download [here](https://github.com/Thavarshan/gym/releases/download/v2.6.2/app.zip).
 
 > This application and project as a whole was developed and is maintained by [**Thavarshan Thayananthajothy**](mailto:tjthavarshan@gmail.com).
