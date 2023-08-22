@@ -203,4 +203,4 @@ Semantic versioning is a formal convention for specifying compatibility using a 
 
 The application is released based on semantic versioning and is available for download [here](https://github.com/Thavarshan/gym/releases/download/v2.6.2/app.zip).
 
-> This application and project as a whole was developed and is maintained by [**Thavarshan Thayananthajothy**](mailto:tjthavarshan@gmail.com).
+> This application and project as a whole was developed and is maintained by [**Jerome Thayananthajothy**](mailto:tjthavarshan@gmail.com).
