@@ -1,0 +1,15 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {"name":"base","hidden":true,"binaryDir":"${sourceDir}/out/build/${presetName}","cacheVariables":{"CMAKE_BUILD_TYPE":"Debug","GYM_BUILD_TESTS":"ON"}},
+    {"name":"debug","inherits":"base"},
+    {"name":"release","inherits":"base","cacheVariables":{"CMAKE_BUILD_TYPE":"Release","GYM_WARNINGS_AS_ERRORS":"ON"}},
+    {"name":"asan","inherits":"base","cacheVariables":{"CMAKE_CXX_FLAGS":"-fsanitize=address,undefined -fno-omit-frame-pointer","CMAKE_EXE_LINKER_FLAGS":"-fsanitize=address,undefined"}}
+  ],
+  "buildPresets": [
+    {"name":"debug","configurePreset":"debug"},
+    {"name":"release","configurePreset":"release"},
+    {"name":"asan","configurePreset":"asan"}
+  ],
+  "testPresets": [{"name":"debug","configurePreset":"debug","output":{"outputOnFailure":true}}]
+}
