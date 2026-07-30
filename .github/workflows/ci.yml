@@ -19,10 +19,19 @@ jobs:
     name: Format check
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      VCPKG_DEFAULT_TRIPLET: x64-linux
+      VCPKG_BINARY_SOURCES: clear;x-gha,readwrite
     steps:
       - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # v4
-      - run: sudo apt-get update && sudo apt-get install --yes clang-format
-      - run: cmake -S . -B format-build -DGYM_BUILD_TESTS=OFF
+      - run: sudo apt-get update && sudo apt-get install --yes clang-format autoconf autoconf-archive automake libtool
+      - uses: lukka/run-vcpkg@305c06bd4dee21e23dcf142c85c657a993f7aa1a # v11
+        with:
+          runVcpkgInstall: true
+      - run: >-
+          cmake -S . -B format-build -DGYM_BUILD_TESTS=OFF
+          -DCMAKE_TOOLCHAIN_FILE="$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
+          -DVCPKG_TARGET_TRIPLET="$VCPKG_DEFAULT_TRIPLET"
       - run: cmake --build format-build --target format-check
 
   static-analysis:
@@ -34,7 +43,7 @@ jobs:
       VCPKG_BINARY_SOURCES: clear;x-gha,readwrite
     steps:
       - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # v4
-      - run: sudo apt-get update && sudo apt-get install --yes clang clang-tidy clang-format
+      - run: sudo apt-get update && sudo apt-get install --yes clang clang-tidy clang-format autoconf autoconf-archive automake libtool
       - uses: lukka/run-vcpkg@305c06bd4dee21e23dcf142c85c657a993f7aa1a # v11
         with:
           runVcpkgInstall: true
@@ -103,6 +112,7 @@ jobs:
       VCPKG_BINARY_SOURCES: clear;x-gha,readwrite
     steps:
       - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # v4
+      - run: sudo apt-get update && sudo apt-get install --yes autoconf autoconf-archive automake libtool
       - uses: lukka/run-vcpkg@305c06bd4dee21e23dcf142c85c657a993f7aa1a # v11
         with:
           runVcpkgInstall: true
@@ -124,7 +134,7 @@ jobs:
       VCPKG_BINARY_SOURCES: clear;x-gha,readwrite
     steps:
       - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # v4
-      - run: sudo apt-get update && sudo apt-get install --yes gcovr clang-format
+      - run: sudo apt-get update && sudo apt-get install --yes gcovr clang-format autoconf autoconf-archive automake libtool
       - uses: lukka/run-vcpkg@305c06bd4dee21e23dcf142c85c657a993f7aa1a # v11
         with:
           runVcpkgInstall: true

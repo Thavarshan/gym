@@ -30,6 +30,7 @@ jobs:
         with:
           languages: c-cpp
           build-mode: manual
+      - run: sudo apt-get update && sudo apt-get install --yes autoconf autoconf-archive automake libtool
       - uses: lukka/run-vcpkg@305c06bd4dee21e23dcf142c85c657a993f7aa1a # v11
         with:
           runVcpkgInstall: true

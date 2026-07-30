@@ -42,6 +42,16 @@ jobs:
         with:
           ref: ${{ inputs.ref || github.sha }}
 
+      - name: Install libsodium build dependencies
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          if [[ "$RUNNER_OS" == "Linux" ]]; then
+            sudo apt-get update && sudo apt-get install --yes autoconf autoconf-archive automake libtool
+          elif [[ "$RUNNER_OS" == "macOS" ]]; then
+            brew install autoconf autoconf-archive automake libtool
+          fi
+
       - name: Restore vcpkg dependencies
         uses: lukka/run-vcpkg@305c06bd4dee21e23dcf142c85c657a993f7aa1a # v11
         with:
