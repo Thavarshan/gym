@@ -2,6 +2,7 @@
 
 #include "gym/domain.hpp"
 
+#include <cstddef>
 #include <filesystem>
 #include <sqlite3.h>
 #include <string>
@@ -41,8 +42,28 @@ class Database {
   sqlite3* db_{nullptr};
 };
 
-[[nodiscard]] Result<std::string> hash_password(const std::string& password);
-[[nodiscard]] Result<bool> verify_password(const std::string& password, const std::string& hash);
+class PasswordHasher {
+ public:
+  virtual ~PasswordHasher() = default;
+  [[nodiscard]] virtual Result<std::string> hash(const std::string& password) const = 0;
+  [[nodiscard]] virtual Result<bool> verify(const std::string& password,
+                                            const std::string& hash) const = 0;
+};
+
+class SodiumPasswordHasher final : public PasswordHasher {
+ public:
+  enum class Profile { production, test };
+
+  explicit SodiumPasswordHasher(Profile profile = Profile::production);
+  [[nodiscard]] Result<std::string> hash(const std::string& password) const override;
+  [[nodiscard]] Result<bool> verify(const std::string& password,
+                                    const std::string& hash) const override;
+
+ private:
+  unsigned long long opslimit_;
+  std::size_t memlimit_;
+};
+
 [[nodiscard]] std::string random_id();
 [[nodiscard]] Result<void> write_pdf(const std::filesystem::path& output,
                                      const std::vector<std::string>& lines);

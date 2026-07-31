@@ -137,17 +137,22 @@ Result<bool> Database::integrity_ok() const {
   if (!result) return std::unexpected(result.error());
   return *result == "ok";
 }
-Result<std::string> hash_password(const std::string& password) {
+SodiumPasswordHasher::SodiumPasswordHasher(Profile profile)
+    : opslimit_(profile == Profile::production ? crypto_pwhash_OPSLIMIT_MODERATE
+                                               : crypto_pwhash_OPSLIMIT_MIN),
+      memlimit_(profile == Profile::production ? crypto_pwhash_MEMLIMIT_MODERATE
+                                               : crypto_pwhash_MEMLIMIT_MIN) {}
+Result<std::string> SodiumPasswordHasher::hash(const std::string& password) const {
   if (password.size() < 12)
     return std::unexpected(Error{"password must contain at least 12 characters"});
   if (sodium_init() < 0) return std::unexpected(Error{"libsodium initialization failed"});
   std::vector<char> hash(crypto_pwhash_STRBYTES);
-  if (crypto_pwhash_str(hash.data(), password.c_str(), password.size(),
-                        crypto_pwhash_OPSLIMIT_MODERATE, crypto_pwhash_MEMLIMIT_MODERATE) != 0)
+  if (crypto_pwhash_str(hash.data(), password.c_str(), password.size(), opslimit_, memlimit_) != 0)
     return std::unexpected(Error{"not enough memory to hash password"});
   return std::string(hash.data());
 }
-Result<bool> verify_password(const std::string& password, const std::string& hash) {
+Result<bool> SodiumPasswordHasher::verify(const std::string& password,
+                                          const std::string& hash) const {
   if (sodium_init() < 0) return std::unexpected(Error{"libsodium initialization failed"});
   return crypto_pwhash_str_verify(hash.c_str(), password.c_str(), password.size()) == 0;
 }

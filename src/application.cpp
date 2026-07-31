@@ -34,8 +34,9 @@ std::string end_date_after(int days) {
 }
 }  // namespace
 
-GymService::GymService(Database& database, RuntimePaths paths)
-    : db_(database), paths_(std::move(paths)) {}
+GymService::GymService(Database& database, RuntimePaths paths,
+                       const PasswordHasher& password_hasher)
+    : db_(database), paths_(std::move(paths)), password_hasher_(password_hasher) {}
 Result<void> GymService::audit(const std::string& action, const std::string& details) const {
   sqlite::Statement query(db_.handle(),
                           "INSERT INTO audit_events(id,action,details) VALUES(?,?,?)");
@@ -53,7 +54,7 @@ Result<void> GymService::setup(const SetupRequest& request) {
     return std::unexpected(Error{"business and administrator names are required"});
   auto email = normalize_email(request.email);
   if (!email) return std::unexpected(email.error());
-  auto password = hash_password(request.password);
+  auto password = password_hasher_.hash(request.password);
   if (!password) return std::unexpected(password.error());
   auto begin = db_.exec("BEGIN IMMEDIATE;");
   if (!begin) return begin;
@@ -90,7 +91,7 @@ Result<bool> GymService::login(const std::string& email, const std::string& pass
   auto b = sqlite::bind(query.value, 1, *normalized);
   if (!b) return std::unexpected(b.error());
   if (sqlite3_step(query.value) != SQLITE_ROW) return false;
-  auto verified = verify_password(password, sqlite::column(query.value, 0));
+  auto verified = password_hasher_.verify(password, sqlite::column(query.value, 0));
   if (!verified) return std::unexpected(verified.error());
   if (*verified) {
     [[maybe_unused]] auto logged = audit("login", "successful login");

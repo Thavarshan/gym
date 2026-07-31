@@ -57,6 +57,7 @@ int main(int argc, char** argv) {
     }
   }
   if (doctor) return gym::run_doctor(database, paths, json);
-  gym::GymService service(database, paths);
+  gym::SodiumPasswordHasher password_hasher;
+  gym::GymService service(database, paths, password_hasher);
   return gym::run_terminal_ui(service, database, paths);
 }

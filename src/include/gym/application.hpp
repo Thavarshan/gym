@@ -49,7 +49,7 @@ struct CheckoutRequest {
 
 class GymService {
  public:
-  GymService(Database& database, RuntimePaths paths);
+  GymService(Database& database, RuntimePaths paths, const PasswordHasher& password_hasher);
   [[nodiscard]] Result<void> setup(const SetupRequest& request);
   [[nodiscard]] Result<bool> login(const std::string& email, const std::string& password);
   [[nodiscard]] Result<void> add_member(const MemberRequest& request);
@@ -67,6 +67,7 @@ class GymService {
  private:
   Database& db_;
   RuntimePaths paths_;
+  const PasswordHasher& password_hasher_;
   [[nodiscard]] Result<void> audit(const std::string& action, const std::string& details) const;
 };
 

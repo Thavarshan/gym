@@ -31,7 +31,8 @@ int main() {
   Database database(paths.database);
   assert(database.open());
   assert(database.migrate());
-  GymService service(database, paths);
+  SodiumPasswordHasher password_hasher{SodiumPasswordHasher::Profile::test};
+  GymService service(database, paths, password_hasher);
   assert(service.setup({"Test Gym", "Admin", "admin@test.invalid", "verysecurepassword"}));
   assert(service.login("admin@test.invalid", "verysecurepassword"));
   assert(service.add_product({"WHEY", "Whey", 250000, 0, 1}));

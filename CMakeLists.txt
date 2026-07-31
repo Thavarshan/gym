@@ -74,6 +74,7 @@ if(BUILD_TESTING AND GYM_BUILD_TESTS)
   add_executable(gym_tests tests/v3_tests.cpp)
   target_link_libraries(gym_tests PRIVATE gym_application)
   add_test(NAME gym_tests COMMAND gym_tests)
+  set_tests_properties(gym_tests PROPERTIES TIMEOUT 120)
 endif()
 
 if(GYM_ENABLE_COVERAGE)
