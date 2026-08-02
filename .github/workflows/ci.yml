@@ -1,0 +1,158 @@
+name: Continuous integration
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  format:
+    name: Format check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      VCPKG_DEFAULT_TRIPLET: x64-linux
+      VCPKG_BINARY_SOURCES: clear;x-gha,readwrite
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # v4
+      - run: sudo apt-get update && sudo apt-get install --yes clang-format autoconf autoconf-archive automake libtool
+      - uses: lukka/run-vcpkg@305c06bd4dee21e23dcf142c85c657a993f7aa1a # v11
+        with:
+          runVcpkgInstall: true
+      - run: >-
+          cmake -S . -B format-build -DGYM_BUILD_TESTS=OFF
+          -DCMAKE_TOOLCHAIN_FILE="$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
+          -DVCPKG_TARGET_TRIPLET="$VCPKG_DEFAULT_TRIPLET"
+      - run: cmake --build format-build --target format-check
+
+  static-analysis:
+    name: Clang-Tidy
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      VCPKG_DEFAULT_TRIPLET: x64-linux
+      VCPKG_BINARY_SOURCES: clear;x-gha,readwrite
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # v4
+      - run: sudo apt-get update && sudo apt-get install --yes clang clang-tidy clang-format autoconf autoconf-archive automake libtool
+      - uses: lukka/run-vcpkg@305c06bd4dee21e23dcf142c85c657a993f7aa1a # v11
+        with:
+          runVcpkgInstall: true
+      - name: Configure with clang-tidy
+        run: >-
+          cmake -S . -B tidy-build -G Ninja
+          -DCMAKE_C_COMPILER=clang
+          -DCMAKE_CXX_COMPILER=clang++
+          -DCMAKE_TOOLCHAIN_FILE="$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
+          -DVCPKG_TARGET_TRIPLET="$VCPKG_DEFAULT_TRIPLET"
+          -DGYM_ENABLE_CLANG_TIDY=ON
+          -DGYM_WARNINGS_AS_ERRORS=ON
+      - run: cmake --build tidy-build --parallel 2>&1 | tee clang-tidy.log
+      - if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v4
+        with:
+          name: clang-tidy-log
+          path: clang-tidy.log
+          if-no-files-found: warn
+          retention-days: 14
+
+  verify:
+    name: Verify (${{ matrix.platform }} / ${{ matrix.build_type }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: ubuntu
+            runner: ubuntu-latest
+            triplet: x64-linux
+            build_type: Debug
+          - platform: ubuntu
+            runner: ubuntu-latest
+            triplet: x64-linux
+            build_type: Release
+          - platform: macos
+            runner: macos-14
+            triplet: arm64-osx
+            build_type: Debug
+          - platform: macos
+            runner: macos-14
+            triplet: arm64-osx
+            build_type: Release
+          - platform: windows
+            runner: windows-latest
+            triplet: x64-windows-static
+            build_type: Debug
+          - platform: windows
+            runner: windows-latest
+            triplet: x64-windows-static
+            build_type: Release
+    uses: ./.github/workflows/build-test.yml
+    with:
+      runner: ${{ matrix.runner }}
+      triplet: ${{ matrix.triplet }}
+      build_type: ${{ matrix.build_type }}
+
+  sanitizers:
+    name: ASan and UBSan
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+      UBSAN_OPTIONS: halt_on_error=1:print_stacktrace=1
+      VCPKG_DEFAULT_TRIPLET: x64-linux
+      VCPKG_BINARY_SOURCES: clear;x-gha,readwrite
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # v4
+      - run: sudo apt-get update && sudo apt-get install --yes autoconf autoconf-archive automake libtool
+      - uses: lukka/run-vcpkg@305c06bd4dee21e23dcf142c85c657a993f7aa1a # v11
+        with:
+          runVcpkgInstall: true
+      - run: >-
+          cmake -S . -B asan-build -G Ninja
+          -DCMAKE_TOOLCHAIN_FILE="$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
+          -DVCPKG_TARGET_TRIPLET="$VCPKG_DEFAULT_TRIPLET"
+          -DGYM_ENABLE_SANITIZERS=ON
+          -DGYM_WARNINGS_AS_ERRORS=ON
+      - run: cmake --build asan-build --parallel
+      - run: ctest --test-dir asan-build --output-on-failure
+
+  coverage:
+    name: Coverage report
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      VCPKG_DEFAULT_TRIPLET: x64-linux
+      VCPKG_BINARY_SOURCES: clear;x-gha,readwrite
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # v4
+      - run: sudo apt-get update && sudo apt-get install --yes gcovr clang-format autoconf autoconf-archive automake libtool
+      - uses: lukka/run-vcpkg@305c06bd4dee21e23dcf142c85c657a993f7aa1a # v11
+        with:
+          runVcpkgInstall: true
+      - run: >-
+          cmake -S . -B coverage-build -G Ninja
+          -DCMAKE_TOOLCHAIN_FILE="$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
+          -DVCPKG_TARGET_TRIPLET="$VCPKG_DEFAULT_TRIPLET"
+          -DGYM_ENABLE_COVERAGE=ON
+          -DGYM_WARNINGS_AS_ERRORS=ON
+      - run: cmake --build coverage-build --parallel
+      - run: ctest --test-dir coverage-build --output-on-failure
+      - run: gcovr --root . --exclude 'tests/.*' --cobertura coverage.xml --html-details coverage.html
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v4
+        with:
+          name: coverage-report
+          path: |
+            coverage.xml
+            coverage.html
+            coverage.html.*
+          if-no-files-found: error
+          retention-days: 14

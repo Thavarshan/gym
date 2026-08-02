@@ -1,0 +1,111 @@
+name: Reusable build and test
+
+on:
+  workflow_call:
+    inputs:
+      runner:
+        required: true
+        type: string
+      triplet:
+        required: true
+        type: string
+      build_type:
+        required: true
+        type: string
+      package:
+        required: false
+        default: false
+        type: boolean
+      artifact_name:
+        required: false
+        default: ''
+        type: string
+      ref:
+        required: false
+        default: ''
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  build-test:
+    name: ${{ inputs.runner }} / ${{ inputs.build_type }}
+    runs-on: ${{ inputs.runner }}
+    timeout-minutes: 30
+    env:
+      VCPKG_DEFAULT_TRIPLET: ${{ inputs.triplet }}
+      VCPKG_BINARY_SOURCES: clear;x-gha,readwrite
+    steps:
+      - name: Checkout
+        uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # v4
+        with:
+          ref: ${{ inputs.ref || github.sha }}
+
+      - name: Install libsodium build dependencies
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          if [[ "$RUNNER_OS" == "Linux" ]]; then
+            sudo apt-get update && sudo apt-get install --yes autoconf autoconf-archive automake libtool
+          elif [[ "$RUNNER_OS" == "macOS" ]]; then
+            brew install autoconf autoconf-archive automake libtool
+          fi
+
+      - name: Restore vcpkg dependencies
+        uses: lukka/run-vcpkg@305c06bd4dee21e23dcf142c85c657a993f7aa1a # v11
+        with:
+          runVcpkgInstall: true
+
+      - name: Configure
+        shell: bash
+        run: >-
+          cmake -S . -B build
+          -DCMAKE_BUILD_TYPE=${{ inputs.build_type }}
+          -DCMAKE_TOOLCHAIN_FILE="$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
+          -DVCPKG_TARGET_TRIPLET="$VCPKG_DEFAULT_TRIPLET"
+          -DGYM_WARNINGS_AS_ERRORS=ON
+
+      - name: Build
+        run: cmake --build build --config ${{ inputs.build_type }} --parallel
+
+      - name: Test
+        shell: bash
+        run: ctest --test-dir build -C ${{ inputs.build_type }} --output-on-failure --output-junit "$GITHUB_WORKSPACE/ctest-${{ inputs.runner }}-${{ inputs.build_type }}.xml"
+
+      - name: Install and smoke test
+        shell: bash
+        run: |
+          cmake --install build --config ${{ inputs.build_type }} --prefix install
+          mkdir -p smoke
+          cd smoke
+          if [[ "$RUNNER_OS" == "Windows" ]]; then app="../install/bin/gym.exe"; else app="../install/bin/gym"; fi
+          "$app" --version
+          "$app" --help
+
+      - name: Package
+        if: inputs.package
+        shell: bash
+        run: |
+          if [[ "$RUNNER_OS" == "Windows" ]]; then generator=ZIP; else generator=TGZ; fi
+          cpack --config build/CPackConfig.cmake -G "$generator" --verbose
+          mkdir -p dist
+          find build -maxdepth 1 -type f \( -name '*.zip' -o -name '*.tar.gz' \) -exec cp {} dist/ \;
+
+      - name: Upload test evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v4
+        with:
+          name: ctest-${{ inputs.runner }}-${{ inputs.build_type }}
+          path: ctest-${{ inputs.runner }}-${{ inputs.build_type }}.xml
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Upload release package
+        if: inputs.package
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v4
+        with:
+          name: ${{ inputs.artifact_name }}
+          path: dist/*
+          if-no-files-found: error
+          retention-days: 90

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and community support
+    url: https://github.com/Thavarshan/gym/discussions
+    about: Ask usage, setup, and general project questions in Discussions.
+  - name: Security vulnerability
+    url: https://github.com/Thavarshan/gym/security/advisories/new
+    about: Report security vulnerabilities privately. Do not create a public issue.

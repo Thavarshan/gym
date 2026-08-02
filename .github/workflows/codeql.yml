@@ -1,0 +1,45 @@
+name: CodeQL
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: codeql-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  analyze:
+    name: Analyze C++
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      VCPKG_DEFAULT_TRIPLET: x64-linux
+      VCPKG_BINARY_SOURCES: clear;x-gha,readwrite
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # v4
+      - uses: github/codeql-action/init@9130ce0f733a0d17b9e1b9692c2af19be6c69dda # v3
+        with:
+          languages: c-cpp
+          build-mode: manual
+      - run: sudo apt-get update && sudo apt-get install --yes autoconf autoconf-archive automake libtool
+      - uses: lukka/run-vcpkg@305c06bd4dee21e23dcf142c85c657a993f7aa1a # v11
+        with:
+          runVcpkgInstall: true
+      - run: >-
+          cmake -S . -B codeql-build -G Ninja
+          -DCMAKE_TOOLCHAIN_FILE="$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
+          -DVCPKG_TARGET_TRIPLET="$VCPKG_DEFAULT_TRIPLET"
+          -DGYM_WARNINGS_AS_ERRORS=ON
+      - run: cmake --build codeql-build --parallel
+      - uses: github/codeql-action/analyze@9130ce0f733a0d17b9e1b9692c2af19be6c69dda # v3
+        with:
+          category: /language:c-cpp

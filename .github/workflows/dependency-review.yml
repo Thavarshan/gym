@@ -1,0 +1,19 @@
+name: Dependency review
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/dependency-review-action@1e966ba708e4b64bb0c9bfb7abb5a232840be16a # v4
+        with:
+          fail-on-severity: high
+          deny-licenses: GPL-2.0-only, GPL-3.0-only, AGPL-3.0-only

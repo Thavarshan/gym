@@ -1,0 +1,6 @@
+{
+  "name": "gym-cli",
+  "version-string": "3.0.0",
+  "builtin-baseline": "9d7f79f56ae1a9b4704d6a7fb8237e347a974133",
+  "dependencies": ["sqlite3", "libsodium", "ftxui", "cli11", "spdlog", "catch2", "libharu"]
+}
