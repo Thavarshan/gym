@@ -90,7 +90,7 @@ jobs:
           if [[ "$RUNNER_OS" == "Windows" ]]; then generator=ZIP; else generator=TGZ; fi
           cpack --config build/CPackConfig.cmake -G "$generator" --verbose
           mkdir -p dist
-          find build -maxdepth 1 -type f \( -name '*.zip' -o -name '*.tar.gz' \) -exec cp {} dist/ \;
+          find . -maxdepth 1 -type f \( -name '*.zip' -o -name '*.tar.gz' \) -exec cp {} dist/ \;
 
       - name: Upload test evidence
         if: always()
